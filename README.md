@@ -1,5 +1,5 @@
 # gnjo.github.io
-web site
+usefull scripts
 
 # promise
 this files need usage. filename have lowerCamelCase, mostly.
@@ -60,7 +60,7 @@ fn.rkana //r.. kana //fn.rkana(4) //'gage'
 ```
 
 ### githubtheme.css
-github theme
+github theme. demo (within layout.css) https://gnjo.github.io/layout.css.test.html
 ```
 <body class="githubtheme" ...
 ```
@@ -70,7 +70,7 @@ document.body.classList.add('githubtheme')
 ```
 
 ### layout.css
-under 30 line. minimum grid system
+under 30 line. minimum grid system. demo https://gnjo.github.io/layout.css.test.html
 - .c //container
 - .r //raw
 - .c1 //columun //.c2 ... c10 //total 10 can be the divide
