@@ -13,6 +13,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/underscore.min.js"></script>
 <script src="//gnjo.github.io/randomColor.min.js"></script>
 <script src="//gnjo.github.io/signal.js"></script>
+<script src="//gnjo.github.io/scrollIntoView.min.js"></script>
 ```
 
 ### template
