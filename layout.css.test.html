@@ -1,0 +1,35 @@
+<head>
+ <link rel="stylesheet" href="//gnjo.github.io/layout.css">
+ <link rel="stylesheet" href="//gnjo.github.io/githubtheme.css">
+ <script>document.body.classList.add('githubtheme')</script>
+</head>
+<body>
+<style>.c{max-width:960px}/*max-width rewrite*/</style>
+<div class="c">
+ <div class="r">
+  <div class="c10 cl">header</div>
+ </div>
+ <div class="r">
+  <div class="c5 cl">left</div><div class="c5 cl">right</div>
+ </div>
+ <div class="r">
+  <div class="c7 cl">left</div><div class="c3 cl">right</div> 
+ </div>
+ <div class="r">
+  <div class="c10 cl">footer</div>
+ </div>
+</div>
+
+<style>
+ /*demo personal*/
+ body{margin:0}
+ /*10 40 40 10*/
+ .cl{height:40vh}
+ .c10.cl{height:10vh}
+</style>
+<script>
+ var c=["#ffaa8e", "#f48670", "#c4a8f4", "#ffafff", "#f9aed9", "#a1abed",  "#ffb5d5", "#be7fe8", "#af81e8", "#fc8f83"];
+ ;[].slice.call(document.querySelectorAll('div.cl'))
+ .map((el,k)=>{el.style.background=c[k%c.length]});
+</script>
+</body>
