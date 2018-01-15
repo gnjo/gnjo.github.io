@@ -28,3 +28,13 @@ fn.rkana=(l=8)=>{
   }
   return r;   
  }
+
+fn.i=function(html,f,doc=document){
+  var _f =(f)?f:(el)=>{return el};
+  if(typeof html !=='string') return _f(html);
+  //
+  var el=doc.createElement('table');
+  el.innerHTML=html;
+  var me=el.childNodes[0];
+  return _f(me);
+}
