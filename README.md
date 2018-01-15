@@ -17,7 +17,7 @@ this files need usage
 :one line description
 :usage the code
 
-### underscore.js
+### underscore.min.js
 version 1.8.3 http://underscorejs.org/
 ```
 //exsample of one
@@ -25,6 +25,24 @@ textbox.oninput = _.debounce((ev)=>{console.log('hit')}, 300);
 var temp=_.template('<h3><%= ti %></h3><p><%= pa %></p>')
 temp({ti:'the title',pa:'the paragraph'}); //<h3>the title</h3><p>the paragraph</p>
 _.range(5); //[0,1,2,3,4]
+```
+### randomColor.min.js
+http://randomcolor.llllll.li/
+```
+//exsample of one
+randomColor({hue: 'red'});//#aa3333
+randomColor({hue: 'red',luminosity:'dark'});//#441111
+randomColor({hue: 'red', count: 18});//[0]...[18]
+//option 
+//hue:[red,orange,yellow,green,blue,purple,pink,monochrome,random]
+//luminosity:[dark,light,random]
+//count: number
+```
+
+### base64.min.js
+polyfill window.atob window.btoa
+```
+usage same
 ```
 
 ### use.js
@@ -36,12 +54,6 @@ fn.i //initer createElement apply// fn.i('<li>aaaa</li>') //HTMLElement
 fn.rnum //randam number //fn.rnum(4) //'3383'
 fn.rword //r.. word //fn.rword(4) //'ksyg'
 fn.rkana //r.. kana //fn.rkana(4) //'gage'
-```
-
-### base64.min.js
-polyfill window.atob window.btoa
-```
-usage same
 ```
 
 ### githubtheme.css
