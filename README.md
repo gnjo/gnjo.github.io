@@ -11,6 +11,7 @@ this files need usage
 <script src="//gnjo.github.io/use.js"></script>
 <script src="//gnjo.github.io/base64.min.js"></script>
 <script src="//gnjo.github.io/underscore.min.js"></script>
+<script src="//gnjo.github.io/randomColor.min.js"></script>
 ```
 
 ### template
