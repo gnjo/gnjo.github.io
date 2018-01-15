@@ -103,3 +103,9 @@ and util
  .signalgreen{color:limegreen;cursor:pointer}
 </style>
 ```
+### scrollIntoView.min.js
+target element to the top. demo https://gnjo.github.io/scrollIntoView.min.js.test.html
+```
+ var target=document.querySelectorAll('section')[0];//HTMLElement
+ target.scrollIntoView({ behavior: 'smooth' });////
+```
