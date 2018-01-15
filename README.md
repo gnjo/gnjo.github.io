@@ -24,6 +24,7 @@ version 1.8.3 http://underscorejs.org/
 textbox.oninput = _.debounce((ev)=>{console.log('hit')}, 300);
 var temp=_.template('<h3><%= ti %></h3><p><%= pa %></p>')
 temp({ti:'the title',pa:'the paragraph'}); //<h3>the title</h3><p>the paragraph</p>
+_.range(5); //[0,1,2,3,4]
 ```
 
 ### use.js
