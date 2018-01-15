@@ -10,11 +10,21 @@ this files need usage
 <link rel="stylesheet" href="//gnjo.github.io/githubtheme.css">
 <script src="//gnjo.github.io/use.js"></script>
 <script src="//gnjo.github.io/base64.min.js"></script>
+<script src="//gnjo.github.io/underscore.min.js"></script>
 ```
 
 ### template
 :one line description
 :usage the code
+
+### underscore.js
+version 1.8.3 http://underscorejs.org/
+```
+//exsample of one
+textbox.oninput = _.debounce((ev)=>{console.log('hit')}, 300);
+var temp=_.template('<h3><%= ti %></h3><p><%= pa %></p>')
+temp({ti:'the title',pa:'the paragraph'}); //<h3>the title</h3><p>the paragraph</p>
+```
 
 ### use.js
 always use funcitons
