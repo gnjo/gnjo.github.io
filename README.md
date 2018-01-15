@@ -97,3 +97,9 @@ simple status by the signal. demo https://gnjo.github.io/signal.js.test.html
  document.getElementById('done').onclick=()=>{ si.done('ok') }
  document.getElementById('doing').onclick=()=>{ si.doing('calcing') }
 ```
+and util 
+```
+<style>
+ .signalgreen{color:limegreen;cursor:pointer}
+</style>
+```
