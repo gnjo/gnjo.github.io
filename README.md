@@ -12,6 +12,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/base64.min.js"></script>
 <script src="//gnjo.github.io/underscore.min.js"></script>
 <script src="//gnjo.github.io/randomColor.min.js"></script>
+<script src="//gnjo.github.io/signal.js"></script>
 ```
 
 ### template
@@ -86,4 +87,13 @@ under 30 line. minimum grid system
   <div class="c7 cl">left</div><div class="c3 cl">right</div> 
  </div> 
 </div>
+```
+### signal.js
+simple status by the signal. demo https://gnjo.github.io/signal.js.test.html
+```
+ var target = document.getElementById('signal');
+ var si=signal({el: target })
+ //var si=signal({el:target,interval:300,status:true,title:'ok',debug:true}); //full
+ document.getElementById('done').onclick=()=>{ si.done('ok') }
+ document.getElementById('doing').onclick=()=>{ si.doing('calcing') }
 ```
