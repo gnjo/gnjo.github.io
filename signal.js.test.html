@@ -1,0 +1,20 @@
+<head>
+<script src="//gnjo.github.io/signal.js"></script>
+</head>
+<body>
+<style>
+ span{font-size:10rem;text-align:center}
+ .signalgreen{color:limegreen;cursor:pointer}
+</style>
+
+<span id="signal" class="signalgreen">*</span>
+<button id="done">done</button><button id="doing">doing</button>
+
+<script>
+ var target = document.getElementById('signal');
+ var si=signal({el: target })
+ //var si=signal({el:target,interval:300,status:true,title:'ok',debug:true}); //full
+ document.getElementById('done').onclick=()=>{ si.done('ok') }
+ document.getElementById('doing').onclick=()=>{ si.doing('calcing') }
+</script>
+</body>
