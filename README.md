@@ -2,7 +2,7 @@
 web site
 
 # promise
-this files need usage
+this files need usage. filename have lowerCamelCase, mostly.
 
 ### quick start
 ```
