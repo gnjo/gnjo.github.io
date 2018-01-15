@@ -1,0 +1,23 @@
+.c{
+  max-width: 1200px;/*960px; *//*rewrite!!*/
+  padding: 0 0;/*0 20px; */ /*rewrite!!*/
+}
+.c{ position: relative;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; /*container*/}
+.c:after,.r:after,.u-cf {
+  content: "";display: table; clear: both; 
+}
+/*ex) <div class="c5 cl"....*/
+.cl{width: 100%;float: left;box-sizing: border-box;}
+.c1{width:10%}
+.c2{width:20%}
+.c3{width:30%}
+.c4{width:40%}
+.c5{width:50%}
+.c6{width:60%}
+.c7{width:70%}
+.c8{width:80%}
+.c9{width:90%}
+.c10{width:100%}
