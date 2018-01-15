@@ -1,2 +1,65 @@
 # gnjo.github.io
 web site
+
+# promise
+this files need usage
+
+### quick start
+```
+<link rel="stylesheet" href="//gnjo.github.io/layout.css">
+<link rel="stylesheet" href="//gnjo.github.io/githubtheme.css">
+<script src="//gnjo.github.io/use.js"></script>
+<script src="//gnjo.github.io/base64.min.js"></script>
+```
+
+### template
+:one line description
+:usage the code
+
+### use.js
+always use funcitons
+```
+fn.g //document.getElementById //fn.g('ma') //HTMLElement
+fn.q //document.queryString //fn.q('div[data-xyz]') //HTMLElement
+fn.i //initer createElement apply// fn.i('<li>aaaa</li>') //HTMLElement
+fn.rnum //randam number //fn.rnum(4) //'3383'
+fn.rword //r.. word //fn.rword(4) //'ksyg'
+fn.rkana //r.. kana //fn.rkana(4) //'gage'
+```
+
+### base64.min.js
+polyfill window.atob window.btoa
+```
+usage same
+```
+
+### githubtheme.css
+github theme
+```
+<body class="githubtheme" ...
+```
+or
+```
+document.body.classList.add('githubtheme')
+```
+
+### layout.css
+under 30 line. minimum grid system
+- .c //container
+- .r //raw
+- .c1 //columun //.c2 ... c10 //total 10 can be the divide
+- cl //clear fix within c1 ... c10
+```
+<style>.c{max-width:960px}/*max-width rewrite*/</style>
+<div class="c">
+ <div class="r">
+  <div class="c10 cl">header</div>
+ </div>
+ <div class="r">
+  <div class="c5 cl">left</div><div class="c5 cl">right</div>
+ </div>
+ <div class="r">
+  <div class="c7 cl">left</div><div class="c3 cl">right</div> 
+ </div> 
+</div>
+```
