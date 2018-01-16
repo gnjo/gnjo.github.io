@@ -115,6 +115,7 @@ target element to the top. demo https://gnjo.github.io/scrollIntoView.min.js.tes
 ### article.css
 minimal css for article write. demo https://gnjo.github.io/article.css.test.html
 ```
+ <style>body{margin:auto;max-width:900px}/*max-width rewrite*/</style>
  <article>...</article>
  <!--or-->
  <div class="article">...</div>
