@@ -14,6 +14,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/randomColor.min.js"></script>
 <script src="//gnjo.github.io/signal.js"></script>
 <script src="//gnjo.github.io/scrollIntoView.min.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/article.css">
 ```
 
 ### template
@@ -109,4 +110,12 @@ target element to the top. demo https://gnjo.github.io/scrollIntoView.min.js.tes
 ```
  var target=document.querySelectorAll('section')[0];//HTMLElement
  target.scrollIntoView({ behavior: 'smooth' });////
+```
+
+### article.css
+minimal css for article write. demo https://gnjo.github.io/article.css.test.html
+```
+ <article>...</article>
+ <!--or-->
+ <div class="article">...</div>
 ```
