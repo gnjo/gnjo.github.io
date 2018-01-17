@@ -44,3 +44,10 @@ if(this.md5){
  fn.hashColor=hashColor;
 }
 if(this.invert) fn.invertColor=invert;
+
+if(localStorage){
+ fn.loId ='__loId__'; //project every change
+ fn.loSave=(d,i=null)=>{var id=i||fn.loId;localStorage.setItem(id, JSON.stringify(d) ); return id}
+ fn.loLoad =(i)=>{var id=i||fn.loId;var d=localStorage.getItem(id); return JSON.parse(d) }
+ fn.loRemove=(i)=>{var id=i||fn.loId;localStorage.removeItem(id)}
+}
