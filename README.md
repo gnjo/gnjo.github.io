@@ -8,7 +8,6 @@ this files need usage. filename have lowerCamelCase, mostly.
 ```
 <link rel="stylesheet" href="//gnjo.github.io/layout.css">
 <link rel="stylesheet" href="//gnjo.github.io/githubtheme.css">
-<script src="//gnjo.github.io/use.js"></script>
 <script src="//gnjo.github.io/base64.min.js"></script>
 <script src="//gnjo.github.io/underscore.min.js"></script>
 <script src="//gnjo.github.io/randomColor.min.js"></script>
@@ -17,6 +16,8 @@ this files need usage. filename have lowerCamelCase, mostly.
 <link rel="stylesheet" href="//gnjo.github.io/article.css">
 <script src="//gnjo.github.io/invert.min.js"></script>
 <script src="//gnjo.github.io/md5.min.js"></script>
+<!-- use.js need last load -->
+<script src="//gnjo.github.io/use.js"></script>
 ```
 
 ### template
@@ -60,6 +61,8 @@ fn.i //initer createElement apply// fn.i('<li>aaaa</li>') //HTMLElement
 fn.rnum //randam number //fn.rnum(4) //'3383'
 fn.rword //r.. word //fn.rword(4) //'ksyg'
 fn.rkana //r.. kana //fn.rkana(4) //'gage'
+fn.hashColor // need md5.min.js
+fn.invertColor // need invert.min.js
 ```
 
 ### githubtheme.css
