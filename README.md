@@ -142,6 +142,9 @@ invert('#282b35', { black: '#3a3a3a', white: '#fafafa' })     // —> #fafafa
 invert([69, 191, 189])              // —> #ba4042
 invert({ r: 249, g: 119, b: 121 })  // —> #068886
 ```
+and include use.js    
+fn.hashColor fn.invertColor demo https://gnjo.github.io/invert.min.js.test.html
+
 ### md5.min.js
 string to hash https://github.com/gnjo/JavaScript-MD5
 ```
