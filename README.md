@@ -64,6 +64,13 @@ fn.rkana //r.. kana //fn.rkana(4) //'gage'
 fn.hashColor // need md5.min.js
 fn.invertColor // need invert.min.js
 ```
+and localStorage
+```
+fn.loId ='xyz'; //project unique is good. default '__loId__'
+t.value= fn.loLoad()||'';
+function pnt(){ fn.loSave(this.value) }
+//fn.loRemove(); //if delete
+```
 
 ### githubtheme.css
 github theme. demo (within layout.css) https://gnjo.github.io/layout.css.test.html
@@ -95,6 +102,8 @@ under 30 line. minimum grid system. demo https://gnjo.github.io/layout.css.test.
  </div> 
 </div>
 ```
+
+
 ### signal.js
 simple status by the signal. demo https://gnjo.github.io/signal.js.test.html
 ```
