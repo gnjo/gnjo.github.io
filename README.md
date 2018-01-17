@@ -15,6 +15,8 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/signal.js"></script>
 <script src="//gnjo.github.io/scrollIntoView.min.js"></script>
 <link rel="stylesheet" href="//gnjo.github.io/article.css">
+<script src="//gnjo.github.io/invert.min.js"></script>
+<script src="//gnjo.github.io/md5.min.js"></script>
 ```
 
 ### template
@@ -119,4 +121,26 @@ minimal css for article write. demo https://gnjo.github.io/article.css.test.html
  <article>...</article>
  <!--or-->
  <div class="article">...</div>
+```
+
+### invert.min.js
+invert color. other usage https://github.com/gnjo/invert-color
+```
+invert('#000')              // —> #ffffff
+invert('#282b35')           // —> #d7d4ca
+
+// amplify to black or white
+invert('#282b35', true)     // —> #ffffff
+
+// amplify to custom black or white color
+invert('#282b35', { black: '#3a3a3a', white: '#fafafa' })     // —> #fafafa
+
+// input color as RGB array or object
+invert([69, 191, 189])              // —> #ba4042
+invert({ r: 249, g: 119, b: 121 })  // —> #068886
+```
+### md5.min.js
+string to hash https://github.com/gnjo/JavaScript-MD5
+```
+md5('aiuewo') //-> "55c97d5e7f66fb05f9c71d51bdba9c93"
 ```
