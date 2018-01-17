@@ -38,3 +38,9 @@ fn.i=function(html,f,doc=document){
   var me=el.childNodes[0];
   return _f(me);
 }
+
+if(this.md5){ 
+ var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
+ fn.hashColor=hashColor;
+}
+if(this.invert) fn.invertColor=invert;
