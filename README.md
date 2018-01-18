@@ -18,6 +18,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/md5.min.js"></script>
 <!-- use.js need last load -->
 <script src="//gnjo.github.io/use.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/monocc.css">
 ```
 
 ### template
