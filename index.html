@@ -1,0 +1,14 @@
+<head>
+<script src="//gnjo.github.io/marked.min.js"></script>
+<script src="//gnjo.github.io/use.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/monocc.css">
+</head>
+<body>
+<script>
+var draw=document.body;
+var el=fn.i('<div class="monocc"></div>');
+draw.appendChild(el);
+var u='https://raw.githubusercontent.com/gnjo/gnjo.github.io/master/README.md';
+fetch(u).then(d=>d.text()).then(d=>marked(d)).then(html=>el.innerHTML=html);  
+</script>
+</body>
