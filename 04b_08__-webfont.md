@@ -1,3 +1,6 @@
+# digital font usage
+css this
+```
 @font-face {
     font-family: 'digital';
     src: url('../font/04b_08__-webfont.eot');
@@ -22,3 +25,4 @@
 .picfont:not(:target){
     zoom: 1;
 }
+```
