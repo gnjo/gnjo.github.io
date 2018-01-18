@@ -3,12 +3,14 @@ css this
 ```
 @font-face {
     font-family: 'digital';
-    src: url('../font/04b_08__-webfont.eot');
-    src: url('../font/04b_08__-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/04b_08__-webfont.woff2') format('woff2'),
-         url('../font/04b_08__-webfont.woff') format('woff'),
-         url('../font/04b_08__-webfont.ttf') format('truetype');
+    src: url('//gnjo.github.io/04b_08__-webfont.eot');
+    src: url('//gnjo.github.io//04b_08__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//gnjo.github.io//04b_08__-webfont.woff2') format('woff2'),
+         url('//gnjo.github.io//04b_08__-webfont.woff') format('woff'),
+         url('//gnjo.github.io//04b_08__-webfont.ttf') format('truetype');
 }
+
+body{ font-family:'digital'}
 
 .picfont{
     font-weight: 500;
