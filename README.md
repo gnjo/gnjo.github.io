@@ -19,6 +19,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <!-- use.js need last load -->
 <script src="//gnjo.github.io/use.js"></script>
 <link rel="stylesheet" href="//gnjo.github.io/monocc.css">
+<script src="//gnjo.github.io/marked.min.js"></script>
 ```
 
 ### template
