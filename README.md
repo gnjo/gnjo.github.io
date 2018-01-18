@@ -191,7 +191,7 @@ marked(data); //quick
 ```
 
 ### digital.font.css
-digital font
+digital font demo https://gnjo.github.io/digital.font.css.test.html
 ```
 <link rel="stylesheet" href="//gnjo.github.io/digital.font.css">
 <style> body{ font-family:'digital'}</style>
