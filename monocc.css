@@ -1,0 +1,102 @@
+/* .monocc */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+English SC");
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+.monocc, * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #f8f8fa;
+}
+
+.monocc {
+  width: 100%;
+  /*textarea size special*/
+  /*nav is flex*/
+  /*font*/
+  font-family: 'Share Tech Mono', monospace;
+  /*base*/
+}
+.monocc h1, .monocc h2, .monocc h3, .monocc h4 {
+  color: #000000;
+}
+.monocc p {
+  color: #1a1a1a;
+}
+.monocc a {
+  text-decoration: inherit;
+  font-style: italic;
+  color: #1a1a1a;
+}
+.monocc pre, .monocc code {
+  white-space: pre-line;
+}
+.monocc pre {
+  border: 2px solid #1a1a1a;
+  padding: 1rem 1rem;
+}
+.monocc textarea, .monocc input, .monocc button {
+  border: 2px solid #1a1a1a;
+  padding: 0.25rem 0.5rem;
+  background-color: #ffffff;
+  /*white*/
+  outline: none;
+  margin: 2px;
+}
+.monocc textarea {
+  resize: none;
+  width: 100%;
+  height: 50vh;
+}
+.monocc textarea:before {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+.monocc a:hover, .monocc button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.monocc a:active, .monocc button:active {
+  color: #ffa500;
+  /*orange*/
+}
+.monocc ol {
+  list-style: decimal-leading-zero;
+}
+.monocc nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.monocc p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.5rem;
+}
+.monocc h1, .monocc h2, .monocc h3, .monocc h4, .monocc h5, .monocc h6 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2rem;
+}
+.monocc textarea, .monocc input, .monocc button, .monocc pre, .monocc code {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.monocc {
+  padding: 4rem;
+}
+
+@media screen and (max-width: 767px) {
+  .monocc {
+    padding: 1.5rem;
+  }
+}
+/*nav{display:flex;flex-direction:row;flex-wrap:wrap}
+textarea{resize:none;width:100%;height:50vh}*/
