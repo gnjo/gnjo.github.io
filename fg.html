@@ -1,0 +1,33 @@
+<head>
+<script src="//gnjo.github.io/underscore.min.js"></script>
+<script src="//gnjo.github.io/use.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/monocc.css">
+</head>
+<body>
+ <style>#a{max-height:20vh} #c{width:100%}</style>
+
+ <nav class="monocc">
+ <textarea id="a" placeholder="pasteIt"></textarea>
+ <textarea id="b"></textarea>
+ <iframe id="c"></iframe>
+ </nav>
+
+ <script>
+fn.loId='fragmentgetter';
+var fr=fn.g('c').contentDocument.body;
+var o=fn.loLoad();
+if(o){
+ fn.g('a').value =o.av; 
+ fn.g('b').value =o.bv;
+ fr.innerHTML =o.cv
+}
+fn.g('a').onpaste=function(ev){
+ ev.preventDefault();
+ var d=ev.clipboardData.getData('text/html');
+ fn.g('b').value= _.unescape(d).split(';').map(d=>d+';\n') .join(' ');
+ fn.g('a').value = ev.clipboardData.getData('text/plain');
+ fr.innerHTML= d.replace('html>','div>').replace('body>','div>') 
+  fn.loSave({av: fn.g('a').value , bv: fn.g('b').value,cv:fr.innerHTML });
+}  
+ </script>
+</body> 
