@@ -170,7 +170,8 @@ md5('aiuewo') //-> "55c97d5e7f66fb05f9c71d51bdba9c93"
 ```
 
 ### monocc.css monocc.scss
-minimal application style. scss enviroment https://codepen.io/kunigamaeno/pen/opQZvp
+minimal application style. scss enviroment https://codepen.io/kunigamaeno/pen/opQZvp   
+demo https://gnjo.github.io/
 ```
 //monocc use flex container
 <nav class="monocc">
@@ -179,7 +180,8 @@ minimal application style. scss enviroment https://codepen.io/kunigamaeno/pen/op
 ```
 
 ### marked.min.js
-popular git hub flaver markdown. usage https://github.com/gnjo/marked
+popular git hub flaver markdown. usage https://github.com/gnjo/marked   
+demo https://gnjo.github.io/
 ```
 marked(data); //quick
 ```
