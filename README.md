@@ -71,6 +71,11 @@ t.value= fn.loLoad()||'';
 function pnt(){ fn.loSave(this.value) }
 //fn.loRemove(); //if delete
 ```
+and fn.i2 attr can compose the object.
+```
+//def
+fn.i2=function(html,attr,style,doc=document)
+```
 
 ### githubtheme.css
 github theme. demo (within layout.css) https://gnjo.github.io/layout.css.test.html
@@ -88,6 +93,8 @@ under 30 line. minimum grid system. demo https://gnjo.github.io/layout.css.test.
 - .r //raw
 - .c1 //columun //.c2 ... c10 //total 10 can be the divide
 - cl //clear fix within c1 ... c10
+
+
 ```
 <style>.c{max-width:960px}/*max-width rewrite*/</style>
 <div class="c">
