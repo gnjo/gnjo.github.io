@@ -39,6 +39,25 @@ fn.i=function(html,f,doc=document){
   return _f(me);
 }
 
+fn.i2=function(html,attr,style,doc=document){
+  var f=(s)=>{var el=doc.createElement('table');el.innerHTML=html;return el.childNodes[0]}
+  var me = (typeof html !=='string')? html:f(html);
+
+  if(attr){
+    Object.keys(attr).forEach((d)=>{ 
+     if(typeof attr[d] !=='string'|| d in me) me[d]=attr[d];
+     else me.setAttribute(d,attr[d]) 
+    });
+  }
+  if(style){
+   var st=doc.createElement('style');
+   st.innerHTML = style;
+   me.appendChild(st);
+  }
+  console.log(me)
+  return me;
+}
+
 if(this.md5){ 
  var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
  fn.hashColor=hashColor;
