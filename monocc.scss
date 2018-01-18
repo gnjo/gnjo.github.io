@@ -23,13 +23,13 @@ body{background-color:#f8f8fa}
  /*nav is flex*/
  nav{display:flex;flex-direction:row;flex-wrap:wrap}
  /*font*/
- font-family: 'Share Tech Mono', monospace; /*base*/
- p{font-family: 'Share Tech Mono', monospace;font-size:1.5rem}
- h1,h2,h3,h4,h5,h6{ font-family: 'Share Tech Mono', monospace;font-size:2rem}
- textarea,input,button,pre,code{font-family: 'Share Tech Mono', monospace;}
+ 
+ font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
+ p{font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif; font-size:1.5rem}
+ h1,h2,h3,h4,h5,h6{ font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif; font-size:2rem}
+ textarea,input,button,pre,code{font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;}
 }
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+English SC');
+
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
 
 .monocc{padding:4rem}
