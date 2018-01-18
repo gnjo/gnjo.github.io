@@ -20,6 +20,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <script src="//gnjo.github.io/use.js"></script>
 <link rel="stylesheet" href="//gnjo.github.io/monocc.css">
 <script src="//gnjo.github.io/marked.min.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/digital.font.css">
 ```
 
 ### template
@@ -188,4 +189,12 @@ demo https://gnjo.github.io/
 ```
 marked(data); //quick
 ```
+
+### digital.font.css
+digital font
+```
+<link rel="stylesheet" href="//gnjo.github.io/digital.font.css">
+<style> body{ font-family:'digital'}</style>
+```
+
 
