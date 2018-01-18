@@ -1,0 +1,38 @@
+/* .monocc */
+ .monocc,*{box-sizing:border-box}
+body{margin:auto;width:100vw;height:100vh;overflow-x:hidden}
+body{background-color:#f8f8fa}
+.monocc{
+ width:100%;
+ h1,h2,h3,h4{color:#000000}
+ p{color:#1a1a1a}
+ a{text-decoration:inherit;font-style:italic;color:#1a1a1a}
+ pre,code{white-space:pre-line;}
+ pre {border: 2px solid #1a1a1a;padding:1rem 1rem}
+ textarea,input,button{
+  border: 2px solid #1a1a1a;padding:0.25rem 0.5rem; background-color:#ffffff;/*white*/
+  outline:none;margin:2px;
+ }
+ textarea{resize:none;width:100%;height:50vh}
+ textarea:before{ content:' ';display:block;clear:both }
+ /*textarea size special*/
+ 
+ a:hover,button:hover{cursor:pointer;text-decoration:underline}
+ a:active,button:active{color:#ffa500; /*orange*/ }
+ ol{list-style:decimal-leading-zero}
+ /*nav is flex*/
+ nav{display:flex;flex-direction:row;flex-wrap:wrap}
+ /*font*/
+ font-family: 'Share Tech Mono', monospace; /*base*/
+ p{font-family: 'Share Tech Mono', monospace;font-size:1.5rem}
+ h1,h2,h3,h4,h5,h6{ font-family: 'Share Tech Mono', monospace;font-size:2rem}
+ textarea,input,button,pre,code{font-family: 'Share Tech Mono', monospace;}
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English SC');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
+.monocc{padding:4rem}
+@media screen and (max-width: 767px){.monocc{padding:1.5rem} }
+/*nav{display:flex;flex-direction:row;flex-wrap:wrap}
+textarea{resize:none;width:100%;height:50vh}*/
