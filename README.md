@@ -178,7 +178,7 @@ minimal application style. scss enviroment https://codepen.io/kunigamaeno/pen/op
 ```
 
 ### marked.min.js
-populaer git hub flaver markdown. usage https://github.com/gnjo/marked
+popular git hub flaver markdown. usage https://github.com/gnjo/marked
 ```
 marked(data); //quick
 ```
