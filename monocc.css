@@ -1,6 +1,4 @@
 /* .monocc */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css?family=IM+Fell+English SC");
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
 .monocc, * {
   box-sizing: border-box;
@@ -22,8 +20,7 @@ body {
   /*textarea size special*/
   /*nav is flex*/
   /*font*/
-  font-family: 'Share Tech Mono', monospace;
-  /*base*/
+  font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
 }
 .monocc h1, .monocc h2, .monocc h3, .monocc h4 {
   color: #000000;
@@ -78,15 +75,15 @@ body {
   flex-wrap: wrap;
 }
 .monocc p {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
   font-size: 1.5rem;
 }
 .monocc h1, .monocc h2, .monocc h3, .monocc h4, .monocc h5, .monocc h6 {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
   font-size: 2rem;
 }
 .monocc textarea, .monocc input, .monocc button, .monocc pre, .monocc code {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
 }
 
 .monocc {
