@@ -1,0 +1,22 @@
+<head>
+<script src="//gnjo.github.io/randomColor.min.js"></script>
+<!-- use.js need last load -->
+<script src="//gnjo.github.io/use.js"></script>
+<link rel="stylesheet" href="//gnjo.github.io/monocc.css">
+</head>
+<body> 
+<script>
+var c=function(){
+ fn.g('b').value = this.value.split('\n').filter(d=>d)
+  .map(d=>d+'{background-color:'+randomColor()+';}\n')
+  .join('');
+}
+var draw=document.body;
+document.body.classList.add('monocc');
+[
+ fn.i('<div>random style maker. plz press the tag.</div>')
+,fn.i2('<textarea id="a"></textarea>',{oninput:c},'')
+,fn.i2('<textarea id="b"></textarea>')
+].forEach( el=>draw.appendChild(el) ) 
+</script>
+</body> 
