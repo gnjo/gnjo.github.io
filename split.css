@@ -1,0 +1,16 @@
+  html, body{height: 100%;width:100%}
+  body,.split,.gutter{box-sizing: border-box}
+  /* .split.parent height is if nesting be the rem or px*/
+  .split.parent{height:100vh;box-sizing:border-box}
+  .split{overflow-y: auto;overflow-x: hidden}
+  .split{background-color: #1e1f20}
+  .gutter {background-color: #555}
+  .gutter.gutter-horizontal{cursor: col-resize}
+  .gutter.gutter-vertical{cursor: row-resize}
+  .split.split-horizontal
+  ,.gutter.gutter-horizontal {height: 100%; float: left}
+  .split.parent:after,.u-cf {
+    content: " ";
+    display: table;
+    clear: both;
+}
