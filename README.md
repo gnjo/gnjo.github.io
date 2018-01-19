@@ -202,4 +202,5 @@ url base package loader. url?q=xxxx.js|yyy.js|zzz.css|
 <!-- dont forget onload='run(this)' -->
 <script onload='run(this)' src="//gnjo.github.io/run.js?q=use.js|underscore.min.js"></script>
 ```
-
+### split.min.js split.css
+usually pattern demo https://gnjo.github.io/split.min.js.test.html
