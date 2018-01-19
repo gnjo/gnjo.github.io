@@ -196,7 +196,7 @@ digital font demo https://gnjo.github.io/digital.font.css.test.html
 <link rel="stylesheet" href="//gnjo.github.io/digital.font.css">
 <style> body{ font-family:'digital'}</style>
 ```
-### run.js
+### ~~~run.js~~~ colding... load sequence the panic.
 url base package loader. url?q=xxxx.js|yyy.js|zzz.css|
 ```
 <!-- dont forget onload='run(this)' -->
