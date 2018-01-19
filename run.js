@@ -16,9 +16,6 @@ function run(el){
   t.appendChild(el);
   el.setAttribute('href',baseurl+d);  
  }
- 
 })
- 
- 
  
 }
