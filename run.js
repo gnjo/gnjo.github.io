@@ -1,3 +1,3 @@
-function run(){
-console.log(this)
+function run(el){
+console.log(el,this)
 }
