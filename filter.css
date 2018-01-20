@@ -1,0 +1,11 @@
+.if-none{}
+.if-night{filter: brightness(35%);}
+.if-dark{filter: brightness(20%);}
+.if-flash{filter: brightness(260%);}
+.if-shock{filter: invert(100%);}
+.if-past{filter: sepia(100%);}
+.if-portrait{filter: grayscale(100%);}
+.if-wraith{filter: opacity(20%);}
+.if-smoke{filter: blur(5px);}
+.if-poison{filter: hue-rotate(100deg);}
+.if-hard{filter: contrast(300%);}
