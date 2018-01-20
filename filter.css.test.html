@@ -1,0 +1,37 @@
+<head>
+<script src="//gnjo.github.io/use.js"></script>
+</head>
+<body>
+<style>
+ body{background-color:#111;padding:1rem}
+ img{width:100%;}
+ h1{color:#fafafa;margin-bottom:0}
+</style>
+<style id="filter">
+.if-none{}
+.if-night{filter: brightness(35%);}
+.if-dark{filter: brightness(20%);}
+.if-flash{filter: brightness(260%);}
+.if-shock{filter: invert(100%);}
+.if-past{filter: sepia(100%);}
+.if-portrait{filter: grayscale(100%);}
+.if-wraith{filter: opacity(20%);}
+.if-smoke{filter: blur(5px);}
+.if-poison{filter: hue-rotate(100deg);}
+.if-hard{filter: contrast(300%);} 
+</style>
+
+<script>
+var re='<img class="##" title="##" src="https://www.hd-wallpapersdownload.com/script/bulk-upload/desktop-download-pictures-of-animals-and-birds.jpg"></img>';
+
+var dr=document.body;
+var ary=fn.g('filter').innerHTML.split(/{|}/g).filter(d=>~d.indexOf('.if-')).map(d=>d.replace('.',''));
+ 
+;ary.forEach((d)=>{
+ dr.appendChild(fn.i('<h1>'+d+'</h1>'));
+ dr.appendChild(fn.i(re.replace(/##/g,d)))
+})
+
+dr.appendChild(fn.i2('<pre>'+fn.g('filter').innerHTML+'</pre>','','pre{width:100%;height:20rem;background-color:whitesmoke} ')) 
+</script>
+</body>
