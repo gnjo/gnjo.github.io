@@ -11,7 +11,7 @@
 .if-hard{filter: contrast(300%);}
 
 /*special*/
-.if-imagine{filter: brightness(20%) blur(5px) contrast(300%) grayscale(100%);}
+.if-imagine{filter: brightness(85%) blur(5px) contrast(300%) grayscale(100%);}
 
 /*2 mix base*/
 /*.if-night.*/
