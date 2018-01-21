@@ -1,9 +1,10 @@
 /* <script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css"></script> */
 
 function use(el){
- var data= el.src.split('?q=');
- if(data.length!=2) data=el.src.split('?');
- if(data.length!=2) console.error('adds file not');
+ var v=el.src;
+ var data= v.match(/(.+)\?.+=(.+)$/)||v.match(/(.+)\?(.+)$/);
+ if(data){data=data.slice(1);}
+ else{console.error('adds file not'); return}
  var baseurl =data[0].slice(0, data[0].lastIndexOf('/')+1 );
  
  var target =document.createElement('span');
