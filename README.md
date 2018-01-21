@@ -174,15 +174,15 @@ md5('aiuewo') //-> "55c97d5e7f66fb05f9c71d51bdba9c93"
 ```
 
 ### monocc.css monocc.scss
-minimal application style. scss enviroment https://codepen.io/kunigamaeno/pen/opQZvp   
-demo https://gnjo.github.io/
+minimal application style. scss enviroment ~~https://codepen.io/kunigamaeno/pen/opQZvp~~ https://codepen.io/kunigamaeno/details/eyxjjX  
+demo https://gnjo.github.io/  
 ```
 //monocc use flex container
 <nav class="monocc">
  ...
 </nav>
 ```
-- v2 release google material icon fit.
+- v2 release google material icon fit. material icon https://material.io/icons/
 
 ### marked.min.js
 popular git hub flaver markdown. usage https://github.com/gnjo/marked   
