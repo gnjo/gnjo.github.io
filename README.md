@@ -183,6 +183,15 @@ demo https://gnjo.github.io/
 </nav>
 ```
 - v2 release google material icon fit. material icon https://material.io/icons/
+```
+//usage simple the <i>
+< ... class="monocc">
+ ...
+ <p><i>face</i></p>
+ <p><a href="#"><i>launch</i>this is link</a></p> 
+ <button><i>face</i>xxxxbtn</button>
+ <label class="button"><i>face</i>xxxxbtn</label>
+```
 
 ### marked.min.js
 popular git hub flaver markdown. usage https://github.com/gnjo/marked   
