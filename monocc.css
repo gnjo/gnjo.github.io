@@ -1,5 +1,9 @@
+/*base-main-sub*/
+/*$c is color*/
+/*$s is size*/
 /* .monocc */
 @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons");
 .monocc, * {
   box-sizing: border-box;
 }
@@ -40,7 +44,7 @@ body {
   border: 2px solid #1a1a1a;
   padding: 1rem 1rem;
 }
-.monocc textarea, .monocc input, .monocc button {
+.monocc .button, .monocc .btn, .monocc textarea, .monocc input, .monocc button {
   border: 2px solid #1a1a1a;
   padding: 0.25rem 0.5rem;
   background-color: #ffffff;
@@ -51,20 +55,19 @@ body {
 .monocc textarea {
   resize: none;
   width: 100%;
-  height: 50vh;
+  height: 8rem;
 }
 .monocc textarea:before {
   content: ' ';
   display: block;
   clear: both;
 }
-.monocc a:hover, .monocc button:hover {
+.monocc a:hover, .monocc .btn:hover, .monocc .button:hover, .monocc button:hover {
   cursor: pointer;
-  text-decoration: underline;
+  background-color: #ddca7e;
 }
 .monocc a:active, .monocc button:active {
-  color: #ffa500;
-  /*orange*/
+  background-color: #ddca7e;
 }
 .monocc ol {
   list-style: decimal-leading-zero;
@@ -85,6 +88,37 @@ body {
 .monocc textarea, .monocc input, .monocc button, .monocc pre, .monocc code {
   font-family: 'Share Tech Mono',"Hiragino Kaku Gothic Pro",sans-serif;
 }
+.monocc li:before, .monocc i {
+  font-family: 'Material Icons',monospace;
+  font-size: inherit;
+  font-style: normal;
+  text-decoration: none !important;
+}
+.monocc i {
+  position: relative;
+  top: 3px;
+  padding-right: 2px;
+  font-size: 1.2rem;
+}
+.monocc li:before, .monocc li > i, .monocc button > i, .monocc input > i, .monocc .button > i,
+.monocc span > i {
+  position: relative;
+  top: 2px;
+  padding-right: 2px;
+  font-size: 0.8rem;
+}
+.monocc ul {
+  padding-left: 0.4rem;
+}
+.monocc ul > li:before {
+  content: 'stop ';
+}
+.monocc li, .monocc ul > li {
+  list-style: none;
+}
+.monocc ol > li {
+  list-style: inherit;
+}
 
 .monocc {
   padding: 4rem;
@@ -95,5 +129,3 @@ body {
     padding: 1.5rem;
   }
 }
-/*nav{display:flex;flex-direction:row;flex-wrap:wrap}
-textarea{resize:none;width:100%;height:50vh}*/
