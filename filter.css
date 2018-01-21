@@ -1,4 +1,4 @@
-.if-none{}
+.if-none{filter: none;}
 .if-night{filter: brightness(35%);}
 .if-dark{filter: brightness(20%);}
 .if-flash{filter: brightness(260%);}
@@ -9,3 +9,13 @@
 .if-smoke{filter: blur(5px);}
 .if-poison{filter: hue-rotate(100deg);}
 .if-hard{filter: contrast(300%);}
+/*2 mix base .if-night.if-XXX */
+.if-night.if-dark{filter:brightness(35%) brightness(20%);}
+.if-night.if-flash{filter:brightness(35%) brightness(260%);}
+.if-night.if-shock{filter:brightness(35%) invert(100%);}
+.if-night.if-past{filter:brightness(35%) sepia(100%);}
+.if-night.if-portrait{filter:brightness(35%) grayscale(100%);}
+.if-night.if-wraith{filter:brightness(35%) opacity(20%);}
+.if-night.if-smoke{filter:brightness(35%) blur(5px);}
+.if-night.if-poison{filter:brightness(35%) hue-rotate(100deg);}
+.if-night.if-hard{filter:brightness(35%) contrast(300%);}
