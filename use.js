@@ -1,3 +1,30 @@
+/* <script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css></script> */
+
+function use(el){
+ var data= el.src.split('?q=');
+ if(data.length!=2) data=el.src.split('?');
+ if(data.length!=2) console.error('adds file not');
+ var baseurl =data[0].slice(0, data[0].lastIndexOf('/')+1 );
+ 
+ var target =document.createElement('span');
+  el.parentNode.insertBefore( target , el.parentNode.firstElementChild); 
+ 
+ var ary = data[1].trim().split('|');
+ ary.forEach((d)=>{
+ var url=d.split('?')[0];
+  
+ if(~url.indexOf('.js')){
+  var el= target.appendChild( document.createElement('script') );
+  el.src=baseurl+d;
+ }else if(~url.indexOf('.css')){
+  var el = target.appendChild( document.createElement('link') );
+  el.setAttribute('rel','stylesheet');
+  el.setAttribute('href',baseurl+d);  
+ }
+})
+}
+/**/
+
 var fn=this.fn||{};
  fn.g=(s)=>{return document.getElementById(s)};
  fn.q=(s)=>{return document.querySelector(s)};
