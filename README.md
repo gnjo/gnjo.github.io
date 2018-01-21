@@ -182,6 +182,7 @@ demo https://gnjo.github.io/
  ...
 </nav>
 ```
+- v2 release google material icon fit.
 
 ### marked.min.js
 popular git hub flaver markdown. usage https://github.com/gnjo/marked   
@@ -204,3 +205,5 @@ url base package loader. url?q=xxxx.js|yyy.js|zzz.css|
 ```
 ### split.min.js split.css
 usually pattern demo https://gnjo.github.io/split.min.js.test.html
+
+### filter.css
