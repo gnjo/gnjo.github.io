@@ -207,3 +207,28 @@ url base package loader. url?q=xxxx.js|yyy.js|zzz.css|
 usually pattern demo https://gnjo.github.io/split.min.js.test.html
 
 ### filter.css
+image filter class if-xxx
+```
+<!-- usage -->
+<img class="if-dark" ...>
+
+<!-- mix. but limit 2 -->
+<img class="if-portrait if-smoke" ...>
+```
+pattern mix can the 2.
+```
+.if-none
+.if-night
+.if-dark
+.if-flash
+.if-shock
+.if-past
+.if-portrait
+.if-wraith
+.if-smoke
+.if-poison
+.if-hard
+
+/*special not mix*/
+.if-imagine
+```
