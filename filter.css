@@ -1,4 +1,4 @@
-.if-none{filter: none;}
+.if-none{filter: none!important;}
 .if-night{filter: brightness(35%);}
 .if-dark{filter: brightness(20%);}
 .if-flash{filter: brightness(260%);}
