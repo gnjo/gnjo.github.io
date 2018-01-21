@@ -174,7 +174,7 @@ md5('aiuewo') //-> "55c97d5e7f66fb05f9c71d51bdba9c93"
 ```
 
 ### monocc.css monocc.scss
-minimal application style. scss enviroment ~~https://codepen.io/kunigamaeno/pen/opQZvp~~ https://codepen.io/kunigamaeno/details/eyxjjX  
+minimal application style. scss enviroment ~~https://codepen.io/kunigamaeno/pen/opQZvp~~ https://codepen.io/kunigamaeno/pen/eyxjjX/  
 demo https://gnjo.github.io/  
 ```
 //monocc use flex container
