@@ -1,0 +1,8 @@
+/*chrome bar*/
+::-webkit-scrollbar{overflow:hidden;width:4px;background:#111;}
+::-webkit-scrollbar:horizontal{height:4px;}
+::-webkit-scrollbar-button{display:none;}
+::-webkit-scrollbar-piece{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-piece:start{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-thumb{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-corner{background:rgba(100,100,100,0.3);}
