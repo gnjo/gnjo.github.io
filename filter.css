@@ -9,6 +9,10 @@
 .if-smoke{filter: blur(5px);}
 .if-poison{filter: hue-rotate(100deg);}
 .if-hard{filter: contrast(300%);}
+
+/*special*/
+.if-imagine{filter: brightness(20%) blur(5px) contrast(300%) grayscale(100%);}
+
 /*2 mix base*/
 /*.if-night.*/
 .if-night.if-dark{filter:brightness(35%) brightness(20%);}
