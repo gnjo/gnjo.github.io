@@ -1,4 +1,4 @@
-/* <script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css></script> */
+/* <script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css"></script> */
 
 function use(el){
  var data= el.src.split('?q=');
