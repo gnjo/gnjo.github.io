@@ -7,6 +7,7 @@ function use(el){
  var baseurl =data[0].slice(0, data[0].lastIndexOf('/')+1 );
  
  var target =document.createElement('span');
+ target.style.display='none';
   el.parentNode.insertBefore( target , el.parentNode.firstElementChild); 
  
  var ary = data[1].trim().split('|');
