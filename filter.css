@@ -9,7 +9,8 @@
 .if-smoke{filter: blur(5px);}
 .if-poison{filter: hue-rotate(100deg);}
 .if-hard{filter: contrast(300%);}
-/*2 mix base .if-night.if-XXX */
+/*2 mix base*/
+/*.if-night.*/
 .if-night.if-dark{filter:brightness(35%) brightness(20%);}
 .if-night.if-flash{filter:brightness(35%) brightness(260%);}
 .if-night.if-shock{filter:brightness(35%) invert(100%);}
@@ -19,3 +20,48 @@
 .if-night.if-smoke{filter:brightness(35%) blur(5px);}
 .if-night.if-poison{filter:brightness(35%) hue-rotate(100deg);}
 .if-night.if-hard{filter:brightness(35%) contrast(300%);}
+/*.if-dark.*/
+.if-dark.if-flash{filter:brightness(20%) brightness(260%);}
+.if-dark.if-shock{filter:brightness(20%) invert(100%);}
+.if-dark.if-past{filter:brightness(20%) sepia(100%);}
+.if-dark.if-portrait{filter:brightness(20%) grayscale(100%);}
+.if-dark.if-wraith{filter:brightness(20%) opacity(20%);}
+.if-dark.if-smoke{filter:brightness(20%) blur(5px);}
+.if-dark.if-poison{filter:brightness(20%) hue-rotate(100deg);}
+.if-dark.if-hard{filter:brightness(20%) contrast(300%);}
+/*.if.flash.*/
+.if-flash.if-shock{filter:brightness(260%) invert(100%);}
+.if-flash.if-past{filter:brightness(260%) sepia(100%);}
+.if-flash.if-portrait{filter:brightness(260%) grayscale(100%);}
+.if-flash.if-wraith{filter:brightness(260%) opacity(20%);}
+.if-flash.if-smoke{filter:brightness(260%) blur(5px);}
+.if-flash.if-poison{filter:brightness(260%) hue-rotate(100deg);}
+.if-flash.if-hard{filter:brightness(260%) contrast(300%);}
+/*.if-shock.*/
+.if-shock.if-past{filter:invert(100%) sepia(100%);}
+.if-shock.if-portrait{filter:invert(100%) grayscale(100%);}
+.if-shock.if-wraith{filter:invert(100%) opacity(20%);}
+.if-shock.if-smoke{filter:invert(100%) blur(5px);}
+.if-shock.if-poison{filter:invert(100%) hue-rotate(100deg);}
+.if-shock.if-hard{filter:invert(100%) contrast(300%);}
+/*.if-past.*/
+.if-past.if-portrait{filter: sepia(100%) grayscale(100%);}
+.if-past.if-wraith{filter: sepia(100%) opacity(20%);}
+.if-past.if-smoke{filter: sepia(100%) blur(5px);}
+.if-past.if-poison{filter: sepia(100%) hue-rotate(100deg);}
+.if-past.if-hard{filter: sepia(100%) contrast(300%);}
+/*.if-portrait.*/
+.if-portrait.if-wraith{filter: grayscale(100%)opacity(20%);}
+.if-portrait.if-smoke{filter: grayscale(100%)blur(5px);}
+.if-portrait.if-poison{filter: grayscale(100%)hue-rotate(100deg);}
+.if-portrait.if-hard{filter: grayscale(100%)contrast(300%);}
+/*.if-wraith.*/
+.if-wraith.if-smoke{filter: opacity(20%) blur(5px);}
+.if-wraith.if-poison{filter: opacity(20%) hue-rotate(100deg);}
+.if-wraith.if-hard{filter: opacity(20%) contrast(300%);}
+/*.if-smoke.*/
+.if-smoke.if-poison{filter: blur(5px) hue-rotate(100deg);}
+.if-smoke.if-hard{filter: blur(5px) contrast(300%);}
+/*.if-poison.*/
+.if-poison.if-hard{filter: hue-rotate(100deg) contrast(300%);}
+/*.if-hard.*/
