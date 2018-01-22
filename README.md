@@ -24,7 +24,7 @@ this files need usage. filename have lowerCamelCase, mostly.
 <!-- use.js need last load -->
 <script onload="use(this)" src="//gnjo.github.io/use.js"></script>
 <!-- if pack load  use.js?q=xxxx|yyyy|
-<script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css|filter.css"></script>
+<script onload="use(this)" src="//gnjo.github.io/use.js?q=use.css|monocc.css|filter.css"></script>
 ```
 
 ### template
