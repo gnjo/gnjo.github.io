@@ -16,11 +16,15 @@ this files need usage. filename have lowerCamelCase, mostly.
 <link rel="stylesheet" href="//gnjo.github.io/article.css">
 <script src="//gnjo.github.io/invert.min.js"></script>
 <script src="//gnjo.github.io/md5.min.js"></script>
-<!-- use.js need last load -->
-<script src="//gnjo.github.io/use.js"></script>
 <link rel="stylesheet" href="//gnjo.github.io/monocc.css">
 <script src="//gnjo.github.io/marked.min.js"></script>
 <link rel="stylesheet" href="//gnjo.github.io/digital.font.css">
+<link rel="stylesheet" href="//gnjo.github.io/filter.css">
+
+<!-- use.js need last load -->
+<script onload="use(this)" src="//gnjo.github.io/use.js"></script>
+<!-- if pack load  use.js?q=xxxx|yyyy|
+<script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css|filter.css"></script>
 ```
 
 ### template
