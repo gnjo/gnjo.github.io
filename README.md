@@ -119,6 +119,12 @@ fn.fragment(u,t)
 </body>
 */
 ```
+and fn.rotation(a,v,l); v is push value. l is limit.
+```
+var ary=[];
+...
+ fn.g('l').innerHTML = fn.rotation(ary,'<li>'+fn.rkana(8)+'</li>',30).join(''); // ary limit the 30.
+```
 
 ### githubtheme.css
 github theme. demo (within layout.css) https://gnjo.github.io/layout.css.test.html
