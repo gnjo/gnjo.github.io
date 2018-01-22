@@ -122,3 +122,5 @@ fn.fragment =function(u,tt='body'){
  })
 };
 
+fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
+
