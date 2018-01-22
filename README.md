@@ -8,7 +8,9 @@ this files need usage. filename have lowerCamelCase, mostly.
 ### quick start
 - short
 ```
-<script onload="use(this)" src="//gnjo.github.io/use.js?q=normalize.min.css|use.css|monocc.css|filter.css"></script>
+<script src="//gnjo.github.io/underscore.min.js"></script>
+<script src="//gnjo.github.io/md5.min.js"></script>
+<script onload="use(this)" src="//gnjo.github.io/use.js?q=normalize.min.css|use.css|filter.css"></script>
 ```
 - all
 ```
