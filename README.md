@@ -4,7 +4,13 @@ usefull scripts
 # promise
 this files need usage. filename have lowerCamelCase, mostly.
 
+
 ### quick start
+- short
+```
+<script onload="use(this)" src="//gnjo.github.io/use.js?q=normalize.min.css|use.css|monocc.css|filter.css"></script>
+```
+- all
 ```
 <link rel="stylesheet" href="//gnjo.github.io/layout.css">
 <link rel="stylesheet" href="//gnjo.github.io/githubtheme.css">
