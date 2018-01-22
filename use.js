@@ -99,3 +99,26 @@ if(localStorage){
  fn.loLoad =(i)=>{var id=i||fn.loId;var d=localStorage.getItem(id); return JSON.parse(d) }
  fn.loRemove=(i)=>{var id=i||fn.loId;localStorage.removeItem(id)}
 }
+
+//createDocument
+fn.cd= function(markup, type='text/html') {
+		//if (/^\s*text\/html\s*(?:;|$)/i.test(type)) 
+	var doc = document.implementation.createHTMLDocument("");
+ if (~markup.toLowerCase().indexOf('<!doctype') ) doc.documentElement.innerHTML = markup;
+ else doc.body.innerHTML = markup;
+ return doc;
+	};
+
+fn.fragment =function(u,tt='body'){
+ return new Promise((sol)=>{
+ var f=fn.cd;
+  //"Access-Control-Allow-Headers":"*","Access-Control-Allow-Origin":"*",
+ var h={'content-type':'text/plain'};
+ fetch(u,{method:'get',mode:'cors',headers:h})
+  .then(d=>d.text())
+  .then(text=>f(text))
+  .then(doc=>doc.querySelector(tt))
+  .then(el=> sol(el) )
+ })
+};
+
