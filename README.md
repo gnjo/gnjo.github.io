@@ -60,6 +60,11 @@ usage same
 
 ### use.js
 always use funcitons
+fn.use()  package load. split is __|__
+```
+<script onload='use(this)' src="//gnjo.github.io/use.js?q=monocc.css|filter.css"></script>
+```
+and 
 ```
 fn.g //document.getElementById //fn.g('ma') //HTMLElement
 fn.q //document.queryString //fn.q('div[data-xyz]') //HTMLElement
@@ -81,6 +86,26 @@ and fn.i2 attr can compose the object.
 ```
 //def
 fn.i2=function(html,attr,style,doc=document)
+```
+and fn.fragment fn.cd 
+```
+var u='//gnjo.github.io/article.css.test.html'
+var t ='body>article:nth-child(3)';
+fn.fragment(u,t)
+ .then((el)=>{ 
+ if(el) document.body.innerHTML=el.innerHTML;
+ else console.log('not')
+})
+
+//if use fn.fragment on .js and .css, write the <body>, not the <head> 
+/* article.css.test.html
+<head></head>
+<body>
+<link .... href="xxxxx.css"...
+<script src="xxxxxx.js"...
+...
+</body>
+*/
 ```
 
 ### githubtheme.css
