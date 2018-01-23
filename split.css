@@ -3,8 +3,11 @@
   /* .split.parent height is if nesting be the rem or px*/
   .split.parent{height:100vh;box-sizing:border-box}
   .split{overflow-y: auto;overflow-x: hidden}
-  .split{background-color: #1e1f20}
-  .gutter {background-color: #555}
+  .split{background-color: #111}
+  .gutter {
+    background-color: transparent;
+    border-left: 1px solid #ffffff33;
+  }
   .gutter.gutter-horizontal{cursor: col-resize}
   .gutter.gutter-vertical{cursor: row-resize}
   .split.split-horizontal
