@@ -1,0 +1,28 @@
+
+<body>
+ <section>
+  
+ <input type="checkbox" id="c" />
+ <label for="c" class="checkbox"> checkbox</label>
+ <br>
+ <input type="radio" id="r" />
+ <label for="r" class="radio"> radio</label> 
+</body>
+<style>
+ input[type=checkbox],input[type=radio]{ display:none;}
+
+input[type=checkbox] + label.checkbox:before
+,input[type=radio] + label.radio:before{content: '0'; font-family:monospace;}
+
+input[type=checkbox]:checked + label.checkbox:before
+,input[type=radio]:checked + label.radio:before{content: '1'; font-family:monospace;}
+label.checkbox:hover,label.radio:hover{cursor:pointer;}
+</style> 
+ 
+ </section>
+
+<!------>
+<textarea style="width:90vw;height:40vh"></textarea>
+<script>
+ document.querySelector('textarea').value= document.querySelector('section').innerHTML;
+</script> 
