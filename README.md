@@ -284,3 +284,6 @@ pattern mix can the 2.
 /*special not mix*/
 .if-imagine
 ```
+
+### goin but drafting...
+https://gnjo.github.io/goin.js.test.html
