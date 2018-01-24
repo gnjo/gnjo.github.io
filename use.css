@@ -1,3 +1,7 @@
+/*font smooth*/
+body{
+  -webkit-font-smoothing: antialiased;
+}
 /*clear fix*/
 .cf,.u-cf { content: " "; display: table; clear: both;}
 *{box-sizing:border-box;}
