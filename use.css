@@ -9,3 +9,20 @@
 ::-webkit-scrollbar-piece:start{background:rgba(100,100,100,0.3);}
 ::-webkit-scrollbar-thumb{background:rgba(100,100,100,0.3);}
 ::-webkit-scrollbar-corner{background:rgba(100,100,100,0.3);}
+
+.full-w{width:100%}
+
+.center-one{
+ display: flex; justify-content: center;align-items: center;
+ height:100%;width:100%;
+}
+.center-one input,.center-one>div{
+  border:0;
+  outline:none;
+  background-color:rgba(0,0,0,0.2);
+  box-shadow:1px 1px 4px rgba(255,255,255,0.2);
+  color:white;
+}
+ .center-one>div{
+    padding:2rem;
+ }
