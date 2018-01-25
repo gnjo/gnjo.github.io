@@ -42,7 +42,7 @@ input[type="checkbox"].white
 {display:none;}
 input[type="checkbox"].white + label
 ,input[type="radio"].white + label
-{cursor:pointer;}
+{cursor:pointer; user-select: none;} /*new user-select*/
 input[type="checkbox"].white + label:before
 ,input[type="radio"].white + label:before
 { content:'0'; padding:$input-space;color:$parag-white; }
