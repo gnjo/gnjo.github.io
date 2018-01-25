@@ -1,0 +1,71 @@
+/*need normalizer*/
+ $base-color: #ffffff;
+ $title-white: rgba($base-color, 0.9);
+ $parag-white: rgba($base-color, 0.65);
+ $wall-white:  rgba( invert($base-color) , 0.4);
+ $input-white: transparent;
+ $border-set: '1px solid ' + rgba($base-color, 0.3);
+ $bg-body: url('https://user-images.githubusercontent.com/35440828/35326096-ebdcc422-0138-11e8-8a78-5dc31e7503d6.png');
+ $bg-layer: $wall-white;
+ $layer-space: 2rem;
+ $input-space: 4px;
+
+html,body{ color:$parag-white;}
+p,input,textarea,code,pre,a,button{ color:$parag-white; }
+h1,h2,h3,h4,h5,h6,
+strong,mark{ color:$title-white;}
+textarea{ height:10rem}
+textarea,code,pre{ white-space:pre-line;}
+table,input,textarea,code,pre,button{ padding:$input-space;}
+
+*{
+ -webkit-font-smoothing: antialiased;
+  background-position: 50% 50%;
+  background-size: cover;
+  box-sizing:border-box;
+}
+body{z-index:0; display:flex; height:100%; overflow:hidden;}
+body>div:nth-child(1){z-index:1; width:100%;height:100%; padding:$layer-space; overflow:auto;}
+body{ background-image: $bg-body;}
+body>div:nth-child(1){ background-color: $bg-layer; position:absolute;}
+fieldset,button,hr,textarea,input,pre{
+ outline:none;
+ border: #{$border-set}; background-color:$input-white;
+}
+button:hover{cursor:pointer; color:$title-white;}
+mark,em{background-color:$input-white;}
+
+/*range*/
+input[type=range]{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1rem;
+    background: $input-white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type=range]:hover {
+    opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: $input-white;
+    cursor: pointer;
+    border: #{$border-set};
+    box-sizing:border-box; 
+}
+input[type=range]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background: $input-white;
+    cursor: pointer;
+    border: #{$border-set};
+    box-sizing:border-box;
+} 
