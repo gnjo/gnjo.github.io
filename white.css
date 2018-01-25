@@ -56,7 +56,8 @@ body > div:nth-child(1) {
 }
 
 body {
-  background-image: url("https://user-images.githubusercontent.com/35440828/35326096-ebdcc422-0138-11e8-8a78-5dc31e7503d6.png");
+  /*background-image: url("https://user-images.githubusercontent.com/35440828/35326096-ebdcc422-0138-11e8-8a78-5dc31e7503d6.png");*/
+  background-image: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");
 }
 
 body > div:nth-child(1) {
