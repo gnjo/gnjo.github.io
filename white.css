@@ -1,0 +1,107 @@
+/*need normalizer*/
+html, body {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+p, input, textarea, code, pre, a, button {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+h1, h2, h3, h4, h5, h6,
+strong, mark {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+textarea {
+  height: 10rem;
+}
+
+textarea, code, pre {
+  white-space: pre-line;
+}
+
+table, input, textarea, code, pre, button {
+  padding: 4px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  background-position: 50% 50%;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+body {
+  z-index: 0;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+body > div:nth-child(1) {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow: auto;
+}
+
+body {
+  background-image: url("https://user-images.githubusercontent.com/35440828/35326096-ebdcc422-0138-11e8-8a78-5dc31e7503d6.png");
+}
+
+body > div:nth-child(1) {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+}
+
+fieldset, button, hr, textarea, input, pre {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+mark, em {
+  background-color: transparent;
+}
+
+/*range*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: transparent;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type=range]:hover {
+  opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
