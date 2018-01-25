@@ -9,7 +9,8 @@
  $bg-layer: $wall-white;
  $layer-space: 2rem;
  $input-space: 4px;
- 
+
+html{height:100%; /*full image */} 
 .white-layer{background-color: rgba(0,0,0,.1);}
 html,body{ color:$parag-white;}
 p,input,textarea,code,pre,a,button{ color:$parag-white; }
@@ -42,7 +43,7 @@ input[type="checkbox"].white
 {display:none;}
 input[type="checkbox"].white + label
 ,input[type="radio"].white + label
-{cursor:pointer; user-select: none;} /*new user-select*/
+{cursor:pointer; user-select: none; /*new user-select*/} 
 input[type="checkbox"].white + label:before
 ,input[type="radio"].white + label:before
 { content:'0'; padding:$input-space;color:$parag-white; }
