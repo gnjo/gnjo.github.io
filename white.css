@@ -83,6 +83,8 @@ input[type="checkbox"].white
 input[type="checkbox"].white + label
 , input[type="radio"].white + label {
   cursor: pointer;
+  user-select: none;
+  /*new user-select*/
 }
 
 input[type="checkbox"].white + label:before
