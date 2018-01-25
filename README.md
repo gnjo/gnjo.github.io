@@ -289,7 +289,8 @@ pattern mix can the 2.
 https://gnjo.github.io/goin.js.test.html
 
 ### white.css
-good white font base. active need first div.
+good white font base. active need first div.   
+enviroment https://codepen.io/kunigamaeno/pen/wpLBXr
 ```
 <body><div> need first div  </div></body>
 //if layer background use the .white-layer
