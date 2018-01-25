@@ -289,11 +289,13 @@ pattern mix can the 2.
 https://gnjo.github.io/goin.js.test.html
 
 ### white.css
-good white font base. active the <body><div> need first div  </div></body>
+good white font base. active need first div.
 ```
 <body><div> need first div  </div></body>
 //if layer background use the .white-layer
-<body><div> <div class="white-layer"> .... 
+<body><div>
+<div class="white-layer"> 
+.... 
 
 ```
 
