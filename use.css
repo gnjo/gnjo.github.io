@@ -30,3 +30,7 @@ body{
  .center-one>div{
     padding:2rem;
  }
+
+.white-layer {
+  background-color: rgba(0, 0, 0, 0.1);
+}
