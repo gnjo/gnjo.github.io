@@ -287,3 +287,13 @@ pattern mix can the 2.
 
 ### goin but drafting...
 https://gnjo.github.io/goin.js.test.html
+
+### white.css
+good white font base. active the <body><div> need first div  </div></body>
+```
+<body><div> need first div  </div></body>
+//if layer background use the .white-layer
+<body><div> <div class="white-layer"> .... 
+
+```
+
