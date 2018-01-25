@@ -36,6 +36,20 @@ fieldset,button,hr,textarea,input,pre{
 button:hover{cursor:pointer; color:$title-white;}
 mark,em{background-color:$input-white;}
 
+/*checkbox and radio need with label and class="white"*/
+input[type="checkbox"].white
+,input[type="radio"].white
+{display:none;}
+input[type="checkbox"].white + label
+,input[type="radio"].white + label
+{cursor:pointer;}
+input[type="checkbox"].white + label:before
+,input[type="radio"].white + label:before
+{ content:'0'; padding:$input-space;color:$parag-white; }
+input[type="checkbox"].white:checked + label:before
+,input[type="radio"].white:checked + label:before
+{ content:'1'; padding:$input-space;color:$title-white; }
+
 /*range*/
 input[type=range]{
     -webkit-appearance: none;
