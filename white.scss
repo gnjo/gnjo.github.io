@@ -5,13 +5,14 @@
  $wall-white:  rgba( invert($base-color) , 0.4);
  $input-white: transparent;
  $border-set: '1px solid ' + rgba($base-color, 0.3);
- $bg-body: url('https://user-images.githubusercontent.com/35440828/35326096-ebdcc422-0138-11e8-8a78-5dc31e7503d6.png');
+ $bg-body: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");
  $bg-layer: $wall-white;
  $layer-space: 2rem;
  $input-space: 4px;
 
 html{height:100%; /*full image */} 
 .white-layer{background-color: rgba(0,0,0,.1);}
+.white-border{border: #{$border-set};}
 html,body{ color:$parag-white;}
 p,input,textarea,code,pre,a,button{ color:$parag-white; }
 h1,h2,h3,h4,h5,h6,
@@ -19,7 +20,7 @@ strong,mark{ color:$title-white;}
 textarea{ height:10rem}
 textarea,code,pre{ white-space:pre-line;}
 table,input,textarea,code,pre,button{ padding:$input-space;}
-
+input[type="range"]{ padding:0; /*bug fix*/}
 *{
  -webkit-font-smoothing: antialiased;
   background-position: 50% 50%;
