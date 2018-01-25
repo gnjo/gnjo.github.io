@@ -74,6 +74,31 @@ mark, em {
   background-color: transparent;
 }
 
+/*checkbox and radio need with label and class="white"*/
+input[type="checkbox"].white
+, input[type="radio"].white {
+  display: none;
+}
+
+input[type="checkbox"].white + label
+, input[type="radio"].white + label {
+  cursor: pointer;
+}
+
+input[type="checkbox"].white + label:before
+, input[type="radio"].white + label:before {
+  content: '0';
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+input[type="checkbox"].white:checked + label:before
+, input[type="radio"].white:checked + label:before {
+  content: '1';
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /*range*/
 input[type=range] {
   -webkit-appearance: none;
