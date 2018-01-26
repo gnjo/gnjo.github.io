@@ -14,6 +14,11 @@
 html{height:100%; /*full image */} 
 .white-layer{background-color: rgba(0,0,0,.1);}
 .white-border{border: #{$border-set};}
+.white-border-t{border-top: #{$border-set};}
+.white-border-b{border-bottom: #{$border-set};}
+.white-border-l{border-left: #{$border-set};}
+.white-border-r{border-right: #{$border-set};}
+/*and t b l r*/
 html,body{ color:$parag-white;}
 p,input,textarea,code,pre,a,button{ color:$parag-white; }
 h1,h2,h3,h4,h5,h6,
