@@ -64,8 +64,13 @@ body > div:nth-child(1) {
   overflow: auto;
 }
 
-body {
+body.bg {
   background-image: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");
+  /* loading late chenge option .bg*/
+}
+
+body {
+  background-color: #222;
 }
 
 body > div:nth-child(1) {
