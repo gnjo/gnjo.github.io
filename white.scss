@@ -5,7 +5,7 @@
  $wall-white:  rgba( invert($base-color) , 0.4);
  $input-white: transparent;
  $border-set: '1px solid ' + rgba($base-color, 0.3);
- $bg-body: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");
+/* $bg-body: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");*/
  $bg-color:#222;
  $bg-layer: $wall-white;
  $layer-space: 2rem;
@@ -40,7 +40,7 @@ input[type="range"]{ padding:0; /*bug fix*/}
 }
 body{z-index:0; display:flex; height:100%; overflow:hidden;}
 body>div:nth-child(1){z-index:1; width:100%;height:100%; padding:$layer-space; overflow:auto;}
-body.bg{ background-image: $bg-body;/* loading late chenge option .bg*/}
+/*body.bg{ background-image: $bg-body;} //logonly*/
 body{ background-color: $bg-color;}
 body>div:nth-child(1){ background-color: $bg-layer; position:absolute;}
 fieldset,button,hr,textarea,input,pre{
