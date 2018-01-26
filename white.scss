@@ -11,7 +11,12 @@
  $layer-space: 2rem;
  $input-space: 4px;
 
+/*the basic*/
+@import url('https://fonts.googleapis.com/css?family=Bellefair');
+html{font-family: 'Bellefair',"Hiragino Kaku Gothic Pro",sans-serif;}
+html{font-size:12px}
 html{height:100%; /*full image */} 
+/**/
 .white-layer{background-color: rgba(0,0,0,.1);}
 .white-border{border: #{$border-set};}
 .white-border-t{border-top: #{$border-set};}
@@ -22,7 +27,7 @@ html{height:100%; /*full image */}
 html,body{ color:$parag-white;}
 p,input,textarea,code,pre,a,button{ color:$parag-white; }
 h1,h2,h3,h4,h5,h6,
-strong,mark{ color:$title-white;}
+th,strong,mark{ color:$title-white; font-weight:400}
 textarea{ height:10rem}
 textarea,code,pre{ white-space:pre-line;}
 table,input,textarea,code,pre,button{ padding:$input-space;}
