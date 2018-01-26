@@ -1,9 +1,21 @@
 /*need normalizer*/
+/* $bg-body: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");*/
+/*the basic*/
+@import url("https://fonts.googleapis.com/css?family=Bellefair");
+html {
+  font-family: 'Bellefair',"Hiragino Kaku Gothic Pro",sans-serif;
+}
+
+html {
+  font-size: 12px;
+}
+
 html {
   height: 100%;
   /*full image */
 }
 
+/**/
 .white-layer {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -12,6 +24,23 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.white-border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.white-border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.white-border-l {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.white-border-r {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/*and t b l r*/
 html, body {
   color: rgba(255, 255, 255, 0.65);
 }
@@ -21,8 +50,9 @@ p, input, textarea, code, pre, a, button {
 }
 
 h1, h2, h3, h4, h5, h6,
-strong, mark {
+th, strong, mark {
   color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
 }
 
 textarea {
@@ -64,11 +94,7 @@ body > div:nth-child(1) {
   overflow: auto;
 }
 
-body.bg {
-  background-image: url("https://user-images.githubusercontent.com/35440828/35326349-bf30cb02-0139-11e8-9b3e-6fb7686b5695.png");
-  /* loading late chenge option .bg*/
-}
-
+/*body.bg{ background-image: $bg-body;} //logonly*/
 body {
   background-color: #222;
 }
