@@ -1,0 +1,206 @@
+/*tab setting*/
+nav.tab > label {
+  cursor: pointer;
+}
+
+input.tab[type="checkbox"]
+, input.tab[type="radio"] {
+  display: none;
+}
+
+div.tab > section {
+  display: none;
+}
+
+nav.tab > label {
+  color: rgba(245, 245, 245, 0.3);
+}
+
+nav.tab > label:hover {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(1):checked ~ nav.tab > label:nth-child(1) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(1):checked ~ nav.tab > label:nth-child(1) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(1):checked ~ div.tab > section:nth-child(1) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(1):checked ~ div.tab > section:nth-child(1) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(2):checked ~ nav.tab > label:nth-child(2) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(2):checked ~ nav.tab > label:nth-child(2) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(2):checked ~ div.tab > section:nth-child(2) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(2):checked ~ div.tab > section:nth-child(2) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(3):checked ~ nav.tab > label:nth-child(3) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(3):checked ~ nav.tab > label:nth-child(3) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(3):checked ~ div.tab > section:nth-child(3) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(3):checked ~ div.tab > section:nth-child(3) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(4):checked ~ nav.tab > label:nth-child(4) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(4):checked ~ nav.tab > label:nth-child(4) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(4):checked ~ div.tab > section:nth-child(4) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(4):checked ~ div.tab > section:nth-child(4) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(5):checked ~ nav.tab > label:nth-child(5) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(5):checked ~ nav.tab > label:nth-child(5) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(5):checked ~ div.tab > section:nth-child(5) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(5):checked ~ div.tab > section:nth-child(5) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(6):checked ~ nav.tab > label:nth-child(6) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(6):checked ~ nav.tab > label:nth-child(6) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(6):checked ~ div.tab > section:nth-child(6) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(6):checked ~ div.tab > section:nth-child(6) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(7):checked ~ nav.tab > label:nth-child(7) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(7):checked ~ nav.tab > label:nth-child(7) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(7):checked ~ div.tab > section:nth-child(7) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(7):checked ~ div.tab > section:nth-child(7) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(8):checked ~ nav.tab > label:nth-child(8) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(8):checked ~ nav.tab > label:nth-child(8) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(8):checked ~ div.tab > section:nth-child(8) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(8):checked ~ div.tab > section:nth-child(8) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(9):checked ~ nav.tab > label:nth-child(9) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(9):checked ~ nav.tab > label:nth-child(9) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(9):checked ~ div.tab > section:nth-child(9) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(9):checked ~ div.tab > section:nth-child(9) {
+  display: block;
+}
+
+input.tab[type="checkbox"]:nth-child(10):checked ~ nav.tab > label:nth-child(10) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="radio"]:nth-child(10):checked ~ nav.tab > label:nth-child(10) {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input.tab[type="checkbox"]:nth-child(10):checked ~ div.tab > section:nth-child(10) {
+  display: block;
+}
+
+input.tab[type="radio"]:nth-child(10):checked ~ div.tab > section:nth-child(10) {
+  display: block;
+}
+
+ /*
+<input type="checkbox" id="a" class="tab"></input>
+<input type="checkbox" id="b" class="tab" ></input>
+<nav class="tab">
+ <label for="a">xxxyyy</label>
+ <label for="b">zzzzzz</label>
+</nav>
+<div class="tab">
+ <section>aaa</section>
+ <section>bbb</section>
+</div> 
+
+ <!----->
+ <input type="radio" id="a" class="tab" name="g1" checked ></input>
+<input type="radio" id="b" class="tab" name="g1" ></input>
+<nav class="tab">
+ <label for="a">xxxyyy</label>
+ <label for="b">zzzzzz</label>
+</nav>
+<div class="tab">
+ <section>aaa</section>
+ <section>bbb</section>
+</div>
+ */
