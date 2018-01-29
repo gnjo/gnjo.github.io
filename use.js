@@ -124,3 +124,14 @@ fn.fragment =function(u,tt='body'){
 
 fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
 
+ fn.hash =function(str){return str.split('').map(d=> d.charCodeAt(0).toString(16) ).join('')}
+ fn.fr=function(html=''){
+  let flg = (typeof 'html' === 'string')
+  ,e= (flg)?document.createElement('table'): html||document.createElement('table')
+  ,fr=document.createDocumentFragment()
+  ;
+  if(flg) e.innerHTML= html||'';
+  ;[].slice.call(e.childNodes).forEach(d=>fr.appendChild(d))
+  return fr;
+ }
+
