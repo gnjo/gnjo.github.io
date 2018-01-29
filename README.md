@@ -300,3 +300,5 @@ environment https://codepen.io/kunigamaeno/pen/wpLBXr
 
 ```
 
+### small.css
+enviroment https://codepen.io/kunigamaeno/pen/JpPVKL
