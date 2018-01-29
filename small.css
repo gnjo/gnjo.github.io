@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Bellefair");
+/*color*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: rgba(245, 245, 245, 0.85);
+  background-color: #1e1e1e;
+  font-family: 'Bellefair',"Hiragino Kaku Gothic Pro",sans-serif;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  color: whitesmoke;
+  font-weight: 400;
+  font-size: 21px;
+}
+
+th {
+  color: whitesmoke;
+  font-weight: 400;
+}
+
+labe.btn[for], input, button, mark, strong, em {
+  color: whitesmoke;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+p, text, pre, code {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+input, button, label[for], hr, a {
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.3);
+}
+
+input:hover:not([disabled]), button:hover:not([disabled]), label[for]:hover:not([disabled]), a:hover {
+  color: rgba(245, 245, 245, 0.85);
+}
+
+label.btn[for] {
+  cursor: pointer;
+}
+
+input.btn[type=checkbox] {
+  display: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(245, 245, 245, 0.3);
+  margin: 0;
+  padding: 0;
+}
+
+input, button {
+  border: 0;
+}
+
+fieldset {
+  border: 0;
+  border: 1px solid rgba(245, 245, 245, 0.3);
+}
