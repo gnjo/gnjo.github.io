@@ -6,7 +6,7 @@ figure[data-goin]>img{
  filter: contrast(150%) grayscale(100%);
 }
 
-//
+/**/
 figure[data-goin][data-type="1"] {
     position: relative;
 }
