@@ -22,13 +22,13 @@ th {
   font-weight: 400;
 }
 
-labe.btn[for], input, button, mark, strong, em {
+label.btn[for], input, button, mark, strong, em {
   color: whitesmoke;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-p, text, pre, code {
+p, textarea, pre, code {
   color: rgba(245, 245, 245, 0.85);
 }
 
@@ -45,10 +45,6 @@ label.btn[for] {
   cursor: pointer;
 }
 
-input.btn[type=checkbox] {
-  display: none;
-}
-
 hr {
   border: 0;
   border-top: 1px solid rgba(245, 245, 245, 0.3);
@@ -63,4 +59,13 @@ input, button {
 fieldset {
   border: 0;
   border: 1px solid rgba(245, 245, 245, 0.3);
+}
+
+textarea {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: 0;
+  height: 10rem;
+  width: 22rem;
+  font-family: "Hiragino Kaku Gothic Pro",sans-serif;
 }
