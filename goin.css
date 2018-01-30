@@ -1,0 +1,29 @@
+/**/
+figure[data-goin]{margin:0}
+figure[data-goin]>p{white-space:pre-line}
+figure[data-goin]>img{
+ width: 100%;
+ filter: contrast(150%) grayscale(100%);
+}
+
+//
+figure[data-goin][data-type="1"] {
+    position: relative;
+}
+figure[data-goin][data-type="1"]>figcaption {
+    position: absolute;
+    bottom: 0;
+}
+figure[data-goin][data-type="1"]>img {
+  height:4rem;
+  filter:grayscale(100%) brightness(85%);
+  transform:scale(1.2);
+}
+figure[data-goin][data-type="1"]>p {
+ display:none;
+}
+
+/**/
+[data-goin][data-type="1"],[data-goin][data-type="2"]{font-size:0.75rem}
+dt[data-goin][data-type="2"]{margin:0;padding-top:0.5rem}
+dt[data-goin][data-type="2"] + dd{margin:0; font-size:0.75rem;padding-left:0.5rem}
