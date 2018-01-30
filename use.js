@@ -134,4 +134,16 @@ fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
   ;[].slice.call(e.childNodes).forEach(d=>fr.appendChild(d))
   return fr;
  }
+ 
+ fn.rename =function(name,count=1){
+ var join =`_${count}`;
+ return (~name.indexOf('.'))? name.replace(/(.*)(\.)/,`$1${join}$2`) : `${name}${join}`;
+}
+
+
+fn.now =function(time){
+ if(time) return new Date(time).toISOString().split('.')[0] +'Z';
+ else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
+}
+
 
