@@ -40,3 +40,5 @@ body{
  background-position: 50% 50%;
  background-size: cover;
 }
+
+.scroll-y{overflow-y:scroll}
