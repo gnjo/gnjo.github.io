@@ -1,0 +1,36 @@
+<link href="//gnjo.github.io/small.css" rel="stylesheet">
+<script src="https://gnjo.github.io/upImugr.js"></script>
+<input id="x" type="file" accept="image/*"><br>
+<output></output>
+<!------>
+<script>
+var cid ='c552bf3081f0790'
+,im = upImugr({clientId:cid})
+;
+var x = document.querySelector('#x')
+,out =document.querySelector('output')
+,img = document.createElement('img')
+;
+
+var calc =function(e){
+ im.up(e.target.result)
+  .then((d)=>{
+   //upload finished work
+   let el =img.cloneNode(true);
+   out.appendChild(el)
+   el.src =d.data.link;
+   console.log(d.data.link)
+  //
+ })
+}
+
+x.onchange =function(ev){
+ ;[].slice.call(this.files).map((f)=>{
+   let reader = new FileReader()
+   ;
+    reader.onload = calc
+    reader.readAsDataURL(f);
+ })
+ this.value='';
+} 
+</script> 
