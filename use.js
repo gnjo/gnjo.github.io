@@ -146,8 +146,7 @@ fn.now =function(time){
  else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
 }
 
-fn.toBlob =toBlob;
-function toBlob(base64) {
+fn.toBlob =function(base64) {
     let ma = /^data:(.*);base64,(.*)$/
     ;
     if(!ma.test(base64)){ console.log('error base64 data'); return null}
