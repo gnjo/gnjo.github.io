@@ -146,4 +146,21 @@ fn.now =function(time){
  else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
 }
 
+fn.toBlob =toBlob;
+function toBlob(base64) {
+    let ma = /^data:(.*);base64,(.*)$/
+    ;
+    if(!ma.test(base64)){ console.log('error base64 data'); return null}
+
+    let ary = base64.match(ma)  //[0] base64, [1] type, [2] body
+    ,type = ary[1]
+    ,bin = atob(ary[2])
+    ,buffer = new Uint8Array(bin.length).map( (d,i)=>{return bin.charCodeAt(i)})
+    ,blob = new Blob([buffer.buffer], {type: type})
+    ;
+    return blob;
+//var debug = {hello: "world"};
+//var blob = new Blob([JSON.stringify(debug, null, 2)], {type : 'application/json'});
+//data:image/png;base64,... 
+}
 
