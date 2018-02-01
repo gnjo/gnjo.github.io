@@ -302,3 +302,9 @@ environment https://codepen.io/kunigamaeno/pen/wpLBXr
 
 ### small.css
 enviroment https://codepen.io/kunigamaeno/pen/JpPVKL
+
+### upImgur.js
+imgur uploader. need client id.
+
+### gs.js
+gist uploader. need username password
