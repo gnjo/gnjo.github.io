@@ -3,6 +3,7 @@
  var entry =function(u,p){
   let gists ={}
   //
+  gists.jsy =JSON.stringify;
   gists.authstring = window.btoa(u + ":" + p);
   gists.username = u;
   gists.password  =p;
@@ -21,74 +22,60 @@
   
   gists.auth =function(){
    let url="https://api.github.com/authorizations"
-   ,headers = this.headers
    ,o={
     method:'GET'
-    ,headers:headers
+    ,headers: gists.headers
     //,body:JSON.stringify(b)
    }
-   ,f =this.f
    ;
-   console.log(this.headers)
-   return f(url,o)
+   return gists.f(url,o)
   }
   gists.create =function(data){
    let url="https://api.github.com/gists"
-   ,headers = this.headers
    ,o={
     method:'POST'
-    ,headers:headers
-    ,body:JSON.stringify(data)
+    ,headers: gists.headers
+    ,body: gists.jsy(data)
    }
-   ,f =this.f
    ;   
-   return f(url,o)  
+   return gists.f(url,o)  
   }
   //https://api.github.com/gists/
   gists.update =function(id,data){
    let url="https://api.github.com/gists/" + id
-   ,headers = this.headers
    ,o={
     method:'PATCH'
-    ,headers:headers
-    ,body:JSON.stringify(data)
+    ,headers: gists.headers
+    ,body: gists.jsy(data)
    }
-   ,f =this.f
    ;   
-   return f(url,o)  
+   return gists.f(url,o)  
   }
   gists.get =function(id){
    let url="https://api.github.com/gists/" + id
-   ,headers = this.headers
    ,o={
-    method:'GET'
-    ,headers:headers
+     method:'GET'
+    ,headers: gists.headers
     //,body:JSON.stringify(data)
    }
-   ,f =this.f
    ;   
-   return f(url,o)  
+   return gists.f(url,o)  
   }
   // "https://api.github.com/users/"+gs.u+"/gists";
   gists.search =function(){
-   let u= this.username
-   ,url=`https://api.github.com/users/${u}/gists`
-   ,headers = this.headers
+   let url=`https://api.github.com/users/${ gists.username }/gists`
    ,o={
-    method:'GET'
-    ,headers:headers
-    //,body:JSON.stringify(data)
+     method:'GET'
+    ,headers:gists.headers
+    //,body: gists.jsy(data)
    }
-   ,f =this.f
    ;
-   //console.log(u)
-   return f(url,o)  
+   return gists.f(url,o)  
   }
 
   //
-  //
   gists.getFile=function(id,fname){
-   return this.get(id).then((d)=>{
+   return gists.get(id).then((d)=>{
     return (fname in d.files)? d.files[fname] : Promise.reject(404)
    })
   }
@@ -96,21 +83,18 @@
    let data={"files": { } }
    data.files[fname] = {"content": content}
    //console.log(data)
-   return this.update(id,data)
+   return gists.update(id,data)
   }
   gists.searchId =function(desc){
-   let u= this.username
-   ,url=`https://api.github.com/users/${u}/gists`
-   ,headers = this.headers
+   let url=`https://api.github.com/users/${ gists.username }/gists`
    ,o={
     method:'GET'
-    ,headers:headers
-    //,body:JSON.stringify(data)
+    ,headers:gists.headers
+    //,body:gists.jsy(data)
    }
-   ,f =this.f
    ;
    //console.log(u)
-   return f(url,o)
+   return gists.f(url,o)
     .then((d)=>{return d.filter(d=> ~d.description.indexOf(desc) ).map(d=>d.id).slice(0,1) })
     .then((d)=>{return (d.length===1)? d: Promise.reject(404) })
   }
