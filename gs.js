@@ -99,6 +99,67 @@
     .then((d)=>{return (d.length===1)? d: Promise.reject(404) })
   }
   
+  /////need md5
+   gists.md5 =md5||function(d){return d};
+   gists.now =function(time){
+    if(time) return new Date(time).toISOString().split('.')[0] +'Z';
+    else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
+   }
+   gists.place =function(obj){
+    //return gists.id
+    var o=obj;
+    if(o.id){ 
+     return gists.get(o.id).then((d)=>{
+       gists.id=o.id;
+       return gists.id;
+     });
+    }else if(o.desc){
+     return gists.searchId(o.desc).then((d)=>{
+      gists.id = d;
+      return gists.id;
+     }).catch((d)=>{
+      console.log(`create place=>${o.desc}`);
+
+      var data={
+       "description": `${gists.md5(o.desc)}  ${o.desc}`,
+       "public": o.public||false,
+       "files": {
+         "___gists.place___": {
+           "content": gists.now()
+         }
+       } 
+     };
+      return gists.create(data).then((d)=>{
+       console.log(d,'create',d.id)
+       gists.id = d.id;
+       return gists.id;
+      })
+
+     })
+    }else{
+     //create place
+     console.log('need desc name. if decide, create the place on gist.');
+      return Promise.reject(400)
+    }
+
+   }
+   gists.placeGet =function(ary){
+     let id =gists.id
+     ;
+     gists.get(id).then((d)=>{ 
+      return ary.filter(f=>(f in d.files)).map(f=>d.files[f]) || Promise.reject(404)
+     })
+   }
+   gists.sharrow =function(ary){ 
+     let data={"files":{} }
+     ,id =gists.id
+     ;
+     ary.forEach((d)=>{ data.files[ary] = {"content":localStorage.getItem(d)};  })
+     //console.log(id,data)
+     return gists.update(id,data);
+   }
+  
+  /////
    return gists;
  }
  
