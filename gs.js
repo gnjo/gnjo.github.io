@@ -146,7 +146,7 @@
    gists.placeGet =function(ary){
      let id =gists.id
      ;
-     gists.get(id).then((d)=>{ 
+     return gists.get(id).then((d)=>{ 
       return ary.filter(f=>(f in d.files)).map(f=>d.files[f]) || Promise.reject(404)
      })
    }
