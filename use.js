@@ -93,6 +93,8 @@ if(this.md5){
 }
 if(this.invert) fn.invertColor=invert;
 
+fn.isJSON =function(d){ try{JSON.parse(d);return true}catch(e){return false} }
+
 if(localStorage){
  fn.loId ='__loId__'; //project every change
  fn.loSave=(d,i=null)=>{var id=i||fn.loId;localStorage.setItem(id, JSON.stringify(d) ); return id}
