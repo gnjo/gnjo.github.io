@@ -186,3 +186,22 @@ fn.copy=function(textVal){
   return retVal;
 }
 
+fn.mes = (q,limit=15)=>{
+ var el =document.querySelector(q)
+ ,now = (time)=>{
+ if(time) return new Date(time).toISOString().split('.')[0] +'Z';
+ else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
+ }
+ ,rotation =(a,v,l)=>{a.unshift(v);a.splice(l);return a}
+ ,stock =[]
+ ;
+ return function(str){
+  let time = now().match(/T.*:(.*:.*)Z$/).slice(1)[0]
+  ,mes = `${time}=>${str}`
+  rotation(stock,mes,limit);
+  el.innerText =stock[0];
+  el.setAttribute('title',stock.join('\n'));
+ }
+ 
+}
+
