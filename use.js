@@ -202,6 +202,8 @@ fn.mes = (q,limit=15)=>{
   el.innerText =stock[0];
   el.setAttribute('title',stock.join('\n'));
  }
- 
+ //usage:
+ //var mes =fn.mes('#cm');
+ //mes('xyz')
 }
 
