@@ -186,6 +186,24 @@ fn.copy=function(textVal){
   return retVal;
 }
 
+fn.insertAtCaret=function(target, str){
+//if target have textarea or input, to focus and paste the str.
+  let obj = target;
+  obj.focus();
+  if(navigator.userAgent.match(/MSIE/)){
+    let r = document.selection.createRange();
+    r.text = str;
+    r.select();
+  }else{
+    let s = obj.value
+    ,p = obj.selectionStart
+    ,np = p + str.length
+    ;
+    obj.value= (s.substr(0, p) + str + s.substr(p));
+    obj.setSelectionRange(np, np);
+  }
+}
+
 fn.mes = (q,limit=15)=>{
  var el =document.querySelector(q)
  ,now = (time)=>{
