@@ -186,7 +186,7 @@ fn.copy=function(textVal){
   return retVal;
 }
 
-fn.insertAtCaret=function(target, str){
+fn.paste=function(target, str){
 //if target have textarea or input, to focus and paste the str.
   let obj = target;
   obj.focus();
