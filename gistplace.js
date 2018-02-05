@@ -19,7 +19,7 @@
   ;
   return req.get(url).set(info.h)
     .then(res=>res.body)
-    .then((d)=>{return d.filter(d=> ~d.description.indexOf(desc) ).slice(0,1) })
+    .then((d)=>{return d.filter(d=> ~d.description.indexOf(info.desc) ).slice(0,1) }) //bug fix
     .then((d)=>{return (d.length===1)? d[0]: creategist(info) })
     .then((d)=>{  info.id =d.id; info.d=d; return info})
    ;
