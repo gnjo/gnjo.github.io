@@ -60,8 +60,16 @@
     
     o.write= function(f,d){     
      let data={"files": { } }
-      data.files[f] = {"content": d}
+      //data.files[f] = {"content": d}  //multi write
      ;
+     if(Array.isArray(f)){
+       f.forEach((a)=>{ data.files[ a[0] ] ={"content":a[1] } })
+     }else if(f && d){
+      data.files[f] = {"content": d}
+     }else{ 
+      console.log('write param differ') ;return;
+     }
+     ;//multi write
      let info =o.info
      ,url="https://api.github.com/gists/" + info.id
      ;
