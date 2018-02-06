@@ -33,7 +33,7 @@
 
    if( e.isElement(o['e']) ) el=o['e']
    else if( e.isQuery(o['e'])) el =document.querySelector(o['e'])
-   else {el.innerHTML= o['e']; el= el.firstChild;}
+   else {el.innerHTML= o['e'].trim(); el= el.firstChild;} //bug fix. if o['e'] str head be empty, firstChild the textnode. cuz,.trim() 
 
    if(o['copy']) el = e.elcopy(el,o['copy'])
    if(o['on']) Object.keys(o['on']).forEach((k)=>{ el['on'+k ]= o['on'][k] })
