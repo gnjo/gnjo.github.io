@@ -1,12 +1,39 @@
 (function(root){
+ /* 
+https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
+//gnjo.github.io/js-base64/base64.min.js
+//gnjo.github.io/md5.min.js
+ */
  var req =root.superagent
  ,md5 = root.md5
  ,btoa =root.btoa
+ ,JSON =root.JSON
+ ,Base64 =root.Base64
+ ,performance=root.performance
+ ,Date =root.Date
  ,now =function(time){
     if(time) return new Date(time).toISOString().split('.')[0] +'Z';
     else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
    }
+ ,caesar = function(str, amount) {
+    const a= (amount < 0)? amount + 26:amount
+    ,fc=String.fromCharCode
+    ,fn=( d=>((d >= 65) && (d <= 90))?fc(((d - 65 + a) % 26) + 65):fc(((d - 97 + a) % 26) + 97) )
+    ;
+    return str.split('').map( d=>(d.match(/[a-z]/i) )?fn(d.charCodeAt(0)):d ).join('')
+   } 
+ ,crypto =function(obj){
+    return caesar( Base64.encodeURI( JSON.stringify(obj) ) ,21) ;
+    //return str
+   }
+ ,decrypto=function(str){
+    return JSON.parse( Base64.decode( caesar(str,-21) ) );
+    //return obj
+ }
+ ,jsy =function(obj){return JSON.stringify(obj)}
+ ,jps =function(str){return JSON.parse(str)}
  ;
+ 
  function gistauth(info){
    let url="https://api.github.com/authorizations"
    ;
@@ -17,7 +44,8 @@
  function desccheck(info){
   let url=`https://api.github.com/users/${ info.u }/gists`
   ;
-  return req.get(url).set(info.h)
+  return req.get(url).set(info.h)  
+    .query({_:Date.now() +''+performance.now().toString().replace('.','') }) //no-chash
     .then(res=>res.body)
     .then((d)=>{return d.filter(d=> ~d.description.indexOf(info.desc) ).slice(0,1) }) //bug fix
     .then((d)=>{return (d.length===1)? d[0]: creategist(info) })
@@ -46,15 +74,26 @@
    let url="https://api.github.com/gists/" + info.id
    ;
    return req.get(url).set(info.h)
+   .query({_:Date.now() +''+performance.now().toString().replace('.','') }) //no-chash
    .then(res=>res.body)
  }
  
  function modload(info){
   let o={};
+    //util
+    o.caesar=caesar
+    o.crypto=crypto 
+    o.decrypto=decrypto
+    o.jsy=jsy 
+    o.jps=jps
+    //
+    o.caller =function(ev){ /*ev.type,ev.target,ev.data*/ }
+    //
     o.info =info;
     o.files = info.d.files;
     o.data =info.d;
     o.read = function(f){
+     o.caller({type:'read',target:f,data:o.data})//
      return (f in o.files)?o.files[f]:null
     }
     
@@ -75,20 +114,27 @@
      ;
      return req.patch(url).set(info.h).send(data)
       .then(o._update)
+      .then((d)=>{
+        o.caller({type:'write',target:data,data:o.data})   
+      ;return d
+     })
     }
     
     o._update =function(){
       return search(o.info).then((d)=>{ 
-       console.log('update');
        o.data=d; //
-       o.files=d.files; //  
+       o.files=d.files; //
+       o.caller({type:'_update',target:o.files,data:o.data}) //
        return o.files
       })
     }
     o.isSame = function(f,cdata){
-     return (f in o.files)? (md5(o.files[f]) == md5(cdata)) : false;
-    }  
+     let flg = (f in o.files)? (md5(o.files[f]) == md5(cdata)) : false;
+     o.caller({type:'isSame',target:flg,data:o.data}) //
+     return flg;
+    } 
     
+    //.query({_:Date.now() +''+performance.now().toString().replace('.','') }) //no-chash
     //first update be need;
     return o._update().then(()=>o);
  }
@@ -116,21 +162,3 @@
  root.gistplace =entry;///
  
 })(this);
-
-/*
-var g=null
-,u='gnjo'
-,p='XXXXXXX'
-,desc ='testdemo'
-,flg =false
-;
-gistplace(u,p,desc,flg).then((d)=>{
-  g = d;
-  console.log(d);
-  log(g.files)
-  //g.write('xxxx','aiuewo kakikukeko').then((d)=>{
-  // log(g.files)
-  //})
-  
-})
-*/
