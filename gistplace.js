@@ -6,9 +6,9 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  */
  var req =root.superagent
  ,md5 = root.md5
- ,btoa =root.btoa
- ,JSON =root.JSON
+ //,btoa =root.btoa  //multi byte Base64 is good.
  ,Base64 =root.Base64
+ ,JSON =root.JSON 
  ,performance=root.performance
  ,Date =root.Date
  ,now =function(time){
@@ -141,7 +141,8 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  
  function entry(u,p,desc,public=false){
   let h ={
-   'authorization':`Basic ${btoa(u +':' +p)}`
+//   'authorization':`Basic ${btoa(u +':' +p)}`
+   'authorization':`Basic ${Base64.encodeURI(u +':' +p)}`   
    ,'accept':'application/json'
    ,'content-type':'application/json'
   }
