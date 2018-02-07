@@ -1,13 +1,17 @@
 (function(root){
  /* 
 https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
-//gnjo.github.io/js-base64/base64.min.js
+//gnjo.github.io/js-base64/base64.min.js //change _btoa _atob
 //gnjo.github.io/md5.min.js
  */
  var req =root.superagent
  ,md5 = root.md5
- //,btoa =root.btoa  //multi byte Base64 is good.
- ,Base64 =root.Base64
+ ,btoa =root.btoa  
+ ,atob =root.atob 
+ //multi byte _btoa _atob
+ ,_btoa =function(str){return btoa( unescape(encodeURIComponent( str )) )}
+ ,_atob =function(str){return decodeURIComponent( escape(atob( str )) )} 
+ //,Base64 =root.Base64
  ,JSON =root.JSON 
  ,performance=root.performance
  ,Date =root.Date
@@ -23,11 +27,11 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
     return str.split('').map( d=>(d.match(/[a-z]/i) )?fn(d.charCodeAt(0)):d ).join('')
    } 
  ,crypto =function(obj){
-    return caesar( Base64.encodeURI( JSON.stringify(obj) ) ,21) ;
+    return caesar( _btoa( JSON.stringify(obj) ) ,21) ;
     //return str
    }
  ,decrypto=function(str){
-    return JSON.parse( Base64.decode( caesar(str,-21) ) );
+    return JSON.parse( _atob( caesar(str,-21) ) );
     //return obj
  }
  ,jsy =function(obj){return JSON.stringify(obj)}
@@ -141,8 +145,7 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  
  function entry(u,p,desc,public=false){
   let h ={
-//   'authorization':`Basic ${btoa(u +':' +p)}`
-   'authorization':`Basic ${Base64.encodeURI(u +':' +p)}`   
+    'authorization':`Basic ${btoa(u +':' +p)}`
    ,'accept':'application/json'
    ,'content-type':'application/json'
   }
