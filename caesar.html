@@ -1,0 +1,58 @@
+<head>
+<script src="https://gnjo.github.io/js-base64/base64.min.js"></script>
+</head>
+<body>
+<script>
+const caesar = function(str, amount) {
+  const a= (amount < 0)? amount + 26:amount
+  ,fc=String.fromCharCode
+  ,fn=( d=>((d >= 65) && (d <= 90))?fc(((d - 65 + a) % 26) + 65):fc(((d - 97 + a) % 26) + 97) )
+  ;
+  return str.split('').map( d=>(d.match(/[a-z]/i) )?fn(d.charCodeAt(0)):d ).join('')
+}
+;
+ draw();
+;/*html*/
+ function draw(){
+  const sol=(d=>Promise.resolve(d))
+  ,encode=Base64.encodeURI
+  ,decode=Base64.decode      
+  ,fe =(d=>document.createElement(d))
+  ,fa =(d=>document.body.appendChild(d))
+  ,$s =fe('style')
+  ,$t =fe('textarea')
+  ,$c =fe('pre')
+  ,$d =fe('pre')
+  ;
+  [$s,$t,$c,$d].forEach(d=>fa(d))
+  ;
+  $s.innerHTML =`
+  *{box-sizing:border-box}
+  html{width:100vw;height:100vh;overflow:hidden}
+  body{display:flex;flex-direction:column;align-items: center;width:100%;height:100%;margin:0;}
+  body>*{flex-grow:1;height:20vh;width:100%;}
+  body>*{border:2px solid rgba(0,0,0,0.3);padding:0.5rem;margin:0;white-space:pre-line;word-break: break-all;}
+  `
+  ;
+  $t.oninput=on
+  ;
+  function on(ev){
+   const v=ev.target.value
+   ;
+   sol(v).then(calc)
+  }
+  function calc(d){
+   const b64=encode(d)
+   ,magic=21
+   ,de=caesar(b64,magic) 
+   ;
+   $c.innerText=de
+   $d.innerText= decode( caesar(de,-1*magic) )
+   ;
+   return d
+  }
+  
+ } 
+  
+</script>
+</body>
