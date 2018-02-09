@@ -4,14 +4,14 @@
  ,localStorage = root.localStorage
  ,location = root.location
  ;
- var entry = function(){
+ var entry = function(stick){
   let o = {}
   ;
   o.jsy =( (s)=>JSON.stringify(s) );
   o.jps =( (s)=> JSON.parse(s) );
   o.g =( (k)=>localStorage.getItem(k));
   o.s =( (k,v)=>localStorage.setItem(k,v));
-  o.hash = md5(location.origin + location.pathname);
+  o.hash = (stick)?stick:md5(location.origin + location.pathname); //add sticky 
   //o.data = null;
   o.load =(k)=>{return (k)? o.data[k] :o.jps( o.g(o.hash) ) }
   o.save =(k,v)=>{
