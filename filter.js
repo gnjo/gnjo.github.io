@@ -266,7 +266,7 @@ function _mosaic(data,w,h) {
   }
 
  
- //packageing
+ //pack
  var o ={};
 o._nofilter =_nofilter;
 o._grayscale=_grayscale;
