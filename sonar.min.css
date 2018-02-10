@@ -1,5 +1,5 @@
 /*
-sonar.css v1.2 env https://codepen.io/kunigamaeno/pen/mXWGao
+sonar.css v1.3 env https://codepen.io/kunigamaeno/pen/mXWGao
 */
 * {
   box-sizing: border-box;
@@ -73,26 +73,26 @@ th {
   font-weight: normal;
 }
 
-.soner-border {
+.sonar-border {
   border: 1px dashed #59fc84;
 }
 
-.soner-border-r {
+.sonar-border-r {
   border: 0;
   border-right: 1px dashed #59fc84;
 }
 
-.soner-border-l {
+.sonar-border-l {
   border: 0;
   border-left: 1px dashed #59fc84;
 }
 
-.soner-border-t {
+.sonar-border-t {
   border: 0;
   border-top: 1px dashed #59fc84;
 }
 
-.soner-border-b {
+.sonar-border-b {
   border: 0;
   border-bottom: 1px dashed #59fc84;
 }
