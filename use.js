@@ -124,6 +124,7 @@ fn.fragment =function(u,tt='body'){
  })
 };
 
+fn.pad=( (d,l)=>('000000000000000000'+d).slice(-1*l));
 fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
 
  fn.hash =function(str){return str.split('').map(d=> d.charCodeAt(0).toString(16) ).join('')}
