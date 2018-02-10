@@ -1,2 +1,163 @@
-/* sonar.css v1.0 env https://codepen.io/kunigamaeno/pen/mXWGao */
-*,:focus,:hover{background-color:#000}*,.btn,button,input,textarea{font-family:monospace;font-weight:400}a,a:hover{text-decoration:none}*,th{font-weight:400}*{box-sizing:border-box;font-size:14px;color:rgba(89,252,132,.7)}:focus,:hover{color:#59fc84}h1,h2,h3,h4,h5,h6,h7{font-size:1.2rem}.btn,button,input,textarea{font-size:14px;background-color:rgba(89,252,132,.7);color:#000;outline:0;border:0;padding:.25rem .5rem}.btn:focus,.btn:hover,button:focus,button:hover,input:focus,input:hover,textarea:focus,textarea:hover{background-color:#59fc84;color:#000}textarea{height:5rem;width:22rem;opacity:.9}.btn,button{cursor:pointer}hr{border:0;border-top:1px dashed #59fc84}a{border-bottom:1px dashed}a:hover{border-bottom:1px solid}ol{list-style-type:decimal-leading-zero}ul{list-style-type:square}.soner-border{border:1px dashed #59fc84}.soner-border-r{border:0;border-right:1px dashed #59fc84}.soner-border-l{border:0;border-left:1px dashed #59fc84}.soner-border-t{border:0;border-top:1px dashed #59fc84}.soner-border-b{border:0;border-bottom:1px dashed #59fc84}.sonar:before{content:' '}.sonar{display:inline-block;border-radius:50%;width:1px;height:1px;background-color:#59fc84;animation:sonar-effect 1.5s ease-in-out .1s infinite}@keyframes sonar-effect{0%{opacity:.15}40%{opacity:.9;box-shadow:0 0 0 2px #59fc84,0 0 10px 10px #59fc84,0 0 0 10px #59fc84}100%{opacity:.05;transform:scale(1.2);box-shadow:0 0 0 2px #59fc84,0 0 10px 10px #59fc84,0 0 0 10px #59fc84}}::-webkit-scrollbar{overflow:hidden;width:4px;background:#000}::-webkit-scrollbar:horizontal{height:4px}::-webkit-scrollbar-button{display:none}::-webkit-scrollbar-piece{background:rgba(100,100,100,.3)}::-webkit-scrollbar-piece:start{background:rgba(100,100,100,.3)}::-webkit-scrollbar-thumb{background:#222}::-webkit-scrollbar-corner{background:rgba(100,100,100,.3)}
+/*
+sonar.css v1.1 env https://codepen.io/kunigamaeno/pen/mXWGao
+*/
+* {
+  box-sizing: border-box;
+}
+
+* {
+  font-weight: normal;
+  font-size: 14px;
+  background-color: #000000;
+  color: rgba(89, 252, 132, 0.7);
+  font-family: monospace;
+}
+*:focus, *:hover {
+  background-color: #000000;
+  color: #59fc84;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  font-size: 1.2rem;
+}
+
+textarea, input, button, .btn {
+  font-weight: normal;
+  font-size: 14px;
+  background-color: rgba(89, 252, 132, 0.7);
+  color: #000000;
+  font-family: monospace;
+  outline: none;
+  border: 0;
+  padding: 0.25rem 0.5rem;
+}
+textarea:focus, textarea:hover, input:focus, input:hover, button:focus, button:hover, .btn:focus, .btn:hover {
+  background-color: #59fc84;
+  color: #000000;
+}
+
+textarea {
+  min-height: 5rem;
+  min-width: 22rem;
+  opacity: 0.9;
+}
+
+button, .btn {
+  cursor: pointer;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed #59fc84;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px dashed;
+}
+
+a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+ol {
+  list-style-type: decimal-leading-zero;
+}
+
+ul {
+  list-style-type: square;
+}
+
+th {
+  font-weight: normal;
+}
+
+.soner-border {
+  border: 1px dashed #59fc84;
+}
+
+.soner-border-r {
+  border: 0;
+  border-right: 1px dashed #59fc84;
+}
+
+.soner-border-l {
+  border: 0;
+  border-left: 1px dashed #59fc84;
+}
+
+.soner-border-t {
+  border: 0;
+  border-top: 1px dashed #59fc84;
+}
+
+.soner-border-b {
+  border: 0;
+  border-bottom: 1px dashed #59fc84;
+}
+
+/*<div><span class="sonar"></span></div><!--if overwraped, use block the div-->
+thx good sample, https://codepen.io/tieppt/pen/vKJNaE
+*/
+.paused {
+  animation-play-state: paused !important;
+}
+
+.sonar:before {
+  content: ' ';
+}
+
+.sonar {
+  display: inline-block;
+  border-radius: 50%;
+  width: 1px;
+  height: 1px;
+  background-color: #59fc84;
+  animation: sonar-effect 1.5s ease-in-out .1s infinite;
+}
+
+@keyframes sonar-effect {
+  0% {
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 0.9;
+    box-shadow: 0 0 0 2px #59fc84, 0 0 10px 10px #59fc84, 0 0 0 10px #59fc84;
+  }
+  100% {
+    opacity: 0.05;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 2px #59fc84, 0 0 10px 10px #59fc84, 0 0 0 10px #59fc84;
+  }
+}
+/*chrome scroll*/
+::-webkit-scrollbar {
+  overflow: hidden;
+  width: 4px;
+  background: #000000;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 4px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-piece {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+::-webkit-scrollbar-piece:start {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(100, 100, 100, 0.3);
+}
