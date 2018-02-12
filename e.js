@@ -4,10 +4,10 @@
  
   let e={}
   ;
+  e.isProp =function(o,p){for(const a in o){if(p === a) return true};return false};
+  e.isAttr=function(o,a){return e.isElement(o)?o.hasAttribute(a):false}
   e.isElement = function(obj){return !!(obj && obj.nodeType === 1)}
-  e.isQuery =function(obj){
-    return !( /^</.test(obj.trim()) )
-}
+  e.isQuery =function(obj){return !( /^</.test(obj.trim()) )}
   e.elcopy=function(el,flg=true){
   let obj={}
   ;
@@ -17,26 +17,53 @@
   ;///
   e._ ={};
   e.copy =function(obj){e._['copy'] =obj;return this;}
-  e.on =function(obj){e._['on'] =obj;return this;}
-  e.attr =function(obj){e._['attr'] =obj;return this;}
-  e.data =function(obj){e._['data'] =obj;return this;}
+  e.on =function(obj){e._['on'] =Object.assign({},e._['on'],obj);return this;}
+  e.attr =function(obj){e._['attr'] =Object.assign({},e._['attr'],obj);return this;}
+  e.data =function(obj){e._['data'] =Object.assign({},e._['data'],obj);return this;}
+  
+  e.set=function(obj){
+   let attr={},prop={},el =document.createElement('table');
+   Object.keys(obj).forEach((key)=>{
+     if(e.isProp(el,key)) prop[key]=obj[key];
+     else attr[key]=obj[key];
+   });
+   e._['prop'] =Object.assign({},e._['prop'],prop);
+   e._['attr'] =Object.assign({},e._['attr'],attr);
+   return this
+  }
+  e.get=function(obj){
+    let el=e.ce();
+    if(obj){return e.isProp(el,obj)? el[obj]: el.getAttribute(obj)}
+    else{
+     let da={};
+     for(const a in el) if( e.isAttr(el,a) ) da[a] =el.getAttribute(a);
+     return da;
+    }
+  }
   e.appendTo =function(obj){e._['appendTo'] =obj;return this;}
   e.prependTo =function(obj){e._['prependTo'] =obj;return this;}
   e.siblTo =function(obj){e._['siblTo'] =obj;return this;}
   e.presiblTo =function(obj){e._['presiblTo'] =obj;return this;}
   e.effect =function(obj){e._['effect'] =obj;return this;}
-  e.end=function(log){
-   if(log) console.log(log);
-   let o = this._
-   ,el = document.createElement('table')
-   ;
-
+  e.ce=function(){
+   let o= this._
+   ,el=document.createElement('table');
    if( e.isElement(o['e']) ) el=o['e']
    else if( e.isQuery(o['e'])) el =document.querySelector(o['e'])
    else {el.innerHTML= o['e'].trim(); el= el.firstChild;} //bug fix. if o['e'] str head be empty, firstChild the textnode. cuz,.trim() 
+   return el;   
+  }
+  e.end=function(log){
+   //console.log(e._)
+   if(log) console.log(log);
+   let o = this._
+   ,el = e.ce();
+   ;
 
    if(o['copy']) el = e.elcopy(el,o['copy'])
-   if(o['on']) Object.keys(o['on']).forEach((k)=>{ el['on'+k ]= o['on'][k] })
+   if(o['on']) Object.keys(o['on']).forEach((k)=>{ el['on'+k ]= o['on'][k]})
+   if(o['prop']) Object.keys(o['prop']).forEach((k)=>{ el[k]= o['prop'][k]}) //
+   
    if(o['attr']) Object.keys(o['attr']).forEach((k)=>{ el.setAttribute(k,o['attr'][k]) })
    if(o['data']) Object.keys(o['data']).forEach((k)=>{ el.setAttribute('data-'+k,o['data'][k]) })
    //
