@@ -1,5 +1,5 @@
 /*
-sonar.css v1.4 env https://codepen.io/kunigamaeno/pen/mXWGao
+sonar.css v1.5 env https://codepen.io/kunigamaeno/pen/mXWGao
 */
 @import url("https://gnjo.github.io/digital.font.css");
 * {
@@ -52,6 +52,8 @@ textarea {
 
 button, .btn {
   cursor: pointer;
+  display: inline-block;
+  /*label need*/
 }
 
 i, button, .btn {
