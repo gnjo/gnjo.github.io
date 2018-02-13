@@ -64,7 +64,10 @@
    if(o['on']) Object.keys(o['on']).forEach((k)=>{ el['on'+k ]= o['on'][k]})
    if(o['prop']) Object.keys(o['prop']).forEach((k)=>{ el[k]= o['prop'][k]}) //
    
-   if(o['attr']) Object.keys(o['attr']).forEach((k)=>{ el.setAttribute(k,o['attr'][k]) })
+   if(o['attr']) Object.keys(o['attr']).forEach((k)=>{ 
+    if(k ==='value') el[k] = o['attr'][k];//bug fix value to prop
+    else el.setAttribute(k,o['attr'][k]);
+   })
    if(o['data']) Object.keys(o['data']).forEach((k)=>{ el.setAttribute('data-'+k,o['data'][k]) })
    //
    if(o['effect']){
