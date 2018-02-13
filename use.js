@@ -144,7 +144,9 @@ fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
 }
 
 
-fn.now =function(time){
+ fn.now =function(time){
+ /*add local time jp*/	 
+ if(time=='jp'||time=='jpn') return new Date( Date.now()+ 1000*60*60*9  ).toISOString().split('.')[0] +'Z'
  if(time) return new Date(time).toISOString().split('.')[0] +'Z';
  else return new Date( Date.now() ).toISOString().split('.')[0] +'Z';
 }
