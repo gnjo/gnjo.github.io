@@ -33,10 +33,14 @@
   }
   e.get=function(obj){
     let el=e.ce();
+    if(obj==='value'){return el[obj]} //bug fix value
     if(obj){return e.isProp(el,obj)? el[obj]: el.getAttribute(obj)}
     else{
      let da={};
-     for(const a in el) if( e.isAttr(el,a) || a==='value') da[a] =el.getAttribute(a); //bug fix value
+     for(const a in el){
+      if( e.isAttr(el,a)) da[a] =el.getAttribute(a); 
+      else if(a==='value') da[a] =el[a];//bug fix value
+     }
      return da;
     }
   }
