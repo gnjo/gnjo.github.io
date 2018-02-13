@@ -36,7 +36,7 @@
     if(obj){return e.isProp(el,obj)? el[obj]: el.getAttribute(obj)}
     else{
      let da={};
-     for(const a in el) if( e.isAttr(el,a) ) da[a] =el.getAttribute(a);
+     for(const a in el) if( e.isAttr(el,a) || a==='value') da[a] =el.getAttribute(a); //bug fix value
      return da;
     }
   }
