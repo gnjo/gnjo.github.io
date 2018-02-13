@@ -160,7 +160,7 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
   return gistauth(info)
    .then(desccheck)
    .then(modload)
-   .catch((d)=>null)
+   .catch((d)=>Promise.reject(null) ) //bug fix 
   }
  
  root.gistplace =entry;///
