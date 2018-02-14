@@ -1,7 +1,12 @@
 /*
-sonar.css v1.5 env https://codepen.io/kunigamaeno/pen/mXWGao
+sonar.css v1.6 env https://codepen.io/kunigamaeno/pen/mXWGao
 */
-@import url("https://gnjo.github.io/digital.font.css");
+/*@import url("https://gnjo.github.io/digital.font.css");*/
+@font-face {
+  font-family: 'digital';
+  src: url("https://gnjo.github.io/04b_08__-webfont.eot");
+  src: url("https://gnjo.github.io//04b_08__-webfont.eot?#iefix") format("embedded-opentype"), url("https://gnjo.github.io//04b_08__-webfont.woff2") format("woff2"), url("https://gnjo.github.io//04b_08__-webfont.woff") format("woff"), url("https://gnjo.github.io//04b_08__-webfont.ttf") format("truetype");
+}
 * {
   box-sizing: border-box;
 }
@@ -27,7 +32,7 @@ h1:focus, h1:hover, h2:focus, h2:hover, h3:focus, h3:hover, h4:focus, h4:hover, 
   color: #59fc84;
 }
 
-textarea, input, button, .btn {
+textarea, input, button, .btn, .mini-btn {
   font-weight: normal;
   font-size: 16px;
   background-color: rgba(89, 252, 132, 0.7);
@@ -39,9 +44,15 @@ textarea, input, button, .btn {
   line-height: 18px;
   vertical-align: text-bottom;
 }
-textarea:focus, textarea:hover, input:focus, input:hover, button:focus, button:hover, .btn:focus, .btn:hover {
+textarea:focus, textarea:hover, input:focus, input:hover, button:focus, button:hover, .btn:focus, .btn:hover, .mini-btn:focus, .mini-btn:hover {
   background-color: #59fc84;
   color: #000000;
+}
+
+.mini-btn {
+  padding: 0px 4px;
+  line-height: 16px;
+  /*add mini-btn*/
 }
 
 textarea {
@@ -50,13 +61,13 @@ textarea {
   opacity: 0.9;
 }
 
-button, .btn {
+button, .btn, .mini-btn {
   cursor: pointer;
   display: inline-block;
   /*label need*/
 }
 
-i, button, .btn {
+i, button, .btn, .mini-btn {
   font-family: digital, monospace;
 }
 
