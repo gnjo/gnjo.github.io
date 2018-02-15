@@ -12,7 +12,13 @@
  display:inline-block;
  cursor:pointer;
 }
-
+nav.c.cc{
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
 nav.c.rb{
  /*justify-content:flex-end;width:100%;*/
  right:0;bottom:0;z-index:3;
