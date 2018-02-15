@@ -8,13 +8,13 @@
 }
 .minibtn-p>nav.c>*{z-index:1}
 .minibtn-p>nav.c>*:hover{
- background-color:brown;
+ /*background-color:brown;*/
  display:inline-block;
  cursor:pointer;
 }
 
 nav.c.rb{
- //justify-content:flex-end;width:100%;
+ /*justify-content:flex-end;width:100%;*/
  right:0;bottom:0;z-index:3;
 }
 nav.c.rt{
