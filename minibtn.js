@@ -1,4 +1,5 @@
 (function(root){
+ /*v1.1 add element*/
  /* needs
  https://gnjo.github.io/e.js 
  https://gnjo.github.io/minibtn.css  
