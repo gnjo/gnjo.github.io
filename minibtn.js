@@ -1,5 +1,5 @@
 (function(root){
- /*v1.1 add element*/
+ /*v1.1 add element; v1.2 add cc*/
  /* needs
  https://gnjo.github.io/e.js 
  https://gnjo.github.io/minibtn.css  
@@ -24,7 +24,7 @@
   let o={};
   o._={};
   o._['target'] = target;
-  ;['rb','rt','lt','lb','ct','cb','cr','cl'].forEach((d)=>{
+  ;['rb','rt','lt','lb','ct','cb','cr','cl','cc'].forEach((d)=>{ /*add cc*/
    o._[d]=[];
    o[d]=(obj)=>{o._[d].push(obj);return o}
   })
