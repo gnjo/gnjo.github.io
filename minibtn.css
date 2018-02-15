@@ -1,0 +1,48 @@
+.minibtn-p{
+ position:relative;
+}
+.minibtn-p>nav.c{
+ position:absolute;
+ display:flex;
+ z-index:-1;
+}
+.minibtn-p>nav.c>*{z-index:1}
+.minibtn-p>nav.c>*:hover{
+ background-color:brown;
+ display:inline-block;
+ cursor:pointer;
+}
+
+nav.c.rb{
+ //justify-content:flex-end;width:100%;
+ right:0;bottom:0;z-index:3;
+}
+nav.c.rt{
+ right:0;top:0;z-index:3; 
+}
+nav.c.lt{
+ left:0;top:0;z-index:3;
+}
+nav.c.lb{ 
+ left:0;bottom:0;z-index:3;
+}
+nav.c.ct{
+ justify-content:center;
+ flex-direction:row;
+ top:0;width:100%;z-index:1;
+}
+nav.c.cb{
+ justify-content:center;
+ flex-direction:row;
+ bottom:0;width:100%;z-index:1; 
+}
+nav.c.cr{
+ justify-content:center;
+ flex-direction:column; 
+ right:0;height:100%;z-index:1;
+}
+nav.c.cl{
+ justify-content:center;
+ flex-direction:column; 
+ left:0;height:100%;z-index:1; 
+}
