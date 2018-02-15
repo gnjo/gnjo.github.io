@@ -16,7 +16,9 @@
  
  */
  'use strict'
- let e=root.e;
+ let e=root.e
+ ,isElement = function(obj){return !!(obj && obj.nodeType === 1)}
+ ;
  function entry(target){
   let o={};
   o._={};
@@ -29,7 +31,11 @@
   o._f=(tar,pos,ary)=>{
    let c =['c',pos]
    ,nav =tar.querySelector(c.join('.')) || e('<nav></nav>').set({class:c.join(' ')}).appendTo(tar).end();
-   ary.forEach((d)=>{e('<label></label>').set(d).appendTo(nav).end()})
+   ary.forEach((d)=>{
+    /*add element*/
+    if(isElement(d)) e(d).appendTo(nav).end()
+    else e('<label></label>').set(d).appendTo(nav).end()
+   })
   }
   
   o.end=(log)=>{
