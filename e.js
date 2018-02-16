@@ -8,6 +8,7 @@
   e.isAttr=function(o,a){return e.isElement(o)?o.hasAttribute(a):false}
   e.isElement = function(obj){return !!(obj && obj.nodeType === 1)}
   e.isQuery =function(obj){return !( /^</.test(obj.trim()) )}
+  e.isDocumentFragment=function(obj){return obj.toString() ==='[object DocumentFragment]' } /*if target document fragment*/
   e.elcopy=function(el,flg=true){
   let obj={}
   ;
@@ -83,7 +84,7 @@
    } 
    //
    ;
-   let tar =(obj)=>{return ( e.isElement(obj) )?obj:document.querySelector(obj)}
+   let tar =(obj)=>{return ( e.isElement(obj) || e.isDocumentFragment(obj) )?obj:document.querySelector(obj)} //fragment
    ,fr=(elm)=>{let f=document.createDocumentFragment();f.appendChild(elm);return f}
    ;
    if(o['appendTo']){
