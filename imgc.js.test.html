@@ -41,9 +41,16 @@ fn.ce=(d=>document.createElement(d))
 
  function caller(e){
   imgc(e.target.result)
+  /*
    .fit({w:200,h:150,fa:2})
    .filter('grayscale')
    .filter('_median')
+  */
+   .fit({w:300,h:200,fa:2})
+   .filter('grayscale')
+   .filter('_median')
+   .filter('sharpen')
+  
    .then((src)=>{
      let el = fn.ce('img');
      el.src =src;
