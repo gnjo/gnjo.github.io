@@ -47,47 +47,6 @@ body{width:100vw;height:100vh;}
      
     }   
 
-/*
-function toCanvas2(url){return new Promise((sol)=>{ 
-  let img =new Image()
-  ,caller =function(){
-    let canvas = document.createElement('canvas')
-    ,context = canvas.getContext('2d')
-    ,s = fits(img.width,img.height,300,200)
-    ;
-    canvas.width = s.tw;
-    canvas.height = s.th;
-    context.drawImage(img, s.clipX, s.clipY, s.clipW, s.clipH, 0, 0, s.tw, s.th);
-    
-    let srcData = context.getImageData(0,0,s.tw,s.th);
-     //filters
-      filter._grayscale(srcData.data,s.tw,s.th);
-      filter._median(srcData.data,s.tw,s.th);    
-      context.putImageData(srcData,0,0);
-      sol( canvas.toDataURL() ) //
-    }
-  ;
-  
-    img.onload =caller;
-    img.src=url;   
-  })
-}
-
-var fits=(ow,oh,tw,th,fa=1)=>{
-    // calc scale and calc clip
-    let scale = (ow/oh > tw/th)? th/oh :tw/ow
-    ,faceupRate =fa
-    ,clipW = tw / scale
-    ,clipH = th / scale
-    ,clipX = (ow - clipW) / 2
-    ,clipY = (oh - clipH) / (2*faceupRate)
-    ;
-    
-    return {clipX:clipX, clipY:clipY, clipW:clipW, clipH:clipH, tw:tw, th:th }
-   //context.drawImage(img, s.clipX, s.clipY, s.clipW, s.clipH, 0, 0, s.tw, s.th);
-}
-*/
-
   function handleDragOver(evt) {
     evt.stopPropagation();
     evt.preventDefault();
