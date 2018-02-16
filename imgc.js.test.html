@@ -1,0 +1,104 @@
+<head></head>
+<body>
+<script src="//gnjo.github.io/use.js"></script>
+<script src="//gnjo.github.io/filter.js"></script>
+<script src="//gnjo.github.io/md5.min.js"></script>
+
+<div id="upload" class="white-layer">
+ <section id="list"></section>
+</div> 
+
+<style>
+body{width:100vw;height:100vh;}
+#upload{width:100%; height:100%;}
+/*.thumb{height:300px;}*/
+#list{display:flex;flex-direction:row;flex-wrap:wrap;}
+</style>
+<script>
+  function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+   
+   //both ondrop and input type=file
+   var files = evt.target.files||evt.dataTransfer.files;
+
+    // Loop through the FileList and render image files as thumbnails.
+    ;[].slice.call(files).filter(f=>f.type.match('image.*')).map((f)=>{ 
+      // Only process image files.
+      let reader = new FileReader()
+      ,caller = function(e) {
+          imgc(e.target.result).fit({w:200,h:150,fa:2})
+           .filter('grayscale')
+           .filter('_median')
+           //.filter('_blur')       
+          /*toCanvas2(e.target.result)*/.then((d)=>{
+           let name = f.name
+           ,src = d
+           ,el = fn.fr(`<img class="thumb cf" src="${src}" title="${name}"></img>`)
+           ;
+            //console.log(name, md5(src))
+            fn.g('list').appendChild( el);
+          })
+        }
+      ;
+      reader.onloadend=caller;
+      reader.readAsDataURL(f);
+     });
+     
+    }   
+
+/*
+function toCanvas2(url){return new Promise((sol)=>{ 
+  let img =new Image()
+  ,caller =function(){
+    let canvas = document.createElement('canvas')
+    ,context = canvas.getContext('2d')
+    ,s = fits(img.width,img.height,300,200)
+    ;
+    canvas.width = s.tw;
+    canvas.height = s.th;
+    context.drawImage(img, s.clipX, s.clipY, s.clipW, s.clipH, 0, 0, s.tw, s.th);
+    
+    let srcData = context.getImageData(0,0,s.tw,s.th);
+     //filters
+      filter._grayscale(srcData.data,s.tw,s.th);
+      filter._median(srcData.data,s.tw,s.th);    
+      context.putImageData(srcData,0,0);
+      sol( canvas.toDataURL() ) //
+    }
+  ;
+  
+    img.onload =caller;
+    img.src=url;   
+  })
+}
+
+var fits=(ow,oh,tw,th,fa=1)=>{
+    // calc scale and calc clip
+    let scale = (ow/oh > tw/th)? th/oh :tw/ow
+    ,faceupRate =fa
+    ,clipW = tw / scale
+    ,clipH = th / scale
+    ,clipX = (ow - clipW) / 2
+    ,clipY = (oh - clipH) / (2*faceupRate)
+    ;
+    
+    return {clipX:clipX, clipY:clipY, clipW:clipW, clipH:clipH, tw:tw, th:th }
+   //context.drawImage(img, s.clipX, s.clipY, s.clipW, s.clipH, 0, 0, s.tw, s.th);
+}
+*/
+
+  function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+   evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+
+  var dz=fn.g('upload');
+  dz.ondragover =handleDragOver;
+  dz.ondrop=handleFileSelect;
+
+</script>
+
+</body>
