@@ -1,5 +1,5 @@
 (function(root){
- 
+ /*v1.5 fragment*/
  var entry =function(obj){
  
   let e={}
@@ -53,7 +53,7 @@
   e.ce=function(){
    let o= this._
    ,el=document.createElement('table');
-   if( e.isElement(o['e']) ) el=o['e']
+   if( e.isElement(o['e']) || e.isDocumentFragment(obj) ) el=o['e']  //fragment
    else if( e.isQuery(o['e'])) el =document.querySelector(o['e'])
    else {el.innerHTML= o['e'].trim(); el= el.firstChild;} //bug fix. if o['e'] str head be empty, firstChild the textnode. cuz,.trim() 
    return el;   
