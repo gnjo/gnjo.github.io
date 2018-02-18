@@ -1,5 +1,5 @@
 (function(root){
- /*v1.1 add element; v1.2 add cc*/
+ /*v1.1 add element; v1.2 add cc; v1.3 query bug fix*/
  /* needs
  https://gnjo.github.io/e.js 
  https://gnjo.github.io/minibtn.css  
