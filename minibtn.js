@@ -30,8 +30,9 @@
   })
   ;
   o._f=(tar,pos,ary)=>{
-   let c =['c',pos]
-   ,nav =tar.querySelector(c.join('.')) || e('<nav></nav>').set({class:c.join(' ')}).appendTo(tar).end();
+   let cls =' c '+pos
+   ,query ='.c.'+pos
+   ,nav =tar.querySelector(query) || e('<nav></nav>').set({class:cls}).appendTo(tar).end(); //bug fix cls query
    ary.forEach((d)=>{
     /*add element*/
     if(isElement(d)) e(d).appendTo(nav).end()
