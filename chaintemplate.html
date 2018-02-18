@@ -1,0 +1,68 @@
+<head></head>
+<body>
+<button>chain template copy</button>
+<pre></pre>
+<script>
+(function(root){
+  'use strict'
+  /*lent*/
+  let document=root.document
+  ,Object =root.Object
+  ,Promise =root.Promise
+  ,console =root.console
+  ;
+  function entry(target){
+    let o={};
+    /*gather*/
+    o._={};
+    o._['target']=target;
+    o._['a']=[];
+    o._['oa']={}
+    o.a=(obj)=>{o._['a'].push(obj);return o}
+    o.oa=(obj)=>{Object.assign(o._['oa'],obj);return o}
+    /*main*/
+    o._done=()=>{
+      
+      return {test:'test'};
+    }    
+    /*emit*/
+    o.end=(log)=>{
+      if(log) console.log(log);
+      return o._done();
+    }
+    o.then=(caller)=>{return new Promise((sol)=>{
+      let ret =o._done();
+      sol(caller(ret))
+     })      
+    }
+    return o;
+  }
+  root.modname=entry;
+})(this);
+
+//boundary
+let log=(d)=>{console.log(d);return d}
+let pre=document.querySelector('pre');
+let s=[].slice.call(document.querySelectorAll('script'))
+ .filter(d=>~d.textContent.indexOf('(function(root){'))
+ .map(d=>d.textContent)
+ .join('')
+;
+s=s.split("//boundary").slice(0,1).join('');
+pre.innerHTML=s;
+
+let copy=function(textVal){
+  var copyFrom = document.createElement("textarea");
+  copyFrom.textContent = textVal;
+  var bodyElm = document.getElementsByTagName("body")[0];
+  bodyElm.appendChild(copyFrom);
+  copyFrom.select();
+  var retVal = document.execCommand('copy');
+  bodyElm.removeChild(copyFrom);
+  return retVal;
+}
+,button=document.querySelector('button')
+;
+button.onclick=function(ev){copy(pre.textContent.trim())}  
+</script>
+</body>  
