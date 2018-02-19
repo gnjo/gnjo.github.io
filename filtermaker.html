@@ -1,0 +1,55 @@
+<head></head>
+<body>
+<link rel="stylesheet" href="//gnjo.github.io/monocc.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
+<style>
+input{width:22rem}  
+</style>
+<div>
+ <p>filter maker</p> 
+ <label>class <label><input id="c"></input>
+ <label>filter <label><input id="f"></input>
+</div>   
+<textarea>  
+</textarea>
+<pre>
+/*pattern
+brightness(35%);
+brightness(260%);
+invert(100%);
+sepia(100%);
+grayscale(100%);
+opacity(20%);
+blur(5px);
+hue-rotate(100deg);
+contrast(300%);
+*/
+/* mix
+brightness(85%) blur(5px) contrast(300%) grayscale(100%);
+*/  
+</pre>
+<script>
+document.body.classList.add('monocc');
+let ret=document.querySelector('textarea')
+,c=document.querySelector('#c')
+,f=document.querySelector('#f')
+;
+c.value ='if-dark';
+f.value='brightness(40%)'
+let ff=function(ary){
+  let cls=ary[0].slice(1),filter=ary[1];
+return `img.${cls},canvas.${cls}{filter:${filter}}
+.${cls}:not(img):not(canvas){z-index:0;position:relative}
+.${cls}:not(img):not(canvas):before{z-index:-1;background:inherit;filter:${filter};
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}`
+}
+
+f.oninput=_.debounce(function(ev){
+   let cls =c.value,filter=f.value.replace(';','')
+   ;
+   cls = (cls.charAt(0) !='.')? '.'+cls:cls;
+   ret.value = ff([cls,filter])
+},400)  
+</script>
+</body>
