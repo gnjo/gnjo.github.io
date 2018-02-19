@@ -1,0 +1,275 @@
+img.if-night,canvas.if-night{filter: brightness(35%)}
+.if-night:not(img):not(canvas){z-index:0;position:relative}
+.if-night:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark,canvas.if-dark{filter: brightness(20%)}
+.if-dark:not(img):not(canvas){z-index:0;position:relative}
+.if-dark:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash,canvas.if-flash{filter: brightness(260%)}
+.if-flash:not(img):not(canvas){z-index:0;position:relative}
+.if-flash:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock,canvas.if-shock{filter: invert(100%)}
+.if-shock:not(img):not(canvas){z-index:0;position:relative}
+.if-shock:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past,canvas.if-past{filter: sepia(100%)}
+.if-past:not(img):not(canvas){z-index:0;position:relative}
+.if-past:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-portrait,canvas.if-portrait{filter: grayscale(100%)}
+.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-wraith,canvas.if-wraith{filter: opacity(20%)}
+.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-smoke,canvas.if-smoke{filter: blur(5px)}
+.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-poison,canvas.if-poison{filter: hue-rotate(100deg)}
+.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-hard,canvas.if-hard{filter: contrast(300%)}
+.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-dark,canvas.if-night.if-dark{filter: brightness(35%) brightness(20%)}
+.if-night.if-dark:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-dark:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) brightness(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-flash,canvas.if-night.if-flash{filter: brightness(35%) brightness(260%)}
+.if-night.if-flash:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-flash:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) brightness(260%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-shock,canvas.if-night.if-shock{filter: brightness(35%) invert(100%)}
+.if-night.if-shock:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-shock:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) invert(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-past,canvas.if-night.if-past{filter: brightness(35%) sepia(100%)}
+.if-night.if-past:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-past:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) sepia(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-portrait,canvas.if-night.if-portrait{filter: brightness(35%) grayscale(100%)}
+.if-night.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-wraith,canvas.if-night.if-wraith{filter: brightness(35%) opacity(20%)}
+.if-night.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-smoke,canvas.if-night.if-smoke{filter: brightness(35%) blur(5px)}
+.if-night.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-poison,canvas.if-night.if-poison{filter: brightness(35%) hue-rotate(100deg)}
+.if-night.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-night.if-hard,canvas.if-night.if-hard{filter: brightness(35%) contrast(300%)}
+.if-night.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-night.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(35%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-flash,canvas.if-dark.if-flash{filter: brightness(20%) brightness(260%)}
+.if-dark.if-flash:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-flash:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) brightness(260%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-shock,canvas.if-dark.if-shock{filter: brightness(20%) invert(100%)}
+.if-dark.if-shock:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-shock:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) invert(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-past,canvas.if-dark.if-past{filter: brightness(20%) sepia(100%)}
+.if-dark.if-past:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-past:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) sepia(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-portrait,canvas.if-dark.if-portrait{filter: brightness(20%) grayscale(100%)}
+.if-dark.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-wraith,canvas.if-dark.if-wraith{filter: brightness(20%) opacity(20%)}
+.if-dark.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-smoke,canvas.if-dark.if-smoke{filter: brightness(20%) blur(5px)}
+.if-dark.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-poison,canvas.if-dark.if-poison{filter: brightness(20%) hue-rotate(100deg)}
+.if-dark.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-dark.if-hard,canvas.if-dark.if-hard{filter: brightness(20%) contrast(300%)}
+.if-dark.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-dark.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(20%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-shock,canvas.if-flash.if-shock{filter: brightness(260%) invert(100%)}
+.if-flash.if-shock:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-shock:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) invert(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-past,canvas.if-flash.if-past{filter: brightness(260%) sepia(100%)}
+.if-flash.if-past:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-past:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) sepia(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-portrait,canvas.if-flash.if-portrait{filter: brightness(260%) grayscale(100%)}
+.if-flash.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-wraith,canvas.if-flash.if-wraith{filter: brightness(260%) opacity(20%)}
+.if-flash.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-smoke,canvas.if-flash.if-smoke{filter: brightness(260%) blur(5px)}
+.if-flash.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-poison,canvas.if-flash.if-poison{filter: brightness(260%) hue-rotate(100deg)}
+.if-flash.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-flash.if-hard,canvas.if-flash.if-hard{filter: brightness(260%) contrast(300%)}
+.if-flash.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-flash.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: brightness(260%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-past,canvas.if-shock.if-past{filter: invert(100%) sepia(100%)}
+.if-shock.if-past:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-past:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) sepia(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-portrait,canvas.if-shock.if-portrait{filter: invert(100%) grayscale(100%)}
+.if-shock.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-wraith,canvas.if-shock.if-wraith{filter: invert(100%) opacity(20%)}
+.if-shock.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-smoke,canvas.if-shock.if-smoke{filter: invert(100%) blur(5px)}
+.if-shock.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-poison,canvas.if-shock.if-poison{filter: invert(100%) hue-rotate(100deg)}
+.if-shock.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-shock.if-hard,canvas.if-shock.if-hard{filter: invert(100%) contrast(300%)}
+.if-shock.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-shock.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: invert(100%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past.if-portrait,canvas.if-past.if-portrait{filter: sepia(100%) grayscale(100%)}
+.if-past.if-portrait:not(img):not(canvas){z-index:0;position:relative}
+.if-past.if-portrait:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%) grayscale(100%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past.if-wraith,canvas.if-past.if-wraith{filter: sepia(100%) opacity(20%)}
+.if-past.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-past.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past.if-smoke,canvas.if-past.if-smoke{filter: sepia(100%) blur(5px)}
+.if-past.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-past.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past.if-poison,canvas.if-past.if-poison{filter: sepia(100%) hue-rotate(100deg)}
+.if-past.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-past.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-past.if-hard,canvas.if-past.if-hard{filter: sepia(100%) contrast(300%)}
+.if-past.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-past.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: sepia(100%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-portrait.if-wraith,canvas.if-portrait.if-wraith{filter: grayscale(100%) opacity(20%)}
+.if-portrait.if-wraith:not(img):not(canvas){z-index:0;position:relative}
+.if-portrait.if-wraith:not(img):not(canvas):before{z-index:-1;background:inherit;filter: grayscale(100%) opacity(20%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-portrait.if-smoke,canvas.if-portrait.if-smoke{filter: grayscale(100%) blur(5px)}
+.if-portrait.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-portrait.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: grayscale(100%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-portrait.if-poison,canvas.if-portrait.if-poison{filter: grayscale(100%) hue-rotate(100deg)}
+.if-portrait.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-portrait.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: grayscale(100%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-portrait.if-hard,canvas.if-portrait.if-hard{filter: grayscale(100%) contrast(300%)}
+.if-portrait.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-portrait.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: grayscale(100%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-wraith.if-smoke,canvas.if-wraith.if-smoke{filter: opacity(20%) blur(5px)}
+.if-wraith.if-smoke:not(img):not(canvas){z-index:0;position:relative}
+.if-wraith.if-smoke:not(img):not(canvas):before{z-index:-1;background:inherit;filter: opacity(20%) blur(5px);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-wraith.if-poison,canvas.if-wraith.if-poison{filter: opacity(20%) hue-rotate(100deg)}
+.if-wraith.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-wraith.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: opacity(20%) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-wraith.if-hard,canvas.if-wraith.if-hard{filter: opacity(20%) contrast(300%)}
+.if-wraith.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-wraith.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: opacity(20%) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-smoke.if-poison,canvas.if-smoke.if-poison{filter: blur(5px) hue-rotate(100deg)}
+.if-smoke.if-poison:not(img):not(canvas){z-index:0;position:relative}
+.if-smoke.if-poison:not(img):not(canvas):before{z-index:-1;background:inherit;filter: blur(5px) hue-rotate(100deg);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-smoke.if-hard,canvas.if-smoke.if-hard{filter: blur(5px) contrast(300%)}
+.if-smoke.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-smoke.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: blur(5px) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
+img.if-poison.if-hard,canvas.if-poison.if-hard{filter: hue-rotate(100deg) contrast(300%)}
+.if-poison.if-hard:not(img):not(canvas){z-index:0;position:relative}
+.if-poison.if-hard:not(img):not(canvas):before{z-index:-1;background:inherit;filter: hue-rotate(100deg) contrast(300%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;}
