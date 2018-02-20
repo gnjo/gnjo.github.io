@@ -46,7 +46,8 @@ return `img.${cls},canvas.${cls}{filter:${filter}}
 .${cls}:not(img):not(canvas){z-index:0;position:relative}
 .${cls}:not(img):not(canvas):before{z-index:-1;background:inherit;filter:${filter};
 content:' ';position:absolute;width:100%;height:100%;
-overflow:hidden;}`
+overflow:hidden;left:0;top:0}`
+/*left:0;top:0; if padding need it*/
 }
 let af=document.querySelector('#af')
 ,afs=document.querySelector('#afs');
