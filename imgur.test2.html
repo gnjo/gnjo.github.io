@@ -1,0 +1,121 @@
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js"></script>
+<style>
+[data-cid]{
+  min-width:50vw;
+  min-height:50vh;
+  background-color:aliceblue;
+}
+</style>
+</head>
+<body>
+<div data-cid="61b7fa74eadb938"></div>
+
+
+<script>
+(function(root){
+let req=root.superagent
+,FormData=root.FormData
+,fn=root.fn||{}
+;
+fn.ce=(d=>document.createElement(d))
+fn.q=(d=>document.querySelector(d))
+fn.toBlob =function(base64) {
+     let ma = /^data:(.*);base64,(.*)$/
+     ;
+     if(!ma.test(base64)){ console.log('error base64 data'); return null}
+
+     let ary = base64.match(ma)  //[0] base64, [1] type, [2] body
+     ,type = ary[1]
+     ,bin = atob(ary[2])
+     ,buffer = new Uint8Array(bin.length).map( (d,i)=>{return bin.charCodeAt(i)})
+     ,blob = new Blob([buffer.buffer], {type: type})
+     ;
+     return blob;
+ }
+;
+fn.imup=function(cid,base64){
+  //base64 is data:image/jpeg...,....
+  let blob = fn.toBlob(base64)
+  ,c =cid
+  ,formData = new FormData()
+  ;
+   formData.append('type', 'file')
+   formData.append('image', blob)  
+   return req.post('https://api.imgur.com/3/upload.json')
+    .set({ Accept: 'application/json', Authorization: `Client-ID ${c}`})
+    .send(formData)
+    .then(res=>res.body)
+ }
+;
+fn.dnd= function(ev){
+  let type=ev.type,mark ='drag'  //mark is .drag the custom class
+  ;
+  ev.stopPropagation();
+  ev.preventDefault();
+  if(type==='drop'||type==='paste'){
+    //this paste hack, allow the chrome only.
+    const flg= (type==='paste')
+    ,files=(flg)?ev.clipboardData.items:ev.target.files||ev.dataTransfer.files
+    ;
+    ;[].slice.call(files)
+     .filter(f=>f.type.match('image.*')) 
+     .slice(0,10) //10 is limit
+     .map((f)=>{ let r=new FileReader(); r.onloadend=caller;  r.readAsDataURL((flg)?f.getAsFile():f); })
+   ;
+   this.classList.remove(mark)
+   return;
+  }     
+  if(type==='dragover'){ this.classList.add(mark);ev.dataTransfer.dropEffect = 'copy';return}
+  if(type==='dragleave'){ this.classList.remove(mark);return}
+}
+;
+  root.fn=fn;
+})(this);
+
+let target=fn.q('[data-cid]')
+,cid=target.getAttribute('data-cid')
+,imup =fn.imup.bind(this,cid)
+,dnd=fn.dnd
+,sol=(d=>Promise.resolve(d))
+,save=(src)=>{
+  /* url,url,url,url,....*/
+  let str=localStorage.getItem(cid)||'';
+  str += ',' +src;
+  localStorage.setItem(cid,str);
+}
+,load=()=>{
+  /*if old data, show */
+  let str=localStorage.getItem(cid)||'';
+  str.split(',').filter(d=>d.length!=0).forEach((src)=>{
+    let img =fn.ce('img');img.src=src;
+    img.setAttribute('title',src);    
+    target.appendChild(img);
+  })
+}
+;
+function caller(ev){ //call by dnd
+  let base64 = ev.target.result
+  ,img =fn.ce('img')
+  ;
+  //if loading image, write the here.
+  //img.src='...loading.gif'
+  //
+  target.appendChild(img);
+ 
+  sol(base64)
+    .then(imup)
+    .then((d)=>{
+      img.src= d.data.link;
+      img.setAttribute('title',d.data.link);
+      return d.data.link
+    })
+    .then(save)
+  ;
+}
+;
+;['onpaste','ondragover','ondrop','ondragleave'].forEach(d=>target[d]=dnd)
+document.body.onload =load
+;
+</script>
+</body>
