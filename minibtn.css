@@ -46,10 +46,10 @@ nav.c.cb{
 nav.c.cr{
  justify-content:center;
  flex-direction:column; 
- right:0;height:100%;z-index:1;
+ right:0;top:0;height:100%;z-index:1;
 }
 nav.c.cl{
  justify-content:center;
  flex-direction:column; 
- left:0;height:100%;z-index:1; 
+ left:0;top:0;height:100%;z-index:1; 
 }
