@@ -3,6 +3,8 @@
 https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
 //gnjo.github.io/js-base64/base64.min.js //change _btoa _atob
 //gnjo.github.io/md5.min.js
+ v2.0 watch unwatch
+   if(g) g.watch('xxxxxxxxx');
  */
  var req =root.superagent
  ,md5 = root.md5
@@ -36,6 +38,12 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  }
  ,jsy =function(obj){return JSON.stringify(obj)}
  ,jps =function(str){return JSON.parse(str)}
+ ,listdata =function(f,w=1){
+   //auto add time
+   return {filename:f,time:Date.now(),watch:w}
+ }
+ ,bigger=function(a,b){return b.time - a.time}
+ ,isJSON =function(d){ try{JSON.parse(d);return true}catch(e){return false} }
  ;
  
  function gistauth(info){
@@ -59,12 +67,13 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  }
  function creategist(info){
  let url="https://api.github.com/gists"
+ ,list ={"___gistplace___":listdata("___gistplace___",0)}
  ,data={
        "description": `${info.hash}  ${info.desc}`,
        "public": info.public,
        "files": {
          "___gistplace___": {
-           "content": now()
+           "content": jsy(list)//now()
          }
        }
   }
@@ -100,7 +109,30 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
      o.caller({type:'read',target:f,data:o.data})//
      return (f in o.files)?o.files[f]:null
     }
-    
+    o.watch=function(f){
+      o.list[f].watch=1;
+      return o._watch('watch')      
+    }
+    o.unwatch=function(f){
+      o.list[f].watch=0;
+      return o._watch('unwatch')
+    }
+    o._watch=function(type){
+      let data={"files":{} }
+      let _f='___gistplace___'
+      data.files[_f] = {"content": o.jsy(o.list)};
+      //
+     let info =o.info
+     ,url="https://api.github.com/gists/" + info.id
+     ;
+     return req.patch(url).set(info.h).send(data)
+      .then(o._update)
+      .then((d)=>{
+        o.caller({type:type,target:data,data:o.data})   
+      ;return d
+     })      
+      //
+    }
     o.write= function(f,d){     
      let data={"files": { } }
       //data.files[f] = {"content": d}  //multi write
@@ -113,6 +145,15 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
       console.log('write param differ') ;return;
      }
      ;//multi write
+      // if unwatch write, change watch
+      let _f='___gistplace___'
+      //let list =o.list;//o.jps( o.files[_f].content )||{}
+      let newlist ={}
+      Object.keys(data.files).forEach(d=>newlist[d]=listdata(d))
+      let list =Object.assign({},o.list,newlist);
+      data.files[_f] = {"content": o.jsy(list)};
+      ///
+     ;
      let info =o.info
      ,url="https://api.github.com/gists/" + info.id
      ;
@@ -128,6 +169,7 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
       return search(o.info).then((d)=>{ 
        o.data=d; //
        o.files=d.files; //
+       o.list = o.jps( d.files['___gistplace___'].content )//
        o.caller({type:'_update',target:o.files,data:o.data}) //
        return o.files
       })
@@ -164,5 +206,4 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
   }
  
  root.gistplace =entry;///
- 
 })(this);
