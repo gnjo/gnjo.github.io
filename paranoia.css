@@ -1,0 +1,146 @@
+/*https://codepen.io/gnjo/pen/QQBEdO*/
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+/*font*/
+/*eme green*/
+/*shock yellow*/
+/*shock pink*/
+.cep, hr {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+* {
+  font-family: "Share Tech Mono", "Meiryo", monospace !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  background-color: #57d0b7;
+  margin: 4rem;
+  font-size: 14px;
+}
+
+body:before {
+  content: ' ';
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 8rem;
+  width: 1rem;
+  border-left: 0.5rem solid rgba(249, 221, 1, 0.9);
+  border-right: 0.5rem solid rgba(229, 39, 135, 0.9);
+  height: 100vh;
+}
+
+body:after {
+  content: ' ';
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 11rem;
+  width: 1rem;
+  height: 100vh;
+  border-left: 0.5rem solid rgba(229, 39, 135, 0.9);
+  border-right: 0.5rem solid rgba(229, 39, 135, 0.9);
+}
+
+/*div is default all frame use the div*/
+article, output, section, header, footer, label:not(.btn), pre, code {
+  background-color: #f9dd01;
+  padding: 0.25rem 1rem;
+  border-top: 6px solid white;
+  border-bottom: 6px solid transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+pre, code, p {
+  margin: 0;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+input, button, .btn {
+  background-color: #e52787;
+  border: 2px solid transparent;
+  padding: 1px 4px;
+  display: inline-block;
+}
+
+button:hover, .btn:hover {
+  animation: hover 0.7s ease-in-out infinite alternate;
+  cursor: pointer;
+}
+
+@keyframes hover {
+  0% {
+    background-color: #e52787;
+  }
+  100% {
+    background-color: #f082ba;
+  }
+}
+textarea, input, button, .btn {
+  margin: 0;
+  margin-top: 2px;
+}
+
+button + button
+, button + .btn
+, .btn + button
+, .btn + .btn {
+  margin-left: 2px;
+}
+
+textarea, [contentEditable], input[type="text"], input[type="password"] {
+  outline: none;
+  background-color: #e52787;
+  border: 2px solid black;
+  padding: 2px 4px;
+  display: inline-block;
+}
+
+textarea, [contentEditable] {
+  min-height: 5rem;
+  min-width: 22rem;
+  /*if width limit, max-width:44rem;*/
+}
+
+/**/
+::-webkit-scrollbar {
+  overflow: hidden;
+  width: 0.5rem;
+  background: rgba(87, 208, 183, 0.7);
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-piece {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+::-webkit-scrollbar-piece:start {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e52787;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(100, 100, 100, 0.3);
+}
