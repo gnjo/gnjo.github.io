@@ -1,0 +1,23 @@
+<head>
+<link rel="stylesheet" href="https://gnjo.github.io/baseframe.css">  
+<script src="https://gnjo.github.io/baseframe.js"></script>  
+</head>
+<body>
+<style>
+dialog.modal{
+  padding:0;
+  border:0;
+}    
+</style>
+<script>
+let b=baseframe(document.body);
+b.add('right','<div>this is 1. border drag is size change.</div>')
+b.add('right',`<div>dialog have the padding and border. so that...<br> dialog.modal{
+  padding:0;
+  border:0;
+}    
+</div>`)
+b.add('right','<div>this is 3</div>')
+b.add('left','<div>ctrl <-- --> is right control</div>')  
+</script>
+</body>
