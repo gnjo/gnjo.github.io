@@ -1,4 +1,6 @@
-@font-face {
-    font-family: 'programa';
-    src: url('https://gnjo.github.io/programma-bold-webfont.eot');
+@font-face{ 
+	font-family: 'programa';
+	src: url('https://gnjo.github.io/programma-bold-webfont.eot');
+	src: url('https://gnjo.github.io/programma-bold-webfont.woff') format('woff'),
+    url('https://gnjo.github.io/programma-bold-webfont.woff2') format('woff2')
 }
