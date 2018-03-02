@@ -1,4 +1,5 @@
 (function(root){
+/*v0.1 bugfix order rate*/
 let req=root.superagent
 ,md5=root.md5
 ,FormData=root.FormData
@@ -191,7 +192,7 @@ fn.jpTime=(timestamp=Date.now())=>{
      el.onclick =()=>{ fn.copy(getBgi(el))}
      if(flg===0) el.classList.add(la);
      setBgi(el,url)
-     el.style.order=time;
+     el.style.order=parseInt( time/1000 );//time;//bug fix. order is int
      el.appendChild(nav);
      [ti,btn].forEach(d=>nav.appendChild(d));
      return el;
