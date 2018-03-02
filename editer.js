@@ -32,6 +32,12 @@ fn.i=function(html,f,doc=document){
   var me=el.childNodes[0];
   return _f(me);
 }
+fn.kansuji=(num,keta=2)=>{
+  let c ='零壱弐参四伍六七八玖'.split('')
+  ,a =('00000000'+num).slice(-1*keta).split('')
+  ;
+  return a.map(d=>c[parseInt(d)]).join('')
+}
 ;
 
 let fac =(obj)=>{
@@ -259,7 +265,7 @@ function entry(obj){
       o.title.textContent = info.t +' - '+ info.u
       //title.style.backgroundImage=`url(${info.u})`;
       let ol=document.createElement('ol');
-      ol.innerHTML=a.map(d=>`<li>${d.t}</li>`).join('\n');
+      ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');
       o.list.innerHTML='';o.list.appendChild(ol)
     })
   }
