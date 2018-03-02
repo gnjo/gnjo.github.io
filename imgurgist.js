@@ -135,12 +135,12 @@ fn.jpTime=(timestamp=Date.now())=>{
   background-color:rgba(0,0,0,0.3);  
 }`
     let el=fn.i(`<div data-editer="imgur"><style>${css}</style></div>`)
-    console.log(el)
+    //console.log(el)
     return el;
   }
   
   function entry(obj){
-    console.log(obj)
+    //console.log(obj)
     var o={};
     o.frame=frame;
     o.target=o.frame()
@@ -153,7 +153,7 @@ fn.jpTime=(timestamp=Date.now())=>{
     }
     o.calc=(base64)=>{return base64}
     o=Object.assign({},o,obj)///
-    console.log(o.g)
+    //console.log(o.g)
     ;
     o.data={}
     o.imup =fn.imup.bind(this,o.cid)
@@ -162,7 +162,7 @@ fn.jpTime=(timestamp=Date.now())=>{
       if(src) o.data[md5(src)] ={url:src,time:Date.now(),flg:1}   
       if(o.g){
           /* md5(url):{u:url,ti:time,flg:flg} */
-         console.log('yyyy')
+         //console.log('yyyy')
          o.g.write(o.filename,o.g.jsy(o.data))
       }
     }
