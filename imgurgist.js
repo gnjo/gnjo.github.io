@@ -135,12 +135,15 @@ fn.jpTime=(timestamp=Date.now())=>{
   background-color:rgba(0,0,0,0.3);  
 }`
     let el=fn.i(`<div data-editer="imgur"><style>${css}</style></div>`)
+    console.log(el)
     return el;
   }
   
   function entry(obj){
-    let o={};
-    o.target=frame()
+    console.log(obj)
+    var o={};
+    o.frame=frame;
+    o.target=o.frame()
     o.filename ='___imgur___'
     o.cid='c552bf3081f0790'
     o.loading='https://i.imgur.com/HUaAzml.gif';
@@ -150,27 +153,27 @@ fn.jpTime=(timestamp=Date.now())=>{
     }
     o.calc=(base64)=>{return base64}
     o=Object.assign({},o,obj)///
+    console.log(o.g)
     ;
     o.data={}
     o.imup =fn.imup.bind(this,o.cid)
-    o.gflg=()=>{return (root.sys)? ( (sys.g)? true :false) :false}
+//    o.gflg=()=>{return (root.sys)? ( (root.sys.g)? true :false) :false}
     o.save=(src)=>{
       if(src) o.data[md5(src)] ={url:src,time:Date.now(),flg:1}   
-      if(o.gflg() ){
+      if(o.g){
           /* md5(url):{u:url,ti:time,flg:flg} */
-         sys.g.write(o.filename,sys.g.jsy(o.data))
+         console.log('yyyy')
+         o.g.write(o.filename,o.g.jsy(o.data))
       }
     }
     o.load=()=>{
-      if(o.gflg() ){
-        let d= sys.g.read(o.filename);
+        let d= o.g.read(o.filename);
         if(d){
           o.target.innerHTML='';
-          o.data=Object.assign({},sys.g.jps(d.content),o.data);
+          o.data=Object.assign({},o.g.jps(d.content),o.data);
           o.data.map(d=>o.fac(d.url,d.time,d.flg))
             .forEach(el=>o.target.appendChild(el))
         }
-      }
     }
     ;
    o.fac=(url,time=Date.now(),flg=1)=>{
