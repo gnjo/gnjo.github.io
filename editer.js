@@ -1,4 +1,5 @@
 (function(root){
+  /*v0.1 radio.cheked trans the 0 1*/
 let fn={},is={},sys=root.sys||{},thenload=root.thenload;
 is.url=(d)=>{return /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i.test(d)}
 ;
@@ -195,7 +196,8 @@ function entry(obj){
     ;
     o.bar.appendChild(btn);
     [radio,el].forEach(d=>o.right.appendChild(d))
-    btn.onclick =function(ev){caller(el,radio.checked,o)}
+    //(0 === false)? 0: 1
+    btn.onclick =function(ev){caller(el,(radio.checked === false)?0:1,o)} /*v0.1 bug fix*/
     let first =o.right.querySelector('input.tab:first-child');
     if(first) first.checked=true;
     caller(el,-1,o);///    
