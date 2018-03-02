@@ -280,7 +280,7 @@ function entry(obj){
       //title.style.backgroundImage=`url(${info.u})`;
       let ol=document.createElement('ol');
       /*ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');*/
-      a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el);/*v0.4 list and image*/
+      a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el))/*v0.4 list and image*/
       o.list.innerHTML='';o.list.appendChild(ol)
     })
   }
