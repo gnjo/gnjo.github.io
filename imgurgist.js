@@ -1,5 +1,7 @@
 (function(root){
-/*v0.1 bugfix order rate*/
+/*v0.1 bugfix order rate
+ v0.2 add .if-story
+*/
 let req=root.superagent
 ,md5=root.md5
 ,FormData=root.FormData
@@ -120,7 +122,8 @@ fn.jpTime=(timestamp=Date.now())=>{
   font-family:monospace;
 }
 .lastorder{
-  order:-1000!important;
+  order:2147483647!important; /*bug fix order*/
+  /*order:-1000!important;*/
 }
 .rbtn{
   display:inline-block;
@@ -188,11 +191,11 @@ fn.jpTime=(timestamp=Date.now())=>{
        o.data[md5(url)].flg = (el.classList.contains(la))? 0: 1;
        o.save();///
      }   
-     el.classList.add('imgframe');
+     el.classList.add('imgframe');el.classList.add('if-story');//new
      el.onclick =()=>{ fn.copy(getBgi(el))}
      if(flg===0) el.classList.add(la);
      setBgi(el,url)
-     el.style.order=parseInt( time/1000 );//time;//bug fix. order is int
+     el.style.order= 2147483647 - parseInt( time/1000 );//time;//bug fix. order is int //bug fix order
      el.appendChild(nav);
      [ti,btn].forEach(d=>nav.appendChild(d));
      return el;
