@@ -1,5 +1,6 @@
 (function(root){
-  /*v0.1 radio.cheked trans the 0 1*/
+  /*v0.1 radio.cheked trans the 0 1
+    v0.2 style digital*/
 let fn={},is={},sys=root.sys||{},thenload=root.thenload;
 is.url=(d)=>{return /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i.test(d)}
 ;
@@ -50,19 +51,20 @@ html{
 }
 @keyframes blink{
   0%{background-color:inherit}
-  100%{background-color:orange}   
+  100%{background-color:#006b9f}   
 }
 
 [data-editer="frame"]{
   display:flex;
   flex-direction:row;
   min-height:10rem;
+  background-color:rgba(0,0,0,0.7);  
 }
 [data-editer="left"]{
   width:44rem;min-height:100%;
   display:flex;flex-direction:column;
 }
-[data-editer="right"]{width:22rem;min-height:100%}
+[data-editer="right"]{width:33rem;min-height:100%}
 [data-editer="bar"]{
   width:100%;height:1.5rem;
   display:flex;flex-direction:row;
@@ -117,7 +119,79 @@ input#flg-hide:checked ~ [data-editer="right"]{
   line-height:1.15;
   font-size:1rem;
   
-}`;
+}
+::-webkit-scrollbar{overflow:hidden;width:4px;background:transparent;}
+::-webkit-scrollbar:horizontal{height:4px;}
+::-webkit-scrollbar-button{display:none;}
+::-webkit-scrollbar-piece{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-piece:start{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-thumb{background:#006b9f;}
+::-webkit-scrollbar-corner{background:rgba(100,100,100,0.3);}
+
+[data-editer="editer"] {
+    width: 100%;
+    /* flex-grow: 1; */
+    overflow-y: auto;
+    height: calc( 100% - 1.6rem );
+}
+
+[data-editer="imgur"]>.imgframe, [data-editer="imgur"]>img {
+    width: 33.3333333%;
+    height: 100px;
+}
+
+
+[data-editer="right"]>div {
+    padding: 0;
+}
+
+.imgframe {
+    margin: 0px!important;
+}
+
+[data-editer="imgur"] {
+    overflow-y: auto;
+}
+
+body{
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+   overflow-y: hidden;
+    background-image: url(https://i.imgur.com/yiGVR4r.png);
+}
+
+
+img.if-story,canvas.if-story{filter:brightness(60%) contrast(200%)}
+.if-story:not(img):not(canvas){z-index:0;position:relative}
+.if-story:not(img):not(canvas):before{z-index:-1;background:inherit;filter:brightness(60%) contrast(200%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;left:0;top:0}
+
+
+* {
+    font-family: 'Armata',meiryo,sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-color: #006b9f!important;
+    color: white;
+}
+
+.rbtn {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid /**/;
+    border-radius: 0!important;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-left: 4px;
+}
+
+.rbtn:hover {
+    background-color: #006b9f!important;
+}
+`;
   let layout =`
 <div data-editer="frame">
   <style>${css}</style>
