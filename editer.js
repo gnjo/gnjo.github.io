@@ -201,9 +201,20 @@ overflow:hidden;left:0;top:0}
     background-color: #006b9f!important;
 }
 
-ol {/*v0.3 kansuuji*/
+/*list*/
+li {
+    /* width: 100%; */
+    min-height: 3rem;
+    padding: 0.5rem 0.75rem;
+}
+
+ol {
     list-style: none;
-    padding-left: 1.5rem;
+    /* padding-left: 1.5rem; */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+   overflow-y: auto;
 }
 `;
   let layout =`
@@ -268,6 +279,7 @@ function entry(obj){
     let el=document.createElement('li');
     el.style.backgroundImage = `url(${info.u})`;
     el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    el.classList.add('if-story');
     return el;
   }
   o.input=function(ev){
