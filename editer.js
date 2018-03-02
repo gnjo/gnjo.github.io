@@ -2,6 +2,7 @@
   /*v0.1 radio.cheked trans the 0 1
     v0.2 style digital
     v0.3 kansuuji syou
+    v0.4 list and image
     */
 let fn={},is={},sys=root.sys||{},thenload=root.thenload;
 is.url=(d)=>{return /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i.test(d)}
@@ -208,7 +209,7 @@ ol {/*v0.3 kansuuji*/
   let layout =`
 <div data-editer="frame">
   <style>${css}</style>
-  <input type="checkbox"class="tab" checked id="flg-hide"></input>
+  <input type="checkbox"class="tab" id="flg-hide"></input>
   <div data-editer="left">
    <div data-editer="bar">
      <label for="flg-title" class="tab">title</label>
@@ -263,6 +264,12 @@ function entry(obj){
     if(!a) a=[]
     return {t:title,u:url,l:length}
   }
+  o.listfac=function(info,i){
+    let el=document.createElement('li');
+    el.style.backgroundImage = `url(${info.u})`;
+    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    return el;
+  }
   o.input=function(ev){
     let d=this.textContent,log=(d)=>{console.log(d);return d}
     Promise.resolve(d).then((d)=>{
@@ -272,7 +279,8 @@ function entry(obj){
       o.title.textContent = info.t +' - '+ info.u
       //title.style.backgroundImage=`url(${info.u})`;
       let ol=document.createElement('ol');
-      ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');
+      /*ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');*/
+      a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el);/*v0.4 list and image*/
       o.list.innerHTML='';o.list.appendChild(ol)
     })
   }
