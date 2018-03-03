@@ -19,10 +19,12 @@
     isScript(url)?inscript(url,caller):incss(url,caller)   
  }
  ;
-  function entry(ary){return new Promise(sol=>{
+  function entry(ary,caller){return new Promise(sol=>{
+    const length =ary.length,rate=(n=> 100*(length-n.lenght)/length);
     let a=ary.slice().reverse()
     ,on=function(ev){
       let url =a.pop();//
+      caller(url,a,length,rate(a));
       if(url) adpt(url,on)
       else sol(ary) 
     }
@@ -31,6 +33,7 @@
     if(url) adpt(url,on)
     else console.log('ary not!')
     ;
+    caller(url,a,length,rate(a) )
   })}
  ;
   root.thenload =entry
@@ -39,7 +42,7 @@
 thenload([
    '//gnjo.github.io/md5.min.js'
   ,'//gnjo.github.io/use.js'
-]).then(d=>{
+],caller).then(d=>{
   console.log('end',d)
 })  
   */
