@@ -261,7 +261,7 @@ ol {
 }
 
 function entry(obj){
-  let o={};
+  var o={};
   o.fn=fn;
   o.frame= fac()
   o.ed=o.frame.querySelector('[data-editer="editer"]')
