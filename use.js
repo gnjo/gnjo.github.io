@@ -87,6 +87,15 @@ fn.i2=function(html,attr,style,doc=document){
   return me;
 }
 
+fn.hashCode =(s)=>{
+  var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h; 
+}
+fn.mic12 =(s)=>{
+  var d= hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
+  return a+a;
+}
+
+
 if(this.md5){ 
  var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
  fn.hashColor=hashColor;
