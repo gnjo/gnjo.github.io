@@ -4,6 +4,7 @@
     v0.3 kansuuji syou
     v0.4 list and image
     v0.5 description
+    v0.6 create biglex
     */
 let fn={},is={},sys=root.sys||{},thenload=root.thenload;
 is.url=(d)=>{return /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i.test(d)}
@@ -282,6 +283,7 @@ function entry(obj){
     }
     o.filename =filename;    
     o.ed.textContent =data||'';
+    Promise.resolve(data).then(o.biglex)    
   }
   o._save=function(filename,data){
     o.saveflg=false;///write index.js
@@ -295,8 +297,17 @@ function entry(obj){
       o.mes(o.time())      
     } 
   }
-  o.uplist =function(obj){
-    
+  o.biglex =function(d){
+      let a=d.split('＃').map(d=>o.lex('＃'+d)).filter(d=>d.t!='＃')
+      ,info=Object.assign({},{t:'not',u:'not'},a[0])
+      ;
+      o.title.textContent = o.filename +' - '+info.t; //info.t +' - '+ info.u
+      //title.style.backgroundImage=`url(${info.u})`;
+      let ol=document.createElement('ol');
+      o._mes.classList.add('saveflg');
+      /*ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');*/
+      a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el))/*v0.4 list and image*/
+      o.list.innerHTML='';o.list.appendChild(ol)    
   }
   o.lex= function lex(str){
     let title,url='',length,t2='',desc=''
@@ -309,7 +320,7 @@ function entry(obj){
       else if(d.charAt(0) === '；' || d.charAt(0) === '：') desc =d;
     });
     if(!title) title=t2;
-    if(!a) a=[]
+    //if(!a) a=[]
     return {t:title,u:url,l:length,d:desc}
   }
   o.listfac=function(info,i){
@@ -325,19 +336,8 @@ function entry(obj){
   o.input=function(ev){
     let d=this.textContent,log=(d)=>{console.log(d);return d}
     ;
-    Promise.resolve(d).then((d)=>{
-      let a=d.split('＃')
-       .map(d=>o.lex('＃'+d)).filter(d=>d.t!='＃')
-      let info=Object.assign({},{t:'not',u:'not'},a[0])
-      o.title.textContent = o.filename +' - '+info.t; //info.t +' - '+ info.u
-      //title.style.backgroundImage=`url(${info.u})`;
-      let ol=document.createElement('ol');
-      o.saveflg=true;//
-      o._mes.classList.add('saveflg');
-      /*ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');*/
-      a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el))/*v0.4 list and image*/
-      o.list.innerHTML='';o.list.appendChild(ol)
-    })
+    Promise.resolve(d).then(o.biglex)
+    o.saveflg=true;//
   }
   o.add=function(name,caller){    
     let btn=fn.i(`<label for="flg-${name}" class="tab">${name}</label>`)
