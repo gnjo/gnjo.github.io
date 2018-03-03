@@ -42,6 +42,16 @@ fn.kansuji=(num,keta=2)=>{/*v0.3*/
   ;
   return a.map(d=>c[parseInt(d)]).join('')
 }
+fn.rkana=(l=8)=>{
+  var c = "bcdfghjklmnpqrstvwxyz",cl=c.length
+  ,b = "aiueo",bl=b.length
+  ,f=Math.floor,r=Math.random,ret=""
+  ;
+  for(var i=0;i<l;i++)
+   ret+=(i%2)? b[f(r()*bl)]:c[f(r()*cl)].toUpperCase()
+  ;
+  return ret;   
+}
 ;
 
 let fac =(obj)=>{
@@ -261,11 +271,26 @@ function entry(obj){
   o.blink = fn.blink.bind(this,o._mes,3000)
   o.mes =fn.mes.bind(this,o._mes)
   o.time =fn.jpTime
+  o.filename = fn.rkana(6); //
+  o.saveflg =false;
+  o.load =function(filename,data){
+    if(o.saveflg){
+      let fi =o.filename,da =o.ed.textContent;
+      o._save(fi,da);
+    }
+    o.filename =filename;    
+    o.ed.textContent =data||'';
+  }
+  o._save=function(filename,data){
+    o.saveflg=false;///write index.js
+  }
   o.save =function(ev){
     if( (ev.ctrlKey||ev.metaKey) && ev.keyCode ==='S'.charCodeAt(0)){
       ev.preventDefault();
+      let data =o.ed.textContent;
+      o._save(o.filename,data);
       o.blink();
-      o.mes(o.time())
+      o.mes(o.time())      
     } 
   }
   o.uplist =function(obj){
@@ -297,6 +322,8 @@ function entry(obj){
   }
   o.input=function(ev){
     let d=this.textContent,log=(d)=>{console.log(d);return d}
+    ;
+    o.saveflg=true;//
     Promise.resolve(d).then((d)=>{
       let a=d.split('＃')
        .map(d=>o.lex('＃'+d)).filter(d=>d.t!='＃')
