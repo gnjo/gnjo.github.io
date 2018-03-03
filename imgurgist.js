@@ -1,11 +1,21 @@
 (function(root){
 /*v0.1 bugfix order rate
  v0.2 add .if-story
+ v0.3 md5 change mic12
 */
+ 
 let req=root.superagent
-,md5=root.md5
 ,FormData=root.FormData
 ,fn=root.fn||{}
+;
+fn.hashCode =(s)=>{
+  var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h; 
+}
+fn.mic12 =(s)=>{
+  var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
+  return a+a;
+} 
+let md5=fn.mic12///
 ;
 fn.ce=(d=>document.createElement(d))
 fn.q=(d=>document.querySelector(d))
