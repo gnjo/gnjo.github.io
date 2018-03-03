@@ -326,7 +326,8 @@ function entry(obj){
   ;
   o.ed.onkeydown =o.save;
   thenload([
-    'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js'
+    //'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js'
+    '//gnjo.github.io/deth.js'
   ]).then(d=>{
     o.ed.oninput =_.debounce(o.input,50); 
   })
