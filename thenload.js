@@ -20,7 +20,7 @@
  }
  ;
   function entry(ary,caller){return new Promise(sol=>{
-    const length =ary.length,rate=(n=> 100*(length-n.lenght)/length);
+    const length =ary.length,rate=(n=> 100*(length-n.length)/length);
     let a=ary.slice().reverse()
     ,on=function(ev){
       let url =a.pop();//
