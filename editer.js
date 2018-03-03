@@ -274,7 +274,7 @@ function entry(obj){
   o.blink = fn.blink.bind(this,o._mes,3000)
   o.mes =fn.mes.bind(this,o._mes)
   o.time =fn.jpTime
-  o.filename = fn.rkana(6); //
+  o.filename = fn.rkana(8); //
   o.saveflg =false;
   o.load =function(filename,data){
     if(o.saveflg){
