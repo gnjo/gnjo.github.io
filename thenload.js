@@ -23,17 +23,19 @@
     const length =ary.length,rate=(n=> 100*(length-n.length)/length);
     let a=ary.slice().reverse()
     ,on=function(ev){
+      let old=a.slice()
       let url =a.pop();//
-      caller(url,a,length,rate(a));
+      caller(url,old,length,rate(old));     
       if(url) adpt(url,on)
       else sol(ary) 
     }
     ;
+    let old=a.slice()
     let url=a.pop();//
     if(url) adpt(url,on)
     else console.log('ary not!')
     ;
-    caller(url,a,length,rate(a) )
+    caller(url,old,length,rate(old) )
   })}
  ;
   root.thenload =entry
