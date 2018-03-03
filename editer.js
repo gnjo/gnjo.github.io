@@ -208,6 +208,13 @@ li {
     padding: 0.5rem 0.75rem;
     background-position-y: 25%;
 }
+p.desc {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: rgba(255,255,255,0.9);
+    margin-left: 4rem;
+}
 
 ol {
     list-style: none;
@@ -278,11 +285,13 @@ function entry(obj){
     return {t:title,u:url,l:length,d:desc}
   }
   o.listfac=function(info,i){
-    let el=document.createElement('li');
+    let el=document.createElement('li'),p=document.createElement('p');
     el.style.backgroundImage = `url(${info.u})`;
-    //el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
-    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}${info.d}`   
+    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
     el.classList.add('if-story');
+    p.textContent= info.d;
+    p.classList.add('desc');
+    el.appendChild(p);
     return el;
   }
   o.input=function(ev){
