@@ -25,7 +25,7 @@
     ,on=function(ev){
       let old=a.slice()
       let url =a.pop();//
-      caller(url,old,length,rate(old));     
+      caller({url:url,ary:old,max:length,rate:rate(old),ev:ev});     
       if(url) adpt(url,on)
       else sol(ary) 
     }
@@ -35,7 +35,7 @@
     if(url) adpt(url,on)
     else console.log('ary not!')
     ;
-    caller(url,old,length,rate(old) )
+    caller({url:url,ary:old,max:length,rate:rate(old)}); 
   })}
  ;
   root.thenload =entry
