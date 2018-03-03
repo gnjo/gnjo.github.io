@@ -206,6 +206,7 @@ li {
     /* width: 100%; */
     min-height: 3rem;
     padding: 0.5rem 0.75rem;
+    background-position-y: 25%;
 }
 
 ol {
@@ -263,22 +264,24 @@ function entry(obj){
     
   }
   o.lex= function lex(str){
-    let title,url='',length,t2='';
+    let title,url='',length,t2='',desc=''
     let a =str.split('\n');
     length=(a.length===1)?1:a.length-1;
     a.forEach((d,i)=>{
       if(i===0) t2=d;
       if( d.charAt(0) === '＃' ) title = d;
       else if(d.charAt(0) === '＠' && is.url(d.slice(1))) url =d.slice(1);
+      else if(d.charAt(0) === '；' || d.charAt(0) === '：') desc =d;
     });
     if(!title) title=t2;
     if(!a) a=[]
-    return {t:title,u:url,l:length}
+    return {t:title,u:url,l:length,d:desc}
   }
   o.listfac=function(info,i){
     let el=document.createElement('li');
     el.style.backgroundImage = `url(${info.u})`;
-    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    //el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}${info.d}`   
     el.classList.add('if-story');
     return el;
   }
