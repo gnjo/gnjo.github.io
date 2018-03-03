@@ -91,7 +91,7 @@ fn.hashCode =(s)=>{
   var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h; 
 }
 fn.mic12 =(s)=>{
-  var d= hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
+  var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
   return a+a;
 }
 
