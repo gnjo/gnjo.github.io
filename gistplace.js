@@ -2,12 +2,23 @@
  /* 
 https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
 //gnjo.github.io/js-base64/base64.min.js //change _btoa _atob
-//gnjo.github.io/md5.min.js
+//gnjo.github.io/md5.min.js //change mic12
  v2.0 watch unwatch
    if(g) g.watch('xxxxxxxxx');
+ v2.1 md5 change mic12
  */
+ var fn={}
+ fn.hashCode =(s)=>{
+   var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h; 
+ }
+ fn.mic12 =(s)=>{
+   var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
+   return a+a;
+ }
+;
  var req =root.superagent
- ,md5 = root.md5
+ //,md5 = root.md5
+ ,md5 =fn.mic12 ///
  ,btoa =root.btoa  
  ,atob =root.atob 
  //multi byte _btoa _atob
