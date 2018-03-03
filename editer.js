@@ -73,7 +73,9 @@ html{
   0%{background-color:inherit}
   100%{background-color:#006b9f}   
 }
-
+.saveflg{
+  animation:blink 3s infinite alternate;
+}
 [data-editer="frame"]{
   display:flex;
   flex-direction:row;
@@ -323,14 +325,15 @@ function entry(obj){
   o.input=function(ev){
     let d=this.textContent,log=(d)=>{console.log(d);return d}
     ;
-    o.saveflg=true;//
     Promise.resolve(d).then((d)=>{
       let a=d.split('＃')
        .map(d=>o.lex('＃'+d)).filter(d=>d.t!='＃')
       let info=Object.assign({},{t:'not',u:'not'},a[0])
-      o.title.textContent = info.t +' - '+ info.u
+      o.title.textContent = o.filename +' - '+info.t; //info.t +' - '+ info.u
       //title.style.backgroundImage=`url(${info.u})`;
       let ol=document.createElement('ol');
+      o.saveflg=true;//
+      o._mes.classList.add('saveflg');
       /*ol.innerHTML=a.map( (d,i)=>{return `<li>${fn.kansuji(i,2)}章　${d.t.slice(1)}</li>`}).join('\n');*/
       a.map( (d,i)=>o.listfac(d,i) ).forEach(el=>ol.appendChild(el))/*v0.4 list and image*/
       o.list.innerHTML='';o.list.appendChild(ol)
