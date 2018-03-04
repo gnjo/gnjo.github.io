@@ -1,0 +1,18 @@
+<head>
+<script src="//gnjo.github.io/card.js></script>
+<link rel="stylesheet" href="//gnjo.github.io/card.css></link>
+</head>
+<body>
+<style>body{background:#111}</style>
+<script>
+let c=card();
+c.el.classList.add('if-story')
+c.el.style.backgroundImage=`url(https://i.imgur.com/4B4mcIj.png)`
+c.tag.textContent='XoYoZoHo'
+c.time.textContent=c.fn.jpTime(Date.now())
+c.title.textContent='title'
+c.desc.textContent='アグレロは独り荒野にいた。仲間は少なくなった。それでもついてきてくれていた。期待を裏切ることはできない。アグレロはまだ走っていた。休むわけにはいかない。';
+c.btn.onclick =function(ev){console.log('in')}
+document.body.appendChild(c.el)
+</script>
+</body>
