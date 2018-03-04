@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Armata|Share+Tech+Mono');
+*{
+ font-family: 'Armata',meiryo,sans-serif;
+ background-repeat:no-repeat;
+ background-position:center;
+ background-size:cover;
+}
+img.if-story,canvas.if-story{filter:brightness(80%) contrast(200%)}
+.if-story:not(img):not(canvas){z-index:0;position:relative}
+.if-story:not(img):not(canvas):before{z-index:-1;background:inherit;filter:brightness(80%) contrast(200%);
+content:' ';position:absolute;width:100%;height:100%;
+overflow:hidden;left:0;top:0}
+
+.card{
+  color:rgba(255,255,255,0.9);
+  width:250px;
+  height:200px;
+  border:1px solid transparent;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover{
+  transition:opacity 0.3s linear;
+  opacity:0.9;  
+}
+.card.min{height:100px}
+.card .nav{
+  font-family: 'Share Tech Mono',monospace;
+  height:1rem;
+  font-size:12px;
+  padding:2px;
+  display:flex;flex-direction:row;justify-content:space-between;
+}
+.card .nav .btn{
+  display:inline-block;width:12px;height:12px;border:1px solid;
+  box-sizing:border-box;
+  margin-left:24px;/*special*/
+}
+.card .btn:hover{
+  cursor:pointer;background-color:rgba(0,0,0,0.3);
+  transition:background-color 0.3s linear;  
+}
+.card .title{height:40%;display:flex;align-items:center;justify-content:center}
+.card .desc{height:50%;padding:0 1.5rem;font-size:12px}
+.card>*{width:100%;box-sizing:border-box;overflow:hidden}
