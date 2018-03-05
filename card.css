@@ -1,3 +1,4 @@
+/*add .card.long */
 @import url('https://fonts.googleapis.com/css?family=Armata|Share+Tech+Mono');
 *{
  font-family: 'Armata',meiryo,sans-serif;
@@ -43,3 +44,11 @@ overflow:hidden;left:0;top:0}
 .card .title{height:40%;display:flex;align-items:center;justify-content:center}
 .card .desc{height:50%;padding:0 1.5rem;font-size:12px}
 .card>*{width:100%;box-sizing:border-box;overflow:hidden}
+
+.card.long{
+  width:500px;height:1rem;
+  flex-direction:row;
+}
+.card.long>*{height:auto!important;}
+.card.long .title{width:10rem}
+.card.long>.nav>*{margin:0}
