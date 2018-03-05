@@ -41,7 +41,7 @@
   function entry(size){
     let o={}
     o.fn=fn;
-    o.el = fac((size)?'min':'')
+    o.el = fac((size)?size:'')  //min or long
     ;['nav','tag','time','btn','title','desc'].forEach(d=>o[d]=o.el.querySelector('.'+d))
     ;
     return o;
