@@ -236,6 +236,6 @@ fn.mes = (q,limit=15)=>{
  //usage:
  //var mes =fn.mes('#cm');
  //mes('xyz')
- //5181a99566d547a1a45c1d2532e5443022c55573
+ //3e1105122428b873252c5cb4f05772b67a1f8077
 }
 
