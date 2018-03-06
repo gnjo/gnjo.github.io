@@ -27,8 +27,8 @@
    el.src=url
  }
  ,adpt =(url,caller)=>{
-    let u =(root.thenload.debug==true)? fn.urlcnk(url) :url;
-    console.log(u);
+    let u =(root.thenload.debug==true)? fn.urlcnk(url) :url; //v0.2
+    //console.log(u);
     isScript(url)?inscript(u,caller):incss(u,caller)   
  }
  ;
