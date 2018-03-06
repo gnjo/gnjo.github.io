@@ -6,6 +6,7 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
  v2.0 watch unwatch
    if(g) g.watch('xxxxxxxxx');
  v2.1 md5 change mic12
+ v2.2 fullread
  */
  var fn={}
  fn.hashCode =(s)=>{
@@ -119,9 +120,10 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
     //if trunced file need fullread. fullread is then. o.read(filename).raw_url=> o.fullread(raw_url) 
     o.fullread =function(url){
      o.caller({type:'fullread',target:url,data:o.data})//
-     return req.get(url).set(info.h)
+     return req.get(url)//.set(info.h)
       .query({_:Date.now() +''+performance.now().toString().replace('.','') }) //no-chash
-      .then(res=>res.body)     
+      //.then(res=>res.body) //bug fix. raw is text only         
+      .then(res=>res.text)     
     }
     o.read = function(f){
      o.caller({type:'read',target:f,data:o.data})//
