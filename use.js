@@ -152,7 +152,14 @@ fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
  return (~name.indexOf('.'))? name.replace(/(.*)(\.)/,`$1${join}$2`) : `${name}${join}`;
 }
 
-
+fn.jpTime=(timestamp=Date.now())=>{
+    return new Date(timestamp+1000*60*60*9)
+      .toISOString()
+      .replace(/-/g,'/')
+      .replace('T',' ')
+      .slice(0,'YYYY/MM/DD hh:mm'.length)
+    ;
+  } 
  fn.now =function(time){
  /*add local time jp*/	 
  if(time=='jp'||time=='jpn') return new Date( Date.now()+ 1000*60*60*9  ).toISOString().split('.')[0] +'Z'
