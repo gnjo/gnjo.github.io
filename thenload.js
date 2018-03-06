@@ -9,7 +9,6 @@
   return u + cep + v + Date.now()
  }
  ;
- var debug=false;
  
  let isScript =(s)=>{return /.js$/.test( s.split('?')[0])}
  ,ce=(d=>document.createElement(d))
@@ -28,8 +27,8 @@
    el.src=url
  }
  ,adpt =(url,caller)=>{
-    let u =(debug==true)? fn.urlcnk(url) :url;
-  console.log(u);
+    let u =(root.thenload.debug==true)? fn.urlcnk(url) :url;
+    console.log(u);
     isScript(url)?inscript(u,caller):incss(u,caller)   
  }
  ;
@@ -55,7 +54,7 @@
   })}
  ;
   root.thenload =entry
-  root.thenload.debug =debug; 
+  root.thenload.debug =false; 
   ;
   /*usage
 thenload([
