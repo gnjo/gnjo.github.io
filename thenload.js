@@ -29,6 +29,7 @@
  }
  ,adpt =(url,caller)=>{
     let u =(debug==true)? fn.urlcnk(url) :url;
+  console.log(u);
     isScript(url)?inscript(u,caller):incss(u,caller)   
  }
  ;
