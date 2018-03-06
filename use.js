@@ -57,6 +57,10 @@ fn.rkana=(l=8)=>{
   }
   return r;   
  }
+fn.urlcnk=(u)=>{
+  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
+  return u + cep + v + Date.now()
+}
 
 fn.i=function(html,f,doc=document){
   var _f =(f)?f:(el)=>{return el};
