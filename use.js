@@ -67,7 +67,7 @@ fn.i=function(html,f,doc=document){
   if(typeof html !=='string') return _f(html);
   //
   var el=doc.createElement('table');
-  el.innerHTML=html;
+  el.innerHTML=html.trim();
   var me=el.childNodes[0];
   return _f(me);
 }
