@@ -1,5 +1,16 @@
 (function(root){
- /*v0.1 if caller not,then input the nullcaller*/
+ /*
+ v0.1 if caller not,then input the nullcaller
+ v0.2 add url chnk; so thenload.debug =true;
+ */
+ let fn={}
+ fn.urlcnk=(u)=>{
+  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
+  return u + cep + v + Date.now()
+ }
+ ;
+ var debug=false;
+ 
  let isScript =(s)=>{return /.js$/.test( s.split('?')[0])}
  ,ce=(d=>document.createElement(d))
  ,q=(d=>document.querySelector(d))
@@ -17,9 +28,11 @@
    el.src=url
  }
  ,adpt =(url,caller)=>{
-    isScript(url)?inscript(url,caller):incss(url,caller)   
+    let u =(debug==true)? fn.urlcnk(url) :url;
+    isScript(url)?inscript(u,caller):incss(u,caller)   
  }
  ;
+
   function entry(ary,caller){return new Promise(sol=>{
     const length =ary.length,rate=(n=> 100*(length-n.length)/length);
     let a=ary.slice().reverse()
@@ -41,6 +54,7 @@
   })}
  ;
   root.thenload =entry
+  root.thenload.debug =debug; 
   ;
   /*usage
 thenload([
