@@ -119,7 +119,7 @@ https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.2/superagent.js
     //if trunced file need fullread. fullread is then. o.read(filename).raw_url=> o.fullread(raw_url) 
     o.fullread =function(url){
      o.caller({type:'fullread',target:url,data:o.data})//
-     return req.get(url)//.set(info.h)
+     return req.get(url).set(info.h)
       .query({_:Date.now() +''+performance.now().toString().replace('.','') }) //no-chash
       .then(res=>res.body)     
     }
