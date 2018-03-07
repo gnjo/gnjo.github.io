@@ -57,9 +57,6 @@ fn.urlcnk=(u)=>{
   let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
   return u + cep + v + Date.now()
 }
-fn.gistdesc =(u)=>{
-  return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)
-}
 fn.i=function(html,f,doc=document){
   var _f =(f)?f:(el)=>{return el};
   if(typeof html !=='string') return _f(html);
@@ -89,14 +86,9 @@ fn.i2=function(html,attr,style,doc=document){
   return me;
 }
 
-fn.hashCode =(s)=>{
-  var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h; 
-}
-fn.mic12 =(s)=>{
-  var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);
-  return a+a;
-}
-
+fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
+fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
+fn.gistdesc =(u)=>{return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)}
 
 if(this.md5){ 
  var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
