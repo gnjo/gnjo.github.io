@@ -39,15 +39,11 @@ var fn=this.fn||{};
   } 
    return r;
  };
- fn.rword=(l=8)=>{
-  var c = "abcdefghijklmnopqrstuvwxyz0123456789";
-  var cl=c.length;
-  var r = "";
-  for(var i=0; i<l; i++){
-      r += c[Math.floor(Math.random()*cl)];
-  } 
-   return r;
- };
+fn.rword=(l=8)=>{
+  var c = "abcdefghijklmnopqrstuvwxyz0123456789",cl=c.length,r = "";
+  for(var i=0; i<l; i++) r += c[Math.floor(Math.random()*cl)];
+  return r;
+}
 fn.rkana=(l=8)=>{
   var c = "abcdefghijklmnopqrstuvwxyz",cl=c.length;
   var b = "aiueo",bl=b.length;
