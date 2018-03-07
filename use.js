@@ -30,6 +30,8 @@ function use(el){
 var fn=this.fn||{};
  fn.g=(s)=>{return document.getElementById(s)};
  fn.q=(s)=>{return document.querySelector(s)};
+ fn.r=(d=>d.parentNode.removeChild(d))
+ fn.ce=(d=>document.createElement(d))
  fn.range=(l=0)=>{return Array.from({length:l})}
  fn.rnum=(l=8)=>{
   var c = "123456789";//0を含めない方が都合が良い
