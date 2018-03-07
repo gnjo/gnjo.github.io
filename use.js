@@ -57,7 +57,9 @@ fn.urlcnk=(u)=>{
   let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
   return u + cep + v + Date.now()
 }
-
+fn.gistdesc =(u)=>{
+  return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)
+}
 fn.i=function(html,f,doc=document){
   var _f =(f)?f:(el)=>{return el};
   if(typeof html !=='string') return _f(html);
