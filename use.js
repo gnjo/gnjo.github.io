@@ -28,38 +28,25 @@ function use(el){
 /**/
 
 var fn=this.fn||{};
+fn.i3=function(html){
+ if(typeof html !=='string') return html
+ var el=document.createElement('table'); el.innerHTML=html.trim();
+ return el.childNodes[0];
+}
  fn.g=(s)=>{return document.getElementById(s)};
  fn.q=(s)=>{return document.querySelector(s)};
  fn.r=(d=>d.parentNode.removeChild(d))
  fn.ce=(d=>document.createElement(d))
  fn.range=(l=0)=>{return Array.from({length:l})}
- fn.rnum=(l=8)=>{
-  var c = "123456789";//0を含めない方が都合が良い
-  var cl=c.length;
-  var r = "";
-  for(var i=0; i<l; i++){
-      r += c[Math.floor(Math.random()*cl)];
-  } 
-   return r;
- };
-fn.rword=(l=8)=>{
-  var c = "abcdefghijklmnopqrstuvwxyz0123456789",cl=c.length,r = "";
-  for(var i=0; i<l; i++) r += c[Math.floor(Math.random()*cl)];
-  return r;
-}
-fn.rkana=(l=8)=>{
-  var c = "abcdefghijklmnopqrstuvwxyz",cl=c.length;
-  var b = "aiueo",bl=b.length;
-  var r="";
-  for(var i=0;i<l;i++){
-   r+=(i%2)? b[Math.floor(Math.random()*bl)]:c[Math.floor(Math.random()*cl)];
-  }
-  return r;   
- }
-fn.urlcnk=(u)=>{
+ fn.urlcnk=(u)=>{
   let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
   return u + cep + v + Date.now()
-}
+ }
+
+fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
+fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
+fn.gistdesc =(u)=>{return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)}
+
 fn.i=function(html,f,doc=document){
   var _f =(f)?f:(el)=>{return el};
   if(typeof html !=='string') return _f(html);
@@ -89,9 +76,30 @@ fn.i2=function(html,attr,style,doc=document){
   return me;
 }
 
-fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
-fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
-fn.gistdesc =(u)=>{return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)}
+ fn.rnum=(l=8)=>{
+  var c = "123456789";//0を含めない方が都合が良い
+  var cl=c.length;
+  var r = "";
+  for(var i=0; i<l; i++){
+      r += c[Math.floor(Math.random()*cl)];
+  } 
+   return r;
+ };
+fn.rword=(l=8)=>{
+  var c = "abcdefghijklmnopqrstuvwxyz0123456789",cl=c.length,r = "";
+  for(var i=0; i<l; i++) r += c[Math.floor(Math.random()*cl)];
+  return r;
+}
+fn.rkana=(l=8)=>{
+  var c = "abcdefghijklmnopqrstuvwxyz",cl=c.length;
+  var b = "aiueo",bl=b.length;
+  var r="";
+  for(var i=0;i<l;i++){
+   r+=(i%2)? b[Math.floor(Math.random()*bl)]:c[Math.floor(Math.random()*cl)];
+  }
+  return r;   
+ }
+
 
 if(this.md5){ 
  var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
