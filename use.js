@@ -91,14 +91,11 @@ fn.rword=(l=8)=>{
   return r;
 }
 fn.rkana=(l=8)=>{
-  var c = "abcdefghijklmnopqrstuvwxyz",cl=c.length;
-  var b = "aiueo",bl=b.length;
-  var r="";
-  for(var i=0;i<l;i++){
-   r+=(i%2)? b[Math.floor(Math.random()*bl)]:c[Math.floor(Math.random()*cl)];
-  }
-  return r;   
- }
+ var c = "bcdfghjklmnpqrstvwxyz",cl=c.length,b ="aiueo",bl=b.length,r=""
+ ,mf=Math.floor,mr=Math.random
+ ;for(var i=0;i<l;i++) r+=(i%2)? b[mf(mr()*bl)]:c[mf(mr()*cl)].toUpperCase();
+ return r;
+}
 
 
 if(this.md5){ 
