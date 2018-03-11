@@ -5,6 +5,7 @@
     v0.4 list and image
     v0.5 description
     v0.6 create biglex
+    v0.7 kansuuji > suji. color:white> a less gray
     */
 let fn={},is={},sys=root.sys||{},thenload=root.thenload;
 is.url=(d)=>{return /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i.test(d)}
@@ -39,6 +40,12 @@ fn.i=function(html,f,doc=document){
 }
 fn.kansuji=(num,keta=2)=>{/*v0.3*/
   let c ='零壱弐参四伍六七八玖'.split('')
+  ,a =('00000000'+num).slice(-1*keta).split('')
+  ;
+  return a.map(d=>c[parseInt(d)]).join('')
+}
+fn.suji=(num,keta=2)=>{/*v0.4*/
+  let c ='０１２３４５６７８９'.split('')
   ,a =('00000000'+num).slice(-1*keta).split('')
   ;
   return a.map(d=>c[parseInt(d)]).join('')
@@ -197,7 +204,7 @@ overflow:hidden;left:0;top:0}
     background-position: center;
     background-size: cover;
     border-color: #006b9f!important;
-    color: white;
+    color: #f3f3f3; /*white;*/
 }
 
 .rbtn {
@@ -326,7 +333,8 @@ function entry(obj){
   o.listfac=function(info,i){
     let el=document.createElement('li'),p=document.createElement('p');
     el.style.backgroundImage = `url(${info.u})`;
-    el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    //el.textContent = `${fn.kansuji(i,2)}章　${info.t.slice(1)}`
+    el.textContent = `＃${fn.suji(i,2)}　${info.t.slice(1)}`    /*change simple*/
     el.classList.add('if-story');
     p.textContent= info.d;
     p.classList.add('desc');
