@@ -1,4 +1,26 @@
 <head></head>
 <body>
+<script src="//gnjo.github.io/thenload.js"></script>
+<button>pop</button>
+<script>
+ 
+thenload(['https://gnjo.github.io/oauth.io.min.js']).then(start)
+;
+function start(){
+ let btn=document.querySelector('button')
+ ;
+ btn.onclick=function(ev){
+  OAuth.initialize('152Gr6lqonTQNUPA0CxpWKCOIO8')
+  OAuth.popup('github').done(function(result) {
+   console.log(result)
+   // do some stuff with result
+  })
+  result.me().done(function(data) {
+   // do something with `data`, e.g. print data.name
+  })  
 
+ }
+ ;
+}
+</script>
 </body>
