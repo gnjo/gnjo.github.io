@@ -5,13 +5,13 @@
 <section>
  <header><label>auth</label></header>
  <article><textarea></textarea><output></output></article>
- <footer><label>save</label></footer>
+ <footer><label data-place></label><label data-save>save</label></footer>
 </section>
-<link id="pencss" rel="stylesheet" > 
-<script id="penjs" ></script>
+<link id="pencss" rel="stylesheet"> 
+<script id="penjs"></script>
 <script>
 (function(root){
- let fn={},url="https://codepen.io/gnjo/pen/eMNLNW"
+ let fn=this.fn||{},url="https://codepen.io/gnjo/pen/eMNLNW"
 fn.q=(s)=>{return document.querySelector(s)}
 fn.urlcnk=(u)=>{
  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
@@ -20,5 +20,5 @@ fn.urlcnk=(u)=>{
 fn.q('#pencss').href = fn.urlcnk(url+'.css')
 fn.q('#penjs').src= fn.urlcnk(url+'.js')
 })(this)
-</script> 
+</script>  
 </body>
