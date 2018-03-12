@@ -1,6 +1,5 @@
 <head></head>
 <body>
-
 <script src="//gnjo.github.io/thenload.js"></script>
 <button>pop</button>
 <script>
