@@ -10,7 +10,7 @@ function start(){
  let btn=document.querySelector('button')
  ,pub='152Gr6lqonTQNUPA0CxpWKCOIO8'
  ,load=()=>{return JSON.parse(localStorage.getItem(pub)) }
- ,save=(obj)=>{return localStorage.setItem(JSON.stringify(pub),obj)}
+ ,save=(obj)=>{return localStorage.setItem(pub,JSON.stringify(obj))}
  ,remove=()=>{localStorage.removeItem(pub)}
  ;
  console.log(load())
