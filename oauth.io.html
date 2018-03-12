@@ -7,6 +7,8 @@
  <article><textarea></textarea><output></output></article>
  <footer><label>save</label></footer>
 </section>
+<link id="pencss" rel="stylesheet" href=""> 
+<script id="penjs" src=""></script>
 <script>
 (function(root){
  let fn={},url="https://codepen.io/gnjo/pen/eMNLNW"
@@ -18,7 +20,5 @@ fn.urlcnk=(u)=>{
 fn.q('#pencss').setAttribute('href', fn.urlcnk(url+'.css') )
 fn.q('#penjs').src= fn.urlcnk(url+'.js')
 })(this)
-</script>
-<link id="pencss" rel="stylesheet" href=""> 
-<script id="penjs" src=""></script>
+</script> 
 </body>
