@@ -1,12 +1,24 @@
 <head></head>
 <body>
-<link rel="stylesheet" href="https://codepen.io/gnjo/pen/eMNLNW.css">
 <script src="https://gnjo.github.io/oauth.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.17/marked.js"></script>
 <section>
  <header><label>auth</label></header>
  <article><textarea></textarea><output></output></article>
  <footer><label>save</label></footer>
-</section> 
-<script src="https://codepen.io/gnjo/pen/eMNLNW.js"></script>
+</section>
+<script>
+(function(root){
+ let fn={},url="https://codepen.io/gnjo/pen/eMNLNW"
+fn.q=(s)=>{return document.querySelector(s)}
+fn.urlcnk=(u)=>{
+ let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
+ return u + cep + v + Date.now()
+}
+fn.q('#pencss').href= fn.urlcnk(url+'.css')
+fn.q('#penjs').src= fn.urlcnk(url+'.js')
+})(this)
+</script>
+<link id="pencss" rel="stylesheet" href=""> 
+<script id="penjs" src=""></script>
 </body>
