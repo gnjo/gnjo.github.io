@@ -1,5 +1,6 @@
 <head></head>
 <body>
+<link rel="stylesheet" href="https://codepen.io/gnjo/pen/eMNLNW.css">
 <script src="https://gnjo.github.io/oauth.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.17/marked.js"></script>
 <section>
@@ -7,42 +8,5 @@
  <article><textarea></textarea><output></output></article>
  <footer><label>save</label></footer>
 </section> 
-<script>
-let fn={}
-fn.q=(s)=>{return document.querySelector(s)}
-;
-let pub='152Gr6lqonTQNUPA0CxpWKCOIO8'
-,load=()=>{return JSON.parse(localStorage.getItem(pub)) }
-,save=(obj)=>{return localStorage.setItem(pub,JSON.stringify(obj))}
-,remove=()=>{localStorage.removeItem(pub)}
-;
-let getuser=function(ev){
- let data=load();
- if(!data) return;
- let str=`${data.token_type} ${data.access_token}`
- ,url='https://api.github.com/user'
- ,opt={headers:{'authorization':str}}
- ;
- fetch(url,opt)
-  .then(d=>d.json())
-  .then(d=>{fn.q('output').innerHTML= JSON.stringify(d,null,2)})
-}
-,getauth = function(ev){
- if(load()) return;
- OAuth.initialize(pub)
- OAuth.popup('github')
-  .done(function(res){save(res);console.log(res)})
-  .fail(function(res){remove();console.log(res)})
-}
-;
-let ou=fn.q('output'),ta=fn.q('textarea')
-,sol=(d=>Promise.resolve(d))
-,au=fn.q('header>label'),sa=fn.q('footer>label')
-,markdown=function(ev){ sol(ta.value).then(d=>ou.innerHTML=marked(d)) }
-;
-ta.oninput=markdown
-au.onclick=getauth
-sa.onclick=getuser
-; 
-</script>
+<script src="https://codepen.io/gnjo/pen/eMNLNW.js"></script>
 </body>
