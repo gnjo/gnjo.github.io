@@ -4,29 +4,26 @@
 <script src="//gnjo.github.io/thenload.js"></script>
 <button>pop</button>
 <script>
- 
-thenload(['https://gnjo.github.io/oauth.io.min.js']).then(start)
+ thenload(['https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js','https://gnjo.github.io/oauth.io.min.js']).then(start)
 ;
 function start(){
  let btn=document.querySelector('button')
+ ,pub='152Gr6lqonTQNUPA0CxpWKCOIO8'
+ ,load=()=>{return JSON.parse(localStorage.getItem(pub)) }
+ ,save=(obj)=>{return localStorage.setItem(JSON.stringify(pub),obj)}
+ ,remove=()=>{localStorage.removeItem(pub)}
  ;
+ console.log(load())
  btn.onclick=function(ev){
-  OAuth.initialize('152Gr6lqonTQNUPA0CxpWKCOIO8')
-  OAuth.popup('github').done(function(res) {
-   console.log(res,OAuth)
-   // do some stuff with result
-  }).fail(function(res){
-   console.log(res)
-  })
-  /*
-  result.me().done(function(data) {
-   console.log(data)
-   // do something with `data`, e.g. print data.name
-  })  
- */
+  if(load()) return;
+  OAuth.initialize(pub)
+  OAuth.popup('github')
+   .done(function(res){save(res);console.log(res,OAuth)})
+   .fail(function(res){remove();console.log(res)})
  }
  ;
 }
+
 </script>
  
 </body>
