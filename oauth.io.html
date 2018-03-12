@@ -1,27 +1,32 @@
 <head></head>
 <body>
+
 <script src="//gnjo.github.io/thenload.js"></script>
 <button>pop</button>
 <script>
  
-thenload(['https://gnjo.github.io/oauth.io.min.js']).then(start)
+thenload(['https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js','https://gnjo.github.io/oauth.io.min.js']).then(start)
 ;
 function start(){
  let btn=document.querySelector('button')
  ;
  btn.onclick=function(ev){
   OAuth.initialize('152Gr6lqonTQNUPA0CxpWKCOIO8')
-  OAuth.popup('github').done(function(result) {
-   console.log(result)
+  OAuth.popup('github').done(function(res) {
+   console.log(res,OAuth)
    // do some stuff with result
+  }).fail(function(res){
+   console.log(res)
   })
+  /*
   result.me().done(function(data) {
    console.log(data)
    // do something with `data`, e.g. print data.name
   })  
-
+ */
  }
  ;
 }
 </script>
+ 
 </body>
