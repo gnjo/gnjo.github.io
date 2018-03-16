@@ -96,7 +96,7 @@ fn.rkana=(l=8)=>{
  ;for(var i=0;i<l;i++) r+=(i%2)? b[mf(mr()*bl)]:c[mf(mr()*cl)].toUpperCase();
  return r;
 }
-
+fn.aoimport=(d)=>{return d.replace(/［＃改ページ］\n　/g,'＃').replace(/［.+］/g,'');}
 
 if(this.md5){ 
  var hashColor=((s)=>{ return '#'+md5(s).slice(0,6) });
