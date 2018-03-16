@@ -29,7 +29,6 @@
     e.remove=()=>{return fn.r(e.el)}
     e.q=(s)=>{return fn.q(s,e.el)}
     e.qa=(s)=>{return fn.qa(s,e.el)}
-    e.log=()=>{console.log(e)}
     /*same*/
     e.a2=e.aTo; e.p2=e.pTo; e.as2=e.asTo; e.psTo=e.ps2;
     e.ef=e.effect; e.r=e.remove;
@@ -37,4 +36,5 @@
   };
   root.SQuery =entry;
   if(!root.$) root.$=entry; //JQuery confix
+  if(!root.e) root.e=entry
 })(this);
