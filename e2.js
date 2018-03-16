@@ -13,6 +13,7 @@
       setTimeout(()=>{ el.classList.remove(k) }, p(o[k]) )   
      })
   }
+  fn.r=(d=>d.parentNode.removeChild(d))
  ;   
  function entry(obj){
     var e={};
@@ -23,9 +24,10 @@
     e.asTo =(p)=>{p.parentNode.insertBefore(e.el,p.nextSibling);return e.el}
     e.psTo =(p)=>{p.parentNode.insertBefore(e.el,p);return e.el}
     e.effect =(o)=>{return fn.effect(e.el,o)}
+    e.remove=()=>{return fn.r(e.el)}
     /*same*/
     e.a2=e.aTo; e.p2=e.pTo; e.as2=e.asTo; e.psTo=e.ps2;
-    e.ef=e.effect
+    e.ef=e.effect; e.r=e.remove;
     return e;
   };
   root.SQuery =entry;
