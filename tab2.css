@@ -1,0 +1,31 @@
+.tab{font-size:0/*inline space none*/}
+.tab>*{font-size:initial}
+.tab{position:relative;}
+.tab>section{position:absolute}
+.tab>label{border:1px solid;border-right:0px;}
+.tab>label:nth-last-of-type(1){border-right:1px solid}
+/*tabs*/
+.tab>section{display:none}
+.tab>[name*="tab-"]{display:none}
+.tab>[name*="tab-"]:checked + label{}
+.tab>[name*="tab-"]:checked + label + section{display:block}
+
+.pos{
+ top:1.5rem;
+ border:1px solid;
+ width:100%;height:calc(100% - 1.5rem);
+}
+.pad{padding:0.25rem 0.5rem;height:1.5rem}
+
+/*
+.r>label{font-family:monospace;align-items:center}
+.r{
+ box-sizing:border-box;
+ height:80vh;width:33rem;/*decied the target frame size*/
+ display:flex;flex-direction:row;
+}
+.r>*{
+ box-sizing:border-box;
+}
+.time{flex-grow:1}
+*/
