@@ -1,0 +1,62 @@
+(function(root){
+ let fn={},is={}
+ is.element=function(o){return !!(o && o.nodeType === 1)}
+ fn.i3=function(html){
+  if(typeof html !=='string') return html
+  var el=document.createElement('table'); el.innerHTML=html.trim();
+  return el.childNodes[0];
+ }
+ fn.q=(d,doc=document)=>{return doc.querySelector(d)}
+ fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
+ ;
+ function entry(target,group='0'){
+  let o={};
+  o.fn=fn; o.is=is;
+  o.is.new=(el)=>{return el.querySelector('[data-tab]')?false:true }
+  o.el=is.element(target)?target:o.fn.q(target)
+  o.el.classList.add('tab');
+  o.group=group;
+  o.add=function(name,caller){
+   let i=o.fn.i3(`<input type="radio" name="tab-${o.group}" id="${name}" data-tab="${name}"></input>`)
+   ,l=o.fn.i3(`<label class="pad" for="${name}" data-tab="${name}">${name.slice(0,1)}</label>`)
+   ,f=o.fn.i3(`<section class="pos" data-tab="${name}"></section>`)
+   ;
+   if(o.is.new(o.el)) i.checked = true;   
+   ;[i,l,f].forEach(d=>o.el.appendChild(d))
+   caller(i,l,f,o);
+   return o;
+  }
+  return o;
+ };
+ root.tab =entry;
+})(this);
+/*
+tab('.r')
+ .add('time',(input,label,frame,obj)=>{
+ label.textContent="YYYY/DD/MM hh:mm"
+ label.classList.add('time')
+ frame.textContent="xxxx"
+
+})
+ .add('L',(input,label,frame,obj)=>{
+ 
+ frame.textContent="this is L"
+
+})
+ .add('I',(input,label,frame,obj)=>{
+
+ frame.textContent="this is I"
+
+})
+ .add('A',(input,label,frame,obj)=>{
+
+ frame.textContent="this is A"
+
+})
+ .add('H',(input,label,frame,obj)=>{
+
+ frame.textContent="this is H"
+
+})
+
+*/
