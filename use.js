@@ -47,6 +47,12 @@ fn.urlcnk=(u)=>{
 fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
 fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
 fn.gistdesc =(u)=>{return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)}
+fn.gistinfo=(r)=>{
+ let ma =/https:\/\/gist.githubusercontent.com\/(.+)\/(.+)\/raw\/(.+)\/(.+)$/
+ ,a=r.match(ma)
+ ;
+ return {url:r,user:a[1],id:a[2],filename:a[4]}  
+}
 
 fn.i=function(html,f,doc=document){
  var _f =(f)?f:(el)=>{return el};
