@@ -4,6 +4,18 @@
 </head>
 <body>
 <div class="r"></div>
+ <style>
+.r>label{font-family:monospace;align-items:center}
+.r{
+ box-sizing:border-box;
+ height:80vh;width:33rem;
+ display:flex;flex-direction:row;
+}
+.r>*{
+ box-sizing:border-box;
+}
+.time{flex-grow:1}  
+ </style> 
 <script>
 tab('.r')
  .add('time',(input,label,frame,obj)=>{
