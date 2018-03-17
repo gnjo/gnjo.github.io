@@ -1,0 +1,37 @@
+<head>
+<link rel="stylesheet" href="//gnjo.github.io/tab2.css">
+<script src="//gnjo.github.io/tab2.js"></script>
+</head>
+<body>
+<div class="r"></div>
+<script>
+tab('.r')
+ .add('time',(input,label,frame,obj)=>{
+ label.textContent="YYYY/DD/MM hh:mm"
+ label.classList.add('time')
+ frame.textContent="xxxx"
+
+})
+ .add('L',(input,label,frame,obj)=>{
+ 
+ frame.textContent="this is L"
+
+})
+ .add('I',(input,label,frame,obj)=>{
+
+ frame.textContent="this is I"
+
+})
+ .add('A',(input,label,frame,obj)=>{
+
+ frame.textContent="this is A"
+
+})
+ .add('H',(input,label,frame,obj)=>{
+
+ frame.textContent="this is H"
+
+})
+
+</script>
+</body>
