@@ -21,9 +21,12 @@
 .r>label{font-family:monospace;align-items:center}
 .r{
  box-sizing:border-box;
- height:80vh;width:33rem;/*decied the target frame size*/
+ height:80vh;width:33rem;
  display:flex;flex-direction:row;
 }
+*/
+/*decied the target frame size*/
+/*
 .r>*{
  box-sizing:border-box;
 }
