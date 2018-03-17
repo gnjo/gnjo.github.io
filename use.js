@@ -35,6 +35,7 @@ fn.i3=function(html){
 }
 fn.g=(s)=>{return document.getElementById(s)};
 fn.q=(s)=>{return document.querySelector(s)};
+fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
 fn.r=(d=>d.parentNode.removeChild(d))
 fn.ce=(d=>document.createElement(d))
 fn.range=(l=0)=>{return Array.from({length:l})}
