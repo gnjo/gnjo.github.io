@@ -1,3 +1,4 @@
+/*v0.1 global data set*/
 (function(root){
  let fn={},is={}
  is.element=function(o){return !!(o && o.nodeType === 1)}
@@ -16,6 +17,13 @@
   o.el=is.element(target)?target:o.fn.q(target)
   o.el.classList.add('tab');
   o.group=group;
+  o._data={}
+  o.data=function(key,obj){
+   if(!key && !obj) return o._data;
+   if(!obj) return o._data[key];
+   o._data[key]=obj
+   return o;
+  }
   o.add=function(name,caller){
    let i=o.fn.i3(`<input type="radio" name="tab-${o.group}" id="${name}" data-tab="${name}"></input>`)
    ,l=o.fn.i3(`<label class="pad" for="${name}" data-tab="${name}">${name.slice(0,1)}</label>`)
@@ -31,12 +39,13 @@
  root.tab =entry;
 })(this);
 /*
+//<div class="r"></div>
 tab('.r')
+ .data('test','dddeeeeeedd')
  .add('time',(input,label,frame,obj)=>{
  label.textContent="YYYY/DD/MM hh:mm"
  label.classList.add('time')
- frame.textContent="xxxx"
-
+ frame.textContent=obj.data('test')
 })
  .add('L',(input,label,frame,obj)=>{
  
@@ -58,5 +67,4 @@ tab('.r')
  frame.textContent="this is H"
 
 })
-
 */
