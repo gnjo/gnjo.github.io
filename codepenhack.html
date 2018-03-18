@@ -29,10 +29,11 @@ document.body.onkeydown=function(ev){
   ,calc=(d)=>{
    document.body.innerHTML=d;
    //script reboot;
-   fn.qa('script',document.body).map(d=>d.innerHTML).forEach(d=>{
+   fn.qa('script',document.body).forEach(d=>{
+    let html=d.innerHTML,src=d.src||''; fn.r(d)
     let el=fn.ce('script'); document.body.appendChild(el);
-    el.innerHTML=d;
-   })   
+    el.innerHTML=html;el.src=src;
+   })
    //
    let css=fn.i3(`<link href="${fn.urlcnk(v+'.css')}" rel="stylesheet">`)
    ,js =fn.ce('script');
