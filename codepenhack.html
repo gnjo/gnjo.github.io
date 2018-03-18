@@ -6,7 +6,7 @@ document.body.onkeydown=function(ev){
  if(!(ev.target === this && ev.ctrlKey && ev.keyCode===13)) return;
  let fn={};
  fn.q=(d=>document.querySelector(d))
- fn.qa=(d=>[].slice.call(document.querySelectorAll(d)))
+ fn.qa=((d,doc=document)=>[].slice.call(doc.querySelectorAll(d))) 
  fn.ce=(d=>document.createElement(d))
  fn.r=(d=>d.parentNode.removeChild(d))
  fn.i3=function(html){
@@ -28,6 +28,12 @@ document.body.onkeydown=function(ev){
   let v=el.value
   ,calc=(d)=>{
    document.body.innerHTML=d;
+   //script reboot;
+   fn.qa('script',document.body).map(d=>d.innerHTML).forEach(d=>{
+    let el=fn.ce('script'); document.body.appendChild(el);
+    el.innerHTML=d;
+   })   
+   //
    let css=fn.i3(`<link href="${fn.urlcnk(v+'.css')}" rel="stylesheet">`)
    ,js =fn.ce('script');
    ;[css,js].forEach(d=>document.body.appendChild(d));
