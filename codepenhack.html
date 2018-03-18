@@ -1,0 +1,48 @@
+<head>
+<script id="blockscript">
+function codepenhack(){
+///
+document.body.onkeydown=function(ev){
+ if(!(ev.target === this && ev.ctrlKey && ev.keyCode===13)) return;
+ let fn={};
+ fn.q=(d=>document.querySelector(d))
+ fn.qa=(d=>[].slice.call(document.querySelectorAll(d)))
+ fn.ce=(d=>document.createElement(d))
+ fn.r=(d=>d.parentNode.removeChild(d))
+ fn.i3=function(html){
+  if(typeof html !=='string') return html
+  var el=document.createElement('table'); el.innerHTML=html.trim();
+  return el.childNodes[0];
+ }
+ fn.urlcnk=(u)=>{
+  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
+  return u + cep + v + Date.now()
+ }  
+ let block='blockscript',name='codepenhack'
+ ,el=fn.q('#'+name)||fn.i3('<input id="codepenhack" style="width: 44rem; position: fixed; margin: auto; top: 2rem;">')
+ if(!fn.q('#'+name)) document.body.appendChild(el);
+ else el.style.display = (el.style.display === 'none')?'initial':'none'
+ el.onkeydown=function(ev){
+  if(ev.keyCode !=13) return;
+  if(!~el.value.indexOf('codepen.io')) return;
+  let v=el.value
+  ,calc=(d)=>{
+   document.body.innerHTML=d;
+   let css=fn.i3(`<link href="${fn.urlcnk(v+'.css')}" rel="stylesheet">`)
+   ,js =fn.ce('script');
+   ;[css,js].forEach(d=>document.body.appendChild(d));
+   js.src=fn.urlcnk(v+'.js')
+  }
+  ;
+  console.log('in',v)
+  document.body.innerHTML='';
+  fn.qa('script,link,style').filter(d=>(d.id!=block)).forEach(d=>fn.r(d))
+  fetch(fn.urlcnk(v+'.html')).then(d=>d.text()).then(calc)
+ }
+}
+///
+}
+</script>
+</head>
+<body onload="codepenhack()">
+</body>
