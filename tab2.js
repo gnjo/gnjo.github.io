@@ -1,4 +1,7 @@
-/*v0.1 global data set*/
+/*
+v0.1 global data set
+v0.2 null add
+*/
 (function(root){
  let fn={},is={}
  is.element=function(o){return !!(o && o.nodeType === 1)}
@@ -25,6 +28,7 @@
    return o;
   }
   o.add=function(name,caller){
+   if(!name){ caller(o);return o} /*null is special calc*/
    let i=o.fn.i3(`<input type="radio" name="tab-${o.group}" id="${name}" data-tab="${name}"></input>`)
    ,l=o.fn.i3(`<label class="pad" for="${name}" data-tab="${name}">${name.slice(0,1)}</label>`)
    ,f=o.fn.i3(`<section class="pos" data-tab="${name}"></section>`)
