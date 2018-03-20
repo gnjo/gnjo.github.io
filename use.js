@@ -53,6 +53,7 @@ fn.gistinfo=(r)=>{
  ;
  return {url:r,user:a[1],id:a[2],filename:a[4]}  
 }
+fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
 
 fn.i=function(html,f,doc=document){
  var _f =(f)?f:(el)=>{return el};
