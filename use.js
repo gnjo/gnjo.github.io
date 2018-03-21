@@ -205,6 +205,12 @@ fn.copy=function(textVal){
  return retVal;
 }
 
+fn.gsl=(()=>window.getSelection().toString())
+fn.gsl2=(el=>{
+ let data = (el.value)?el.value:el.textContent;
+ return data.slice(el.selectionStart,el.selectionEnd)
+})
+fn.pnt2=(str)=>{document.execCommand('inserthtml',false,str)}
 fn.pnt=(str)=>{document.execCommand('inserttext',false,str)}
 fn.paste=function(target, str){
  //if target have textarea or input, to focus and paste the str.
