@@ -1,6 +1,7 @@
 /*
 let a=autoWorker('edict','url');
 if(a.edict) ...
+v0.1 undefined parse error change-to null
 */
 (function(root){
  var fn={}
@@ -23,7 +24,7 @@ return is.function(obj[d])?{name:d,type:'function'}:{name:d,type:'value'}
 postMessage(['___special___',objkeys]);
 //
 ;onmessage =function(e){
-let key=e.data[0],args=e.data.slice(1),f=(d)=>{return JSON.parse(JSON.stringify(d))}
+let key=e.data[0],args=e.data.slice(1),f=(d=null)=>{return JSON.parse(JSON.stringify(d))}/*undefined parse error*/
 Promise.resolve().then(()=>{
 if(!is.has(obj,key)) return   
 if(is.function(obj[key])) return obj[key].apply(obj,args)
