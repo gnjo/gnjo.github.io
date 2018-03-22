@@ -1,9 +1,7 @@
+/*new leto woff*/
 @font-face {
     font-family: 'leto';
-    src: url('https://gnjo.github.io/leto.ttf') format('truetype');
-/*    src: url('https://gnjo.github.io/leto.woff2') format('woff2'),
-         url('https://gnjo.github.io/leto.woff') format('woff');*/
+    src: url('https://gnjo.github.io/leto.woff') format('woff') /*,url('https://gnjo.github.io/leto.otf') format('opentype')*/;
     font-weight: normal;
     font-style: normal;
-
 }
