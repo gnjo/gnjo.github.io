@@ -1,6 +1,8 @@
 (function(root){
-/*need filter.js*/
- let filter=root.filter
+/*
+v1.0 filter is or not OK 
+*/
+ let filter=root.filter||{}
  ,isFilter=(d)=>{
   return (Object.keys(filter).filter(k=>d===k||d===k.slice(1)).length===0)?false:true
 }
