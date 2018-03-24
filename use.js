@@ -34,7 +34,7 @@ fn.i3=function(html){
  return el.childNodes[0];
 }
 fn.g=(s)=>{return document.getElementById(s)};
-fn.q=(s)=>{return document.querySelector(s)};
+fn.q=(s,doc=document)=>{return doc.querySelector(s)};
 fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
 fn.r=(d=>d.parentNode.removeChild(d))
 fn.ce=(d=>document.createElement(d))
