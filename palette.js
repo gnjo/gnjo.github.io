@@ -1,4 +1,3 @@
-
 ;(function(root){
  let fn={};
  fn.i3=function(html){
