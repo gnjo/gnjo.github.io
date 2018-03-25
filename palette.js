@@ -69,11 +69,10 @@
  function query(){
   //ctrl clickで element のqueryをコピーする。
   let el=fn.q('[data-palette] input')
-  el.onclick=()=>{ fn.copy(el.value)}
-  document.body.addEventListener('click',function(ev){
-   if(ev.target==el) return false;
-   ;el.value =fn.sq(ev.target,3);
-  });
+  ,caller=function(ev){if(ev.target!=el)el.value =fn.sq(ev.target,3)}
+  el.onclick=()=>{fn.copy(el.value)}
+  ;['contextmenu','click'].forEach(d=>{document.body.addEventListener(d,caller,false)})
  }
-
+;
 })(this);
+//palette('#2b2515,#c6be62,#877e3f,#9fa04c,#6c5c64,https://i.imgur.com/zgXwPWM.jpg')
