@@ -1,4 +1,4 @@
-(function(root){
+;(function(root){
   if(root._) return;
   var _={}; 
 /*original by underscore.js*/
@@ -72,4 +72,4 @@
   };
 
   root._ =_;
-})(this)  
+})(this);
