@@ -55,6 +55,21 @@ fn.gistinfo=(r)=>{
 }
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
 
+fn.sq=(d,opt=2)=>{
+ let f=(d)=>{return (d)?[
+   d.tagName.toLowerCase()
+   ,(d.classList.length!=0)?'.'+[].slice.call(d.classList).join('.'):''
+   ,(d.id&&d.id!='')?('#'+d.id):''
+   ,(d.name)?`[name="${d.name}"]`:''
+  ].join(''):null;
+ }
+ ,now=d
+ ;return Array.from({length:opt})
+  .map((d,i)=>{now= (now)?(i===0)?now:now.parentElement:null;return now})
+  .map(d=>f(d)).filter(d=>d).reverse().join('>')
+ ;
+}
+
 fn.i=function(html,f,doc=document){
  var _f =(f)?f:(el)=>{return el};
  if(typeof html !=='string') return _f(html);
