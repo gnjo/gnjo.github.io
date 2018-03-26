@@ -45,7 +45,7 @@
 [data-palette] b:hover{color:black;cursor:pointer}
 [data-palette] input{width:250px;box-sizing:border-box;outline:none;background:transparent;color:inherit;border:none;}
 [data-palette]>div{display: flex}
-[data-palette] wisp{opacity:0.01}
+[data-palette] .wisp{opacity:0.01}
 </style>
 <input>xxxx</input>
 <div>
