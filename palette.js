@@ -1,3 +1,4 @@
+/*v0.1 if ctrl opacity:0.1*/
 ;(function(root){
  let fn={};
  fn.i3=function(html){
@@ -44,6 +45,7 @@
 [data-palette] b:hover{color:black;cursor:pointer}
 [data-palette] input{width:250px;box-sizing:border-box;outline:none;background:transparent;color:inherit;border:none;}
 [data-palette]>div{display: flex}
+[data-palette] wisp{opacity:0.01}
 </style>
 <input>xxxx</input>
 <div>
@@ -71,6 +73,7 @@
   ,caller=function(ev){if(ev.target!=el)el.value =fn.sq(ev.target,3)}
   el.onclick=()=>{fn.copy(el.value)}
   ;['contextmenu','click'].forEach(d=>{document.body.addEventListener(d,caller,false)})
+  document.body.addEventListener('keydown',function(ev){ if(ev.ctrlKey) fn.q('[data-palette]').classList.toggle('wisp');},false);
  }
 ;
 })(this);
