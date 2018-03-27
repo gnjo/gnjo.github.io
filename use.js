@@ -27,7 +27,7 @@ function use(el){
 }
 /**/
 
-var fn=this.fn||{};
+var fn=this.fn||{},is=this.is||{}
 fn.i3=function(html){
  if(typeof html !=='string') return html
  var el=document.createElement('table'); el.innerHTML=html.trim();
@@ -69,7 +69,17 @@ fn.sq=(d,opt=2)=>{
   .map(d=>f(d)).filter(d=>d).reverse().join('>')
  ;
 }
-
+ is.imgurl=(d)=>{return /(.+:\/\/.+\.jpeg)|(.+:\/\/.+\.png)|(.+:\/\/.+\.jpg)/i.test(d)}
+ fn.lex=(str)=>{
+  let title='',url='',line=0,c=44;
+  let a =str.split('\n').forEach((d)=>{
+   if( d.charAt(0) === '＃' ) title = d;
+   else if(d.charAt(0) === '＠' && is.imgurl(d.slice(1))) url =d.slice(1);
+   line += Math.ceil((d.length+0.1)/c)
+  });
+  return {t:title,u:url,l:line}
+ }
+ 
 fn.i=function(html,f,doc=document){
  var _f =(f)?f:(el)=>{return el};
  if(typeof html !=='string') return _f(html);
