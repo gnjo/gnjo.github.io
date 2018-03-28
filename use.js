@@ -54,13 +54,10 @@ fn.gistinfo=(r)=>{
  return {url:r,user:a[1],id:a[2],filename:a[4]}  
 }
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
-//need lay
-// fn.q=(s,doc=document)=>{return doc.querySelector(s)};
-// fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
  fn.lay=(q,flg)=>{
-  var o={},t='lay',qt='[lay]';
-  o.el =(flg)?fn.q(q).cloneNode(true):fn.q(q);
-  fn.qa(qt,o.el).forEach(d=>{o[d.getAttribute(t)]=d});
+  var o={},t='lay',qt='[lay]',el=(!!(q && q.nodeType === 1))?q:document.querySelector(q)
+  o.el =(flg)?el.cloneNode(true):el;
+  ;[].slice.call(o.el.querySelectorAll(qt)).forEach(d=>{o[d.getAttribute(t)]=d});
   return o;
  }
 
