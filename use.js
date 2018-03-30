@@ -46,6 +46,11 @@ fn.urlcnk=(u)=>{
 fn.timeToOrder=(time)=>{return 2147483647 - parseInt( time/1000 )}
 fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
 fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
+fn.hash12=(s)=>{
+  let rec=((k,v)=>(toString.call(v)==="[object Function]")?v.toString():v)
+  ,a=fn.hashCode(toString.call(s)+JSON.stringify(s,rec)).toString(16).slice(-6);
+  return a+a;
+}
 fn.gistdesc =(u)=>{return new Date().toISOString().slice(0,"YYYY-MM".length) +'-'+fn.mic12(u)}
 fn.gistinfo=(r)=>{
  let ma =/https:\/\/gist.githubusercontent.com\/(.+)\/(.+)\/raw\/(.+)\/(.+)$/
