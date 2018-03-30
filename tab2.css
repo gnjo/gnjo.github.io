@@ -17,6 +17,16 @@
 }
 .pad{padding:0.25rem 0.5rem;height:1.5rem}
 
+/*option .right*/
+.right.tab{
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:flex-end;
+}
+.right.tab>label:nth-last-of-type(1){border-right:0px solid}
+.right.tab>label{z-index:100}
+
 /*
 .r>label{font-family:monospace;align-items:center}
 .r{
