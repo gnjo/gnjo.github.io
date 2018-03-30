@@ -1,6 +1,7 @@
 /*
 v0.1 global data set
 v0.2 null add
+v0.3 3nd param navpos top || right
 */
 (function(root){
  let fn={},is={}
@@ -13,12 +14,13 @@ v0.2 null add
  fn.q=(d,doc=document)=>{return doc.querySelector(d)}
  fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
  ;
- function entry(target,group='0'){
+ function entry(target,group='0',navpos='top'){
   let o={};
   o.fn=fn; o.is=is;
   o.is.new=(el)=>{return el.querySelector('[data-tab]')?false:true }
   o.el=is.element(target)?target:o.fn.q(target)
   o.el.classList.add('tab');
+  o.el.classList.add((navpos=='top')?'top':'right');
   o.group=group;
   o._data={}
   o.data=function(key,obj){
