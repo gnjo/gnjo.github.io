@@ -1,11 +1,12 @@
 (function(root){
 /*
 v1.0 filter is or not OK 
+v1.1 filter not bug
 */
  let filter=root.filter||{}
- ,isFilter=(d)=>{
-  return (Object.keys(filter).filter(k=>d===k||d===k.slice(1)).length===0)?false:true
-}
+// ,isFilter=(d)=>{
+//  return (Object.keys(filter).filter(k=>d===k||d===k.slice(1)).length===0)?false:true
+//}
  ,fits=(ow,oh,tw,th,fa=1)=>{
     // calc scale and calc clip
     let scale = (ow/oh > tw/th)? th/oh :tw/ow
@@ -58,7 +59,7 @@ v1.0 filter is or not OK
   let o={};
   
   o._={filter:[],base64:base64};
-  o.filter =(obj)=>{ if(isFilter(obj)) o._['filter'].push('_'+obj.replace('_','')); return o}
+  o.filter =(obj)=>{ /*if(isFilter(obj))*/ o._['filter'].push('_'+obj.replace('_','')); return o}
   o.fit=(obj)=>{ o._['fit']=obj; return o}
   o._calc=toCanvas;
   o.then=function(obj){return o._calc(o._['base64'],o._).then(obj) }
