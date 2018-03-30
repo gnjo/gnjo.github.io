@@ -10,6 +10,10 @@
 .tab>[name*="tab-"]:checked + label{}
 .tab>[name*="tab-"]:checked + label + section{display:block}
 
+.right .pos {
+ top: 0;
+ height: 100%;
+}
 .pos{
  top:1.5rem;
  border:1px solid;
