@@ -1,4 +1,7 @@
 ;(function(root){
+var is=root.is||{};
+is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false} } 
+; 
 if(localStorage){
 var ls={};
 ls.setI=(k,v)=>{return localStorage.setItem(k,JSON.stringify(v))}
@@ -23,7 +26,10 @@ if(root.qgist){
 var qg=qgist;
 qg.auth=qgist.set;
 qg.setI=(k,v)=>{return qgist.write(k,JSON.stringify(v))}
-qg.getI=(k)=>{return qgist.read(k).then(d=>{return JSON.parse(d||null) })}
+//qg.getI=(k)=>{return qgist.read(k).then(d=>{return JSON.parse(d||null) })}
+qg.getI=(k)=>{return qgist.read(k).then(d=>{
+ return is.jsonString(d)?JSON.parse(d||null):d
+})}
 qg.delI=(k)=>{if(k)return qgist.delete(k)}
 qg.keys=()=>{return Object.keys(qgist.data.files)}
 root.qg=qg;
