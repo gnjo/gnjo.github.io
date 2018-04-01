@@ -4,6 +4,7 @@ usefull scripts
 # promise
 this files need usage. filename have lowerCamelCase, mostly.
 
+### e3.js fullbundle 2018/04
 
 ### quick start
 - short
