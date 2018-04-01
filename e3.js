@@ -98,7 +98,8 @@ root.qg=qg;
   +'is: '+Object.keys(is).join(',')+'\n'
   +'fn: '+Object.keys(fn).join(',')+'\n'
   +'ls: '+Object.keys(ls).join(',')+'\n'
-  +'qg: '+Object.keys(qg).join(',')+'\n'
+  ;
+  if(qg) helptext+='qg: '+Object.keys(qg).join(',')+'\n'
   ;
   fn.ce('div').set({id:'debuging',contenteditable:'plaintext-only',css:css,textContent:helptext,class:'none'}).a2(document.body)  
   document.body.addEventListener('keydown',function(ev){
