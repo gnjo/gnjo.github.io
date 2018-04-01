@@ -94,6 +94,7 @@ root.qg=qg;
   //helper set; ctrl+f
   fn.ce('style').set({textContent:'.none{display:none}'}).a2(document.body);
   let css='position:fixed;top:0;right:0;width:22rem;color:#eee;background:rgba(0,0,0,0.5);font-family:monospace;padding:0.4rem'
+  ,qg=root.qg
   ,helptext='element: '+Object.keys(e).filter(d=>d.length<5).join(',')+'\n'
   +'is: '+Object.keys(is).join(',')+'\n'
   +'fn: '+Object.keys(fn).join(',')+'\n'
