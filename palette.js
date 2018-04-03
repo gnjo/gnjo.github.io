@@ -1,4 +1,6 @@
-/*v0.1 if ctrl opacity:0.1*/
+/*v0.1 if ctrl opacity:0.1
+v0.2 z-index:100
+*/
 ;(function(root){
  let fn={};
  fn.i3=function(html){
@@ -39,7 +41,8 @@
   let layout=`
 <div data-palette>
 <style>
-[data-palette]{position:fixed;bottom:0;right:25px;font-size:0}
+[data-palette]{position:fixed;bottom:0;right:25px;font-size:0;}
+[data-palette]{z-index: 100;/*v0.2*/}
 [data-palette] b{font-family:monospace;font-size:10px;font-weight:400;}
 [data-palette] b{width:50px;height:50px;display:inline-block;text-align:center;color:white}
 [data-palette] b:hover{color:black;cursor:pointer}
