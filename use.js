@@ -58,6 +58,12 @@ fn.gistinfo=(r)=>{
  ;
  return {url:r,user:a[1],id:a[2],filename:a[4]}  
 }
+fn.scv=(el,type='top')=>{
+ if(type=='top') return el.scrollIntoView({ behavior: 'smooth',block: "start", inline: "nearest" })
+ if(type=='bottom') return el.scrollIntoView({ behavior: 'smooth',block: "end", inline: "nearest" })
+ /*if(type=='center')*/ return el.scrollIntoView({ behavior: 'smooth'}) 
+}
+
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
  fn.lay=(q,flg)=>{
   var o={},t='lay',qt='[lay]',el=(!!(q && q.nodeType === 1))?q:document.querySelector(q)
