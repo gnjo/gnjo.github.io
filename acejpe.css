@@ -1,0 +1,2 @@
+@font-face {font-family: 'jpe';src: url("//gnjo.github.io/empty.woff") format('woff');}
+.ace_editor{font: 12px/normal 'jpe','Monaco', 'Menlo','Courier',monospace;}
