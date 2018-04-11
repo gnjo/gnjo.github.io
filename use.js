@@ -43,6 +43,7 @@ fn.urlcnk=(u)=>{
  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
  return u + cep + v + Date.now()
 }
+fn.rhash=()=>{return Math.random().toString(36).slice(-8)}
 fn.timeToOrder=(time)=>{return 2147483647 - parseInt( time/1000 )}
 fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
 fn.mic12 =(s)=>{var d= fn.hashCode('GGGGGG'+s),a =d.toString(16).slice(-6);return a+a}
