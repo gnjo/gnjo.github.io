@@ -45,3 +45,16 @@ body{
 }
 
 .scroll-y{overflow-y:scroll}
+
+img.wallpaper{
+ position:fixed;
+ object-fit:cover;
+ object-position:center;
+ width:110vw;height:110vh;
+ filter: blur(15px);
+ overflow:hidden;
+ top:-15px;
+ left:-15px;
+ transform:scale(1.2);
+ z-index:-100;
+}
