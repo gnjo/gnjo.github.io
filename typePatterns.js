@@ -1,4 +1,4 @@
-//v1.1 base ture or not. base count 16
+//v1.1 base true or not. base count 16
 //[...,{n,v,s}]
 var typePatterns=[
  {n:'Infinity',v:Infinity,b:true}
