@@ -36,8 +36,9 @@ var typePatterns=[
  ,{n:'ArrayBuffer',v:new ArrayBuffer()}
  ,{n:'Proxy',v:new Proxy({},{})}
  ,{n:'Promise',v:new Promise(()=>{})}
- ,{n:'PromiseResolve',v:Promise.resolve('dummy'),s:'Promise.resolve("dummy")'}
- ,{n:'PromiseReject',v:Promise.reject('dummy'),s:'Promise.reject("dummy")'}
+ //promise reject is always born the error... so cut.
+ //,{n:'PromiseResolve',v:Promise.resolve('dummy'),s:'Promise.resolve("dummy")'}
+ //,{n:'PromiseReject',v:Promise.reject('dummy'),s:'Promise.reject("dummy")'}
  ,{n:'JSONString',v:JSON.stringify({ary:[0,1,2,3],x:{v:'dummy'}})}
  /*addition*/
  ,{n:'False',v:false}
@@ -69,6 +70,7 @@ var typePatterns=[
  ,{n:'Int16Max',v:32767}
  ,{n:'Int32Min',v: -2147483648}
  ,{n:'Int32Max',v:2147483647}
- ,{n:'Float64Min',v:Number.MAX_VALUE}
- ,{n:'Float64Max',v:Number.MIN_VALUE}
+ // float is same NumberMAX_ALUE MIN_VALUE
+ //,{n:'Float64Min',v:Number.MAX_VALUE}
+ //,{n:'Float64Max',v:Number.MIN_VALUE}
 ]
