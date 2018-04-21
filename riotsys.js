@@ -70,7 +70,7 @@
  sys.load=()=>{ sys.data=ls.getI(sys.key)||{}; sys.trigger('loaded') }
  sys.on('load',function(){ sys.load()})
  sys.on('save',function(){ sys.save()})
- sys.on('changed',function(){ if(sys.savelfg) sys.savede() })
+ sys.on('changed',function(){ if(sys.autosave) sys.savede() })
  let cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',sys.data))}
  ,init =(d)=>{d.on('change',(o)=>{ Object.assign(sys.data,o); share() })}
  ;
