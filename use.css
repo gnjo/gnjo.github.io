@@ -58,3 +58,26 @@ img.wallpaper{
  transform:scale(1.2);
  z-index:-100;
 }
+
+.btn.checked{color: rgba(0,0,0,1)}
+.btn{
+    color:rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    display: inline-block;
+    box-sizing: border-box;
+    font-family:schoolmono,monaco,consolas,monospace;
+    /*width: 5rem;*/
+    padding:0 0.7rem;
+    height: 1.5rem;
+    text-align: center;
+    margin-bottom: 8px;
+    border-radius: 4px;
+   transition:box-shadow 0.1s ease-in-out;
+}
+.btn:hover{
+  color: rgba(0,0,0,1);
+  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); 
+}
+.btn:active{
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
