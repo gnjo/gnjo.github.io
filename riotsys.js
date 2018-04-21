@@ -1,4 +1,10 @@
-/*usage: sys.trigger('join',me)*/
+/*
+v:0.1
+usage:
+sys.key='riotsystest'
+sys.load();
+sys.trigger('join',me)
+*/
 ;(function(root){
  var de=(function(root){
   var _={}; 
