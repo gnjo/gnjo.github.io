@@ -1,5 +1,5 @@
 /*
-v:0.1
+v:0.2 autosave, key check
 usage:
 sys.load('riotsystest'); //if not key. disable the ls
 sys.trigger('join',me)
@@ -75,7 +75,7 @@ sys.trigger('join',me)
  sys.load=(key)=>{if(!key)return; sys.key=key; sys.data=ls.getI(sys.key)||{}; sys.trigger('loaded') }
  sys.on('load',function(){ sys.load()})
  sys.on('save',function(){ sys.save()})
- sys.on('savede',function(){ /*console.log('in savede');*/ if(!sys.autosave||!sys.key)return;  sys.savede() })
+ sys.on('savede',function(){ /*console.log('in savede');*/ if(sys.autosave) sys.savede() })
  let cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',sys.data))}
  ,init =(d)=>{d.on('change',(o)=>{ Object.assign(sys.data,o);/**/sys.trigger('savede');/**/ share() })}
  ;
