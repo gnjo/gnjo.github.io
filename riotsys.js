@@ -1,5 +1,5 @@
 /*
-v03:_.debounce minify
+v03:_.debounce minify, ls minify
 v02:autosave, key check
 v01:first move
 usage:
@@ -10,20 +10,12 @@ sys.trigger('join',me)
   /*original by underscore.js*/
 var de=(function(root){var _={};_.now=Date.now||function(){return new Date().getTime()};_.debounce=function(func,wait,immediate){var timeout,args,context,timestamp,result;var later=function(){var last=_.now()-timestamp;if(last<wait&&last>=0){timeout=setTimeout(later,wait-last)}else{timeout=null;if(!immediate){result=func.apply(context,args);if(!timeout)context=args=null}}};return function(){context=this;args=arguments;timestamp=_.now();var callNow=immediate&&!timeout;if(!timeout)timeout=setTimeout(later,wait);if(callNow){result=func.apply(context,args);context=args=null}
 return result}};return _.debounce})(this);//de 
- var ls=(function(root){
-  var ls={};
-  if(localStorage){
-   //var ls={};
-   ls.setI=(k,v)=>{return localStorage.setItem(k,JSON.stringify(v))}
-   ls.getI=(k)=>{return JSON.parse(localStorage.getItem(k)||null)}
-   ls.delI=(k)=>{return localStorage.removeItem(k)}
-   ls.keys=()=>{return Object.keys(localStorage)}
-   //root.ls=ls;
-   //return ls
-  }
-  return ls;
- })(this)
- ;//ls
+ /*ls*/
+var ls=(function(root){var ls={};if(localStorage){ls.setI=(k,v)=>{return localStorage.setItem(k,JSON.stringify(v))}
+ls.getI=(k)=>{return JSON.parse(localStorage.getItem(k)||null)}
+ls.delI=(k)=>{return localStorage.removeItem(k)}
+ls.keys=()=>{return Object.keys(localStorage)}}
+return ls})(this);//ls
  var is={}
  is.object = function(obj){var type = typeof obj;return type === 'function' || type === 'object' && !!obj}
  ;
