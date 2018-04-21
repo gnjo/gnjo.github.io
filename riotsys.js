@@ -1,13 +1,4 @@
- /*
- usage:
- sys.key='xyz';//localStorage key
- sys.time=700;//save span; if changed, auto save.
- sys.load();
- //
- let cep=this.__.tagName
- sys.on('changed',(data)=>{ }) //data is all;
- sys.emit('change',{[cep]:data});
- */
+/*usage: sys.trigger('join',me)*/
 ;(function(root){
  var de=(function(root){
   var _={}; 
@@ -70,20 +61,31 @@
  is.object = function(obj){var type = typeof obj;return type === 'function' || type === 'object' && !!obj}
  ;
  var sys= riot.observable();
- sys.emit=sys.trigger
  sys.data={};
  sys.time=700;
  sys.key='systemxyz'
- sys.save=()=>{ ls.setI(sys.key,sys.data); sys.emit('saved')}
+ sys.autosave=true;
+ sys.save=()=>{ ls.setI(sys.key,sys.data); sys.trigger('saved')}
  sys.savede=de(sys.save,sys.time)
- sys.load=()=>{ sys.data=ls.getI(sys.key)||{}; sys.emit('loaded') }
+ sys.load=()=>{ sys.data=ls.getI(sys.key)||{}; sys.trigger('loaded') }
  sys.on('load',function(){ sys.load()})
  sys.on('save',function(){ sys.save()})
- sys.on('changed',function(){ sys.savede()})
- sys.on('change',function(d1,d2){
-  if(d1&&d2) this.data[d1]=d2;
-  if(is.object(d1)&&d1&&!d2) this.data=d1;
-  this.emit('changed',this.data) 
- });
- root.sys=sys;
+ sys.on('changed',function(){ if(sys.savelfg) sys.savede() })
+ let cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',sys.data))}
+ ,init =(d)=>{d.on('change',(o)=>{ Object.assign(sys.data,o); share() })}
+ ;
+ sys.on('join',(me)=>{ cs.push(me); init(me); share(); })
+ /*usage: sys.trigger('join',me)*/
 })(this);
+/*base
+;(function(root){
+var sys=new function(){
+ riot.observable(this); 
+ let self=this,cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',self.store))}
+ //cs.filter mean fall the child.
+ ,init =(d)=>{d.on('change',(o)=>{ Object.assign(self.store,o); share() })} 
+ self.store={}
+ self.on('join',(me)=>{ cs.push(me); init(me); share(); })
+}
+})(this);
+*/
