@@ -2,6 +2,7 @@
 v03:_.debounce minify, ls minify
 v02:autosave, key check
 v01:first move
+base: https://qiita.com/HadaGunjyo/items/2add1ef8e32323851b16
 usage:
 sys.load('riotsystest'); //if not key. disable the ls
 sys.trigger('join',me)
@@ -39,15 +40,3 @@ return ls})(this);//ls
  root.sys=sys;
  
 })(this);
-/*base
-;(function(root){
-var sys=new function(){
- riot.observable(this); 
- let self=this,cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',self.store))}
- //cs.filter mean fall the child.
- ,init =(d)=>{d.on('change',(o)=>{ Object.assign(self.store,o); share() })} 
- self.store={}
- self.on('join',(me)=>{ cs.push(me); init(me); share(); })
-}
-})(this);
-*/
