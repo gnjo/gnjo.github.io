@@ -1,8 +1,7 @@
 /*
 v:0.1
 usage:
-sys.key='riotsystest'
-sys.load();
+sys.load('riotsystest'); //if not key. disable the ls
 sys.trigger('join',me)
 */
 ;(function(root){
@@ -69,14 +68,14 @@ sys.trigger('join',me)
  var sys= riot.observable();
  sys.data={};
  sys.time=700;
- sys.key='systemxyz'
+ sys.key=null;//'systemxyz'
  sys.autosave=true;
- sys.save=()=>{ ls.setI(sys.key,sys.data); sys.trigger('saved')}
+ sys.save=()=>{if(!sys.key)return; ls.setI(sys.key,sys.data); sys.trigger('saved')}
  sys.savede=de(sys.save,sys.time)
- sys.load=()=>{ sys.data=ls.getI(sys.key)||{}; sys.trigger('loaded') }
+ sys.load=(key)=>{if(!key)return; sys.key=key; sys.data=ls.getI(sys.key)||{}; sys.trigger('loaded') }
  sys.on('load',function(){ sys.load()})
  sys.on('save',function(){ sys.save()})
- sys.on('savede',function(){ /*console.log('in savede');*/ if(sys.autosave) sys.savede() })
+ sys.on('savede',function(){ /*console.log('in savede');*/ if(!sys.autosave||!sys.key)return;  sys.savede() })
  let cs=[],share=()=>{ cs.filter(d=>d).map(d=>d.trigger('changed',sys.data))}
  ,init =(d)=>{d.on('change',(o)=>{ Object.assign(sys.data,o);/**/sys.trigger('savede');/**/ share() })}
  ;
