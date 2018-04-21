@@ -1,53 +1,15 @@
 /*
-v:0.2 autosave, key check
+v03:_.debounce minify
+v02:autosave, key check
+v01:first move
 usage:
 sys.load('riotsystest'); //if not key. disable the ls
 sys.trigger('join',me)
 */
 ;(function(root){
- var de=(function(root){
-  var _={}; 
   /*original by underscore.js*/
-  //line 1457
-  _.now = Date.now || function() {
-   return new Date().getTime();
-  };
-  //line 883
-  _.debounce = function(func, wait, immediate) {
-   var timeout, args, context, timestamp, result;
-
-   var later = function() {
-    var last = _.now() - timestamp;
-
-    if (last < wait && last >= 0) {
-     timeout = setTimeout(later, wait - last);
-    } else {
-     timeout = null;
-     if (!immediate) {
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-     }
-    }
-   };
-
-   return function() {
-    context = this;
-    args = arguments;
-    timestamp = _.now();
-    var callNow = immediate && !timeout;
-    if (!timeout) timeout = setTimeout(later, wait);
-    if (callNow) {
-     result = func.apply(context, args);
-     context = args = null;
-    }
-
-    return result;
-   };
-  };
-  //root._ =_;
-  return _.debounce
- })(this)
- ;//de
+var de=(function(root){var _={};_.now=Date.now||function(){return new Date().getTime()};_.debounce=function(func,wait,immediate){var timeout,args,context,timestamp,result;var later=function(){var last=_.now()-timestamp;if(last<wait&&last>=0){timeout=setTimeout(later,wait-last)}else{timeout=null;if(!immediate){result=func.apply(context,args);if(!timeout)context=args=null}}};return function(){context=this;args=arguments;timestamp=_.now();var callNow=immediate&&!timeout;if(!timeout)timeout=setTimeout(later,wait);if(callNow){result=func.apply(context,args);context=args=null}
+return result}};return _.debounce})(this);//de 
  var ls=(function(root){
   var ls={};
   if(localStorage){
