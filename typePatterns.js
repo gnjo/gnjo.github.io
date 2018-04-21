@@ -75,3 +75,32 @@ var typePatterns=[
  //,{n:'Float64Min',v:Number.MAX_VALUE}
  //,{n:'Float64Max',v:Number.MIN_VALUE}
 ]
+//and commentParse 
+//usage: commentParse('/*nama:xyz\nusage:xyz(a,b)*/ \n...')
+;(function(root){
+ let f2=(text='',cep=':')=>{
+  let is={};is.string = function(obj){return toString.call(obj) === '[object String]'}
+  if(!is.string(text) || !is.string(cep)) return {}
+  let ma1=/\/\*[\s\S]*?\*\//,ma2=/((.*):(.*))/g
+  if(!ma1.test(text) || !ma2.test(text)) return {}
+  let obj={};
+  text.match(ma1)[0].match(ma2).map(d=>d.split(cep))
+   .forEach(d=>{ obj[d[0]]={n:d[0],s:d[1]} })
+  return obj; //{ xxx:{n:xxx,s:string},yyy:{n:aaaa,s:bbbb}}
+ }
+ let f3=(text)=>{
+  let is={};is.string = function(obj){return toString.call(obj) === '[object String]'}
+  if(!is.string(text)) return {}
+  let ma=/(.+)\((.*)\)/
+  if(!ma.test(text)) return {}
+  let a=text.match(ma)
+  return {f:a[1],p:a[2],l:(a[2].length===0)?0:a[2].split(',').length}
+ } 
+ function entry(text){
+  var o=f2(text);
+  if(!o.usage) return o;
+  Object.assign(o.usage,f3(o.usage.s))
+  return o;
+ }
+ root.commentParse =entry;
+})(this);
