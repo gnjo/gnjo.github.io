@@ -76,6 +76,9 @@
  ;
  sys.on('join',(me)=>{ cs.push(me); init(me); share(); })
  /*usage: sys.trigger('join',me)*/
+ 
+ root.sys=sys;
+ 
 })(this);
 /*base
 ;(function(root){
