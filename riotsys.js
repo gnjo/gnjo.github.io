@@ -1,4 +1,5 @@
 /*
+v04:riot auto join
 v03:_.debounce minify, ls minify
 v02:autosave, key check
 v01:first move
@@ -40,3 +41,5 @@ return ls})(this);//ls
  root.sys=sys;
  
 })(this);
+;riot.mixin({init:function(){ if(sys)sys.trigger('join',this) }});//auto join
+
