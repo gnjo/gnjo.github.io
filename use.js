@@ -186,6 +186,10 @@ fn.fragment =function(u,tt='body'){
  })
 };
 
+fn.debug=(o)=>{return Object.getOwnPropertyNames(o).concat(Object.getOwnPropertyNames(o.__proto__))}
+//console.log(fn.debug(Math))
+fn.check=(s)=>{try{return{s:s,o:new Function(';return '+s)()} }catch(e){return{s:s,o:null,error:e.message} }}
+
 fn.pad=( (d,l)=>('000000000000000000'+d).slice(-1*l));
 fn.rotation=(a,v,l)=>{a.unshift(v);a.splice(l);return a};
 
