@@ -43,6 +43,8 @@ fn.urlcnk=(u)=>{
  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
  return u + cep + v + Date.now()
 }
+fn.choiceone=(o,name,v=true)=>{ Object.keys(o).map(d=>{ o[d]=(d===name)?v:!v });return o}
+
 fn.rhash=()=>{return Math.random().toString(36).slice(-8)}
 fn.timeToOrder=(time)=>{return 2147483647 - parseInt( time/1000 )}
 fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
