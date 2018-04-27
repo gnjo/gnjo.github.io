@@ -77,7 +77,8 @@ var typePatterns=[
 ]
 //and commentParse 
 //usage: commentParse('/*nama:xyz\nusage:xyz(a,b)*/ \n...')
-;(function(root){
+//v11: trim
+ ;(function(root){
  let f2=(text='',cep=':')=>{
   let is={};is.string = function(obj){return toString.call(obj) === '[object String]'}
   if(!is.string(text) || !is.string(cep)) return {}
@@ -85,7 +86,7 @@ var typePatterns=[
   if(!ma1.test(text) || !ma2.test(text)) return {}
   let obj={};
   text.match(ma1)[0].match(ma2).map(d=>d.split(cep))
-   .forEach(d=>{ obj[d[0]]={n:d[0],s:d[1]} })
+   .forEach(d=>{ obj[d[0].trim()]={n:d[0].trim() ,s:d[1].trim() } })
   return obj; //{ xxx:{n:xxx,s:string},yyy:{n:aaaa,s:bbbb}}
  }
  let f3=(text)=>{
