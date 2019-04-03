@@ -16,7 +16,8 @@ function codepenhack(){
   return u + cep + v + Date.now()
  }  
  ; 
- let v='',calc=(d)=>{
+ let v=''
+ /*,calc=(d)=>{
   document.body.innerHTML=d;
   //script reboot;
   fn.qa('script',document.body).forEach(d=>{
@@ -29,6 +30,23 @@ function codepenhack(){
   ,js =fn.ce('script');
   ;[css,js].forEach(d=>document.body.appendChild(d));
   js.src=fn.urlcnk(v+'.js')
+ }*/
+ ,calc=(d)=>{
+  let body=fn.ce('body')
+  body.innerHTML=d;
+  //script reboot;
+  fn.qa('script',body).forEach(d=>{
+   let html=d.innerHTML,src=d.src||''; fn.r(d)
+   let el=fn.ce('script'); body.appendChild(el);
+   el.innerHTML=html;el.src=src;
+  })
+  //
+  let css=fn.i3(`<link href="${fn.urlcnk(v+'.css')}" rel="stylesheet">`)
+  ,js =fn.ce('script');
+  ;[css,js].forEach(d=>body.appendChild(d));
+  js.src=fn.urlcnk(v+'.js');
+  //
+  document.body.innerHTML=body.innerHTML;
  }
  ,init=()=>{
    let url=location.href
