@@ -1,0 +1,31 @@
+<head>
+<script src="https://gnjo.github.io/e3.js"></script>
+</head>
+<body>
+<script>
+//https://codepen.io/gnjo/pen/ZZGQZK
+/*var req=window.superagent
+function a(){
+;(async ()=>{
+ let url='https://codepen.io/gnjo/pen/ZZGQZK' +'.html';
+ //let d= await fetch(url,opt)//.then(d=>d.text())
+ let d=await req.get(url)
+ console.log(d)
+})();
+}
+*/
+function a(){
+ let url='https://codepen.io/gnjo/pen/ZZGQZK' +'.html';
+ var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+  console.log(this.responseXML.title);
+}
+xhr.open("GET", url);
+xhr.responseType = "document";
+xhr.send();
+ 
+}
+</script>
+ <input style="width:80vw"></input>
+ <button onclick="a()">load</button>
+</body>
