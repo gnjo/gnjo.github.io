@@ -1,0 +1,10 @@
+<script src="https://gnjo.github.io/e3.js"></script>
+<script>
+fn.basic =(u,p)=>{
+ let _btoa =function(str){return btoa( unescape(encodeURIComponent( str )) )}
+ return `Basic ${_btoa(u +':' +p)}`
+}
+var x=()=>{fn.q('label').textContent= fn.basic(fn.q('[u]').value,fn.q('[p]').value)}
+</script>
+<input u></input><input p></input><button onclick="x()">gen basic</button>
+<label>...</label>
