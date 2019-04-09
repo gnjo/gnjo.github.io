@@ -300,3 +300,57 @@ fn.mes = (q,limit=15)=>{
  //mes('xyz')
  //3e1105122428b873252c5cb4f05772b67a1f8077
 }
+
+fn.dragger(el,caller){
+
+ var dnd=(caller=>function(ev){
+  let type=ev.type,mark ='drag'  //mark is .drag the custom class
+  ;
+  if(type!='paste'){
+   ev.stopPropagation();
+   ev.preventDefault();
+  }
+  if(type==='drop'||type==='paste'){
+   //this paste hack, allow the chrome only.
+   const flg= (type==='paste')
+   ,files=(flg)?ev.clipboardData.items:ev.target.files||ev.dataTransfer.files
+   ;
+   ;[].slice.call(files)
+   //.filter(f=>f.type.match('*.*')) 
+   //.slice(0,10) //10 is limit
+    .map((f)=>{
+    let r=new FileReader(); 
+    r.onloadend=(function(f){return function(ev){
+     ev.target.file=f/**/ ;
+     caller(ev)
+    };
+                            })(f);
+
+    if(flg&&f.kind ==='string'){
+     var _f=JSON.parse(JSON.stringify({kind:f.kind,type:f.type}))
+     return f.getAsString(function(str) {
+      ev.target.result=str; ev.target.file=_f; caller(ev);
+     });
+    }    
+    r.readAsDataURL((flg)?f.getAsFile():f); 
+   })
+   ;
+   this.classList.remove(mark)
+   return;
+  }     
+  if(type==='dragover'){ this.classList.add(mark);ev.dataTransfer.dropEffect = 'copy';return}
+  if(type==='dragleave'){ this.classList.remove(mark);return}
+ })
+
+ var _dnd=dnd(caller)
+ ;['onpaste','ondragover','ondrop','ondragleave'].forEach(d=>el[d]=_dnd)
+ return el; 
+ /*usage
+document.body.set({'contenteditable':'plaintext-only'})
+dragger(document.body,(ev)=>{
+ console.log(ev,ev.target.result,ev.target.file)
+}) 
+ */
+
+}
+
