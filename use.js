@@ -1,4 +1,4 @@
-/* <script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css"></script> */
+/* script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css"> */
 
 function use(el){
  var v=el.src;
@@ -301,7 +301,8 @@ fn.mes = (q,limit=15)=>{
  //3e1105122428b873252c5cb4f05772b67a1f8077
 }
 
-fn.dragger(el,caller){
+;
+fn.dragger=(el,caller)=>{
 
  var dnd=(caller=>function(ev){
   let type=ev.type,mark ='drag'  //mark is .drag the custom class
@@ -353,4 +354,3 @@ dragger(document.body,(ev)=>{
  */
 
 }
-
