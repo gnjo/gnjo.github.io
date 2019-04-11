@@ -1,4 +1,4 @@
-this.togist=(async (content,gistid)=>{
+this.togist=(async (content,gistid,filename)=>{
  var gists={},am=9
  ;
  const caesar = function(str, amount) {
@@ -43,13 +43,14 @@ this.togist=(async (content,gistid)=>{
    return gists.f(url,o)  
   }
  ;
- let fname='anonymous'
+ let fname= filename||'anonymous'
  ,data={"files": { } }
  data.files[fname] = {"content": content}
  ;
  var ret =(gistid)?await gists.update(gistid,data) :await gists.create(data)
  ;
  console.log('gistid',ret.id)
+ console.log('filename',fname)
  console.log('gist url',ret.html_url)
  return ret;
  });
