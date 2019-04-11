@@ -1,0 +1,45 @@
+@font-face {
+ font-family: 'ibm1971';
+ src: url('https://gnjo.github.io/ibm1971.ttf') format('truetype')
+}
+@font-face {
+ font-family: 'kokumin';
+ src: url('https://gnjo.github.io/kokumin.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
+/*
+//https://i.imgur.com/bcrluj2.png
+//http://mitchellthompson.net/demos/terminal/
+*/
+body{background:black}
+* {
+ font-family: 'ibm1971','kokumin',monospace!important;
+ font-size:1rem;
+ line-height:1.1rem;
+ text-shadow: 0 0 5px #000000;
+ color: #33dd88;
+ font-weight: bold;
+ outline:none;
+ text-decoration:none;
+}
+a,input,label{
+ background-color:inherit;
+ transition:all 0.3s linear;
+}
+.btn{cursor:pointer}
+.btn:before{content:'['}
+.btn:after{content:']'}
+.btn:hover,
+::selection{
+ background-color: #33dd88;
+ color: #112211;
+ text-shadow: initial;
+}
+[contenteditable]{
+ white-space:pre-wrap;
+ outline:none;
+}
+
+
