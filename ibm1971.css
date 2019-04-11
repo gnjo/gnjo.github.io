@@ -1,3 +1,10 @@
+
+/*debug checker
+*:not(li):not(pre):not(mark):not(a):not(label):not(hr):not(input):not(div):not(span){
+ background:red;
+ color:black;
+}*/
+
 @font-face {
  font-family: 'ibm1971';
  src: url('https://gnjo.github.io/ibm1971.ttf') format('truetype')
@@ -9,37 +16,70 @@
  font-style: normal;
 }
 
-/*
-//https://i.imgur.com/bcrluj2.png
-//http://mitchellthompson.net/demos/terminal/
-*/
-body{background:black}
-* {
+img,
+body,
+li,pre,mark,a,label,hr,input,div,span{
+ margin:0;padding:0;
+ color:inherit;
+ background-color:inherit;
+ box-sizing:border-box;
+ list-style-type:none;
+ font-family: monospace;
+ outline:none;
+ text-decoration:none;
+ /**/
  font-family: 'ibm1971','kokumin',monospace!important;
  font-size:1rem;
  line-height:1.1rem;
  text-shadow: 0 0 5px #000000;
  color: #33dd88;
  font-weight: bold;
- outline:none;
- text-decoration:none;
+ /**/
 }
-a,input,label{
- background-color:inherit;
- transition:all 0.3s linear;
-}
-.btn{cursor:pointer}
-.btn:before{content:'['}
-.btn:after{content:']'}
-.btn:hover,
+
+mark{ color:red;}
+a:hover,label:hover{cursor:pointer;}
+
+a:hover,label:hover,
 ::selection{
  background-color: #33dd88;
  color: #112211;
  text-shadow: initial;
 }
-[contenteditable]{
- white-space:pre-wrap;
- outline:none;
+
+a,label{
+ color:white;
+ transition:all 0.3s linear;
+}
+input:focus{
+ border-bottom:1px solid white; 
+}
+ 
+hr,input{
+ border:1px solid transparent;
+ border-bottom:1px solid;
+ width:100%;
+}
+img{
+ /*150px default*/
+ min-width:150px;
+ width:10vw;
+ flex-grow:1;
+ object-fit:cover;
+}
+body{
+ background-color: black;
+ color: #33dd88;
+ margin:auto;
+ width:640px;
+ /*height:200vh;*/
 }
 
+::-webkit-scrollbar{overflow:hidden;width:8px;background:inherit}
+::-webkit-scrollbar:horizontal{height:8px;}
+::-webkit-scrollbar-button{display:none;}
+::-webkit-scrollbar-piece{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-piece:start{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-thumb{background:rgba(100,100,100,0.3);}
+::-webkit-scrollbar-corner{background:rgba(100,100,100,0.3);}
 
