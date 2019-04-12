@@ -1,0 +1,18 @@
+<script>
+window.onpopstate = function(event) {
+  console.log(event)
+  console.log(document.location,JSON.stringify(event.state));
+};
+console.log('a')
+
+history.pushState({a:1},'title',`?page=xyz`)
+document.body.innerHTML+=
+Array.from({length:8}).map( (d,i)=>{
+ return `<div onclick="a(${i})">xxx${i}xxx</div>`
+}).join('\n');
+
+function a(num){
+ history.pushState({page: num}, `title ${num}`, `?page=${num}`); 
+ //console.log(num)
+}
+</script>
