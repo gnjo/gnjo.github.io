@@ -230,6 +230,8 @@ root.qg=qg;
   /*same*/
   e.a2=e.aTo; e.p2=e.pTo; e.as2=e.asTo; e.psTo=e.ps2;
   e.ef=e.effect; e.r=e.remove;
+ 
+ /*
  if(window){
   //helper set; ctrl+f
   fn.ce('style').set({textContent:'.none{display:none}'}).a2(document.body);
@@ -242,12 +244,15 @@ root.qg=qg;
   ;
   if(qg) helptext+='qg: '+Object.keys(qg).join(',')+'\n'
   ;
+  
   fn.ce('div').set({id:'debuging',contenteditable:'plaintext-only',css:css,textContent:helptext,class:'none'}).a2(document.body)  
   document.body.addEventListener('keydown',function(ev){
    if(!(ev.altKey))return;
    fn.q('#debuging').classList.toggle('none');
   },false);
  }
+ 
+ */
 })(this);
 
 /*
