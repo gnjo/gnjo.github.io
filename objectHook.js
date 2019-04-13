@@ -6,7 +6,7 @@
   is.function = function(obj){return toString.call(obj) === '[object Function]'}
   ;
   var o =obj,keys=Object.keys(o.__proto__).concat(Object.keys(o)).filter(d=>is.function(o[d]))
-  console.log('hook object=>',o);console.log('hook funcitons=>',keys)
+  console.log('hook object=>',o);console.log('hook functions=>',keys)
   ;
   keys.map(key=>{
    var dump= o[key]
