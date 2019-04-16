@@ -1,4 +1,4 @@
-this.togist=(async (content,gistid,filename)=>{
+this.togist=(async (content,gistid,filename,desc)=>{
  var gists={},am=9
  ;
  const caesar = function(str, amount) {
@@ -45,6 +45,8 @@ this.togist=(async (content,gistid,filename)=>{
  ;
  let fname= filename||'anonymous'
  ,data={"files": { } }
+ data.description=desc||''
+ data.public=false
  data.files[fname] = {"content": content}
  ;
  var ret =(gistid)?await gists.update(gistid,data) :await gists.create(data)
