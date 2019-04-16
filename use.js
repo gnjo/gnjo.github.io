@@ -1,5 +1,10 @@
 /* script onload="use(this)" src="//gnjo.github.io/use.js?q=monocc.css"> */
+/*history
+v0 start
+v1 add some...
+v2 add fn.cmd
 
+*/
 function use(el){
  var v=el.src;
  var data= v.match(/(.+)\?.+=(.+)$/)||v.match(/(.+)\?(.+)$/);
@@ -68,6 +73,11 @@ fn.scv=(el,type='top')=>{
 }
 
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
+
+fn.cmd=function(imap){return function(ev){
+ if(!((ev.ctrlKey||ev.metaKey)&&imap[ev.keyCode])) return
+ ev.preventDefault();return imap[ev.keyCode].call(this,ev);
+}};
 
 fn.lay=(q,flg)=>{
   var o={},t='lay',qt='[lay]',el=(!!(q && q.nodeType === 1))?q:document.querySelector(q)
