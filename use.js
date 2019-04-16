@@ -68,7 +68,8 @@ fn.scv=(el,type='top')=>{
 }
 
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
- fn.lay=(q,flg)=>{
+
+fn.lay=(q,flg)=>{
   var o={},t='lay',qt='[lay]',el=(!!(q && q.nodeType === 1))?q:document.querySelector(q)
   o.el =(flg)?el.cloneNode(true):el;
   ;[].slice.call(o.el.querySelectorAll(qt)).forEach(d=>{o[d.getAttribute(t)]=d});
@@ -90,6 +91,11 @@ fn.sq=(d,opt=2)=>{
  ;
 }
  is.imgurl=(d)=>{return /(.+:\/\/.+\.jpeg)|(.+:\/\/.+\.png)|(.+:\/\/.+\.jpg)/i.test(d)}
+ 
+ fn.biglex=(d)=>{
+  return d.split('\n＃').map((d,i)=>(i===0)?d:'＃'+d)
+ } 
+ 
  fn.lex=(str)=>{
   let title='',url='',line=0,c=44;
   let a =str.split('\n').forEach((d)=>{
