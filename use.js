@@ -103,7 +103,7 @@ fn.sq=(d,opt=2)=>{
    else if(d.charAt(0) === '＠' && is.imgurl(d.slice(1))) url =d.slice(1);
    line += Math.ceil((d.length+0.1)/c)
   });
-  return {t:title,u:url,l:line}
+  return {t:title,u:url,l:line,s:str}
  }
  
 fn.i=function(html,f,doc=document){
