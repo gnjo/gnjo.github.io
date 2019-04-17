@@ -3,7 +3,7 @@
 v0 start
 v1 add some...
 v2 add fn.cmd
-
+v3 usage change
 */
 function use(el){
  var v=el.src;
@@ -364,7 +364,7 @@ fn.dragger=(el,caller)=>{
  return el; 
  /*usage
 document.body.set({'contenteditable':'plaintext-only'})
-dragger(document.body,(ev)=>{
+fn.dragger(document.body,(ev)=>{
  console.log(ev,ev.target.result,ev.target.file)
 }) 
  */
