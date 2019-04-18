@@ -4,6 +4,7 @@ v0 start
 v1 add some...
 v2 add fn.cmd
 v3 usage change
+v4 isWideImage
 */
 function use(el){
  var v=el.src;
@@ -379,3 +380,15 @@ fn.shuffle=(a)=>{
  return a;
 }
 
+fn.isWideImage=(img)=>{
+ let w=img.naturalWidth
+ ,h=img.naturalHeight
+ return (w>h)?true:false;
+}
+fn.isBoxImage=(img)=>{
+ let w=img.naturalWidth
+ ,h=img.naturalHeight
+ ,x=Math.max(w,h)
+ ,r=(1-0.619)/2,flg=Math.abs(w-h)<x*r
+ return (flg)?true:false
+}
