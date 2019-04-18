@@ -370,3 +370,12 @@ fn.dragger(document.body,(ev)=>{
  */
 
 }
+
+fn.shuffle=(a)=>{
+ for(let i = a.length - 1; i > 0; i--){
+  let r = Math.floor(Math.random() * (i + 1)),t = a[i]
+  ; a[i] = a[r]; a[r] = t;
+ }
+ return a;
+}
+
