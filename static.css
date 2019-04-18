@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto:400,100,100italic,400italic);
+
+h1 {line-height: 1}
+body {
+    background: black;
+    color: white;
+    font-family: Roboto, sans-serif;
+    padding: 10px 12.5%;
+    font-size: 1.2em;
+}
+a { color: #00ff99; text-decoration: none; }
+body>div:first-child {padding: 10px 30px;}
+body>div:first-child {
+    margin: auto;
+    max-width: 780px;
+}
+
