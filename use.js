@@ -5,6 +5,7 @@ v1 add some...
 v2 add fn.cmd
 v3 usage change
 v4 isWideImage
+v4.1 changeAttr
 */
 function use(el){
  var v=el.src;
@@ -391,4 +392,19 @@ fn.isBoxImage=(img)=>{
  ,x=Math.max(w,h)
  ,r=(1-0.619)/2,flg=Math.abs(w-h)<x*r
  return (flg)?true:false
+}
+
+fn.changeAttr=function(el,caller){
+ let target=el
+ ,ob=new MutationObserver(mu=>{ mu.map(d=>caller(d,target) )})
+ ob.observe(target,{attributes: true})
+ ;
+ return ob;
+ /*usage
+let el=document.querySelector('#frame')
+fn.changeAttr(el,(ev)=>{
+ if(ev.attributeName==='class') //
+   console.log('class change',ev.target.classList)
+}) 
+ */
 }
