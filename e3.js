@@ -6,6 +6,7 @@
  v1.2 data user define null
  v1.3 treat 
  v1.4 deleteMe
+ v1.5 bugfix e.as2 nextElementSibling
 */
 var fn=root.fn||{},is=root.is||{};
 is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false} } 
@@ -216,7 +217,7 @@ fn.ce=(d=>document.createElement(d))
  var e=Element.prototype
  e.aTo =function(p){p.appendChild(this);return this}
  e.pTo =function(p){p.insertBefore(e.el,p.firstChild); return this}
- e.asTo =function(p){p.parentNode.insertBefore(this,p.nextSibling);return this}
+ e.asTo =function(p){p.parentNode.insertBefore(this,p.nextElementSibling/*nextSibling*/);return this}
  e.psTo =function(p){p.parentNode.insertBefore(this,p);return this}
  e.effect=function(o,t){fn.effect(this,o,t);return this}
  e.remove=function(){return fn.r(this)}
