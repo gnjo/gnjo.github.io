@@ -7,7 +7,7 @@ v3 usage change
 v4 isWideImage
 v4.1 changeAttr
 v5 including the deth
-v5.1 changeAttr changeDom diff
+v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 */
 ;(function(root){
   if(root._) return;
@@ -473,7 +473,7 @@ fn.isBoxImage=(img)=>{
  return (flg)?true:false
 }
 
-fn.changeAttr=function(el,attr,caller,time,flg){
+fn.updateAttr=function(el,attr,caller,time,flg){
  if(!el) return
  let target=el
  ,_caller=_.debounce(caller,time||70)
@@ -502,8 +502,10 @@ input.x(onkeyup="this.setAttribute('value',this.value)")
 input.y(type="range",onchange="this.setAttribute('value',this.value)")
 */
 }
+fn.ua=fn.changeAttr=fn.updateAttr
+;
 
-fn.changeDom=function(el,caller,time,flg){
+fn.updateDom=function(el,caller,time,flg){
  let target=el
  ,_caller=_.debounce(caller,time||70)
  ,def={childList:true}
@@ -527,7 +529,8 @@ function x(){
 //true is watch the subtree
 */
 }
-
+fn.ud=fn.changeDom=fn.updateDom
+;
 fn.diff=(arr1, arr2)=>{
    return arr1.concat(arr2)
     .filter(item => !arr1.includes(item) || !arr2.includes(item));
