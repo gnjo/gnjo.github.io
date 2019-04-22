@@ -7,7 +7,7 @@ v3 usage change
 v4 isWideImage
 v4.1 changeAttr
 v5 including the deth
-v5.1 changeAttr changeDom
+v5.1 changeAttr changeDom diff
 */
 ;(function(root){
   if(root._) return;
@@ -526,4 +526,9 @@ function x(){
 } 
 //true is watch the subtree
 */
+}
+
+fn.diff=(arr1, arr2)=>{
+   return arr1.concat(arr2)
+    .filter(item => !arr1.includes(item) || !arr2.includes(item));
 }
