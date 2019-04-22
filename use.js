@@ -7,6 +7,7 @@ v3 usage change
 v4 isWideImage
 v4.1 changeAttr
 v5 including the deth
+v5.1 changeAttr changeDom
 */
 ;(function(root){
   if(root._) return;
@@ -472,17 +473,57 @@ fn.isBoxImage=(img)=>{
  return (flg)?true:false
 }
 
-fn.changeAttr=function(el,caller){
+fn.changeAttr=function(el,attr,caller,time,flg){
+ if(!el) return
  let target=el
- ,ob=new MutationObserver(mu=>{ mu.map(d=>caller(d,target) )})
- ob.observe(target,{attributes: true,attributeOldValue:true})
+ ,_caller=_.debounce(caller,time||70)
+ ,def={attributes: true,attributeOldValue:true,attributeFilter:[attr]}
+ ,config=(flg)?Object.assign({},def,{subtree:true}) :def
+ ,calc=(ev)=>{
+ if(ev.attributeName===attr){
+  let newValue=ev.target.getAttribute(attr),oldValue=ev.oldValue
+  if(ev.oldValue!=newValue)
+    _caller({target:ev.target,newValue:newValue,oldValue:oldValue,attr:attr})
+  }
+ }
+ ,ob=new MutationObserver(mu=>{ mu.map(calc)})
+ ob.observe(target,config)
  ;
  return ob;
  /*usage
-let el=document.querySelector('#frame')
-fn.changeAttr(el,(ev)=>{
- if(ev.attributeName==='class') //
-   console.log('class change',ev.target.classList)
-}) 
- */
+let s=fn.q('.story')
+fn.changeAttr(s,'data-length',(e)=>{
+ console.log(e)
+},700,false)
+//true is watch the subtree
+//textContent value tips
+div.story(contenteditable="plaintext-only" onkeydown="this.dataset.length=this.textContent.length")
+input.x(onkeyup="this.setAttribute('value',this.value)")
+input.y(type="range",onchange="this.setAttribute('value',this.value)")
+*/
+}
+
+fn.changeDom=function(el,caller,time,flg){
+ let target=el
+ ,_caller=_.debounce(caller,time||70)
+ ,def={childList:true}
+ ,config=(flg)?Object.assign({},def,{subtree:true}) :def
+ ,calc=(ev)=>{
+    _caller(ev)
+ }
+ ,ob=new MutationObserver(mu=>{ mu.map(calc)})
+ ob.observe(target,config)
+ ;
+ return ob;
+ /*usage
+fn.changeDom(document.body,(e)=>{
+ console.log(e)
+},70)
+
+function x(){
+ let el=s.cloneNode(true)
+ el.a2(document.body)
+} 
+//true is watch the subtree
+*/
 }
