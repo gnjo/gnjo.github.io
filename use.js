@@ -397,7 +397,7 @@ fn.isBoxImage=(img)=>{
 fn.changeAttr=function(el,caller){
  let target=el
  ,ob=new MutationObserver(mu=>{ mu.map(d=>caller(d,target) )})
- ob.observe(target,{attributes: true})
+ ob.observe(target,{attributes: true,attributeOldValue:true})
  ;
  return ob;
  /*usage
