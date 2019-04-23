@@ -23,10 +23,10 @@ return `
     transform: rotate(360deg);
   }
 }
-.pos{
+/*.pos{
   position:fixed;
   top:0.5rem;right:0.5rem;
-}
+}*/
 .run{
   border-top-color: ${c2};
   animation-duration: 1s!important;  
