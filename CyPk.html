@@ -37,7 +37,8 @@
 ;(function(root){
 let cnk=fn.rkana();
  let url='https://codepen.io/gnjo/pen/OGEQWy'
- let js=fn.i3(`<script src="${url}.js?v=${cnk}"></script>`)
+ let js= document.createElement('script');
+ js.src =`${url}.js?v=${cnk}`
  let css=fn.i3(`<link rel="stylesheet" href="${url}.css?v=${cnk}"/>`)
  ;js.a2(document.body);css.a2(document.body);
 })(this);
