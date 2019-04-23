@@ -8,6 +8,7 @@ v4 isWideImage
 v4.1 changeAttr
 v5 including the deth
 v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
+v6 fn.upi imgur
 */
 ;(function(root){
   if(root._) return;
@@ -535,3 +536,23 @@ fn.diff=(arr1, arr2)=>{
    return arr1.concat(arr2)
     .filter(item => !arr1.includes(item) || !arr2.includes(item));
 }
+
+fn.upImgur=function(base64,cid){
+ //base64 is data:image/jpeg...,....
+ let blob = fn.toBlob(base64)
+ ,c = cid||'c552bf3081f0790'
+ ,formData = new FormData()
+  formData.append('type', 'file')
+  formData.append('image', blob)
+
+  return fetch('https://api.imgur.com/3/upload.json', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Client-ID ${c}` // imgur specific
+    },
+    body: formData
+  })
+   .then(d=>d.json())
+}
+fn.upi=fn.upimage=fn.upImagefn.upimgur=fn.upImgur
