@@ -1,3 +1,4 @@
+this.togistdebug=false;
 this.togist=(async (content,gistid,filename,desc)=>{
  var gists={},am=9
  ;
@@ -51,9 +52,11 @@ this.togist=(async (content,gistid,filename,desc)=>{
  ;
  var ret =(gistid)?await gists.update(gistid,data) :await gists.create(data)
  ;
- console.log('gistid',ret.id)
- console.log('filename',fname)
- console.log('gist url',ret.html_url)
+ if(this.togistdebug){
+  console.log('gistid',ret.id)
+  console.log('filename',fname)
+  console.log('gist url',ret.html_url)
+ }
  return ret;
  });
 
@@ -92,7 +95,7 @@ this.togistsearch=(async (gistid,file)=>{
   ,o={method:'GET',mode:'cors',headers:gists.headers}
  var ret =await gists.searchid(url,o)
  ;
- console.log('url',url)
+ if(this.togistdebug) console.log('url',url);
  if(!file) return ret;
  var ret2=ret.files[file].raw_url
  return ret2; 
@@ -135,10 +138,7 @@ this.togistpage=(async (num)=>{
   ;
  var ret =await gists.search(url,o)
  ;
- console.log('url',url)
+ if(this.togistdebug) console.log('url',url)
  return ret;
  
 });
-
-
-
