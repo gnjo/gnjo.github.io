@@ -555,4 +555,4 @@ fn.upImgur=function(base64,cid){
   })
    .then(d=>d.json())
 }
-fn.upi=fn.upimage=fn.upImagefn.upimgur=fn.upImgur
+fn.upi=fn.upimage=fn.upImage=fn.upimgur=fn.upImgur
