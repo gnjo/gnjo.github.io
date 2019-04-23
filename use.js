@@ -9,6 +9,7 @@ v4.1 changeAttr
 v5 including the deth
 v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 v6 fn.upi imgur
+v6.1 fn.scv2 offset version
 */
 ;(function(root){
   if(root._) return;
@@ -152,6 +153,18 @@ fn.scv=(el,type='top')=>{
  if(type=='top') return el.scrollIntoView({ behavior: 'smooth',block: "start", inline: "nearest" })
  if(type=='bottom') return el.scrollIntoView({ behavior: 'smooth',block: "end", inline: "nearest" })
  /*if(type=='center')*/ return el.scrollIntoView({ behavior: 'smooth'}) 
+}
+//offset version px
+fn.scv2=(el,_offset)=>{
+ if(!el) return console.log('element empty fn.scv2')
+ const element = el
+ ,offset = parseInt(_offset)||0
+ ,bodyRect = document.body.getBoundingClientRect().top
+ ,elementRect = element.getBoundingClientRect().top
+ ,elementPosition = elementRect - bodyRect
+ ;
+ const offsetPosition = elementPosition - offset;
+ window.scrollTo({top: offsetPosition,behavior: 'smooth'});
 }
 
 fn.menum=(me,q)=>{let num=-1;[].slice.call(document.querySelectorAll(q)).forEach((d,i)=>{if(d === me) num = i});return num}
