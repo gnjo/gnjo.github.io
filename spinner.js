@@ -4,11 +4,11 @@
 return `
 <style>
 .bt-spinner {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #222;
+  border: 2px solid #222;
   border-top-color: ${c1};  
   animation: 4s spin linear infinite;
   transition:all 0.5s linear;
