@@ -1,0 +1,41 @@
+<body>
+<script type="text/plain" data-loader>
+https://codepen.io/gnjo/pen/MRXOEx.css?cyberpunk=4
+https://gnjo.github.io/spinner.js?v=2
+https://codepen.io/gnjo/pen/OGEQWy.css?CyPk=1
+ 
+https://gnjo.github.io/e3.js?v=2
+https://gnjo.github.io/use.js?v=3
+https://gnjo.github.io/togist.js?v=1
+https://gnjo.github.io/keyCmd.js
+https://gnjo.github.io/mo.js
+https://codepen.io/gnjo/pen/mgpPEB.js?plainList=8
+https://gnjo.github.io/imgc.js
+https://gnjo.github.io/imageReader.js
+https://codepen.io/gnjo/pen/JVadma.js?doropandpop=3
+https://codepen.io/gnjo/pen/OGEQWy.js?CyPk=1
+</script>
+<script src="https://gnjo.github.io/loader.js" onload="loader({chunk:true})"></script>
+<div class="flex" id="app">
+  <div class="l">
+    <div class="wrap" data-gistid=""></div>
+  </div>
+  <div class="r split">
+    <div class="wrap"></div>
+  </div>
+</div>
+<div id="template" style="display:none;">
+  <div class="frame" data-stat="coding" data-num="" data-title="＃新規ストーリ" data-line="1">
+    <div class="info"><img class="cyber" src="https://i.imgur.com/4CuYNbu.png" onclick="fn.scv(this.parentElement)"/>
+      <h1 data-num="001"></h1>
+      <div class="word2" contenteditable="plaintext-only" data-type="note" onkeydown="this.dataset.length=this.textContent.length">＃新規ノート</div><a class="stt" onclick="cmdMap['[STT]'].call(this,event)"></a>
+    </div>
+    <div class="main">
+      <div class="word1" contenteditable="plaintext-only" data-type="story" onkeydown="this.dataset.length=this.textContent.length">＃新規ストーリ</div>
+    </div>
+  </div>
+</div>
+<div class="side none" id="gist"></div>
+<div id="spinner" style="position:fixed;top:0.5rem;right:0.5rem;z-index:1000;"></div>
+<div class="total" id="total"></div>
+</body>
