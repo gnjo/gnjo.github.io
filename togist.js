@@ -2,7 +2,7 @@
 v1 togist
 v2 togistsearch
 v3 bugfix desc
-v4 optimize togist
+v4 optimize
 */
 ;(function(root){
  'use strict';
@@ -88,7 +88,7 @@ v4 optimize togist
   ;
   var ret =await gists.search(url,o)
   ;
-  if(this.togistdebug) console.log('url',url)
+  if(root.togistdebug) console.log('url',url)
   return ret;
 
  });
