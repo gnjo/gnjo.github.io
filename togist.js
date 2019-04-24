@@ -1,3 +1,8 @@
+/*history
+v1 togist
+v2 togistsearch
+v3 bugfix desc
+*/
 this.togistdebug=false;
 this.togist=(async (content,gistid,filename,desc)=>{
  var gists={},am=9
@@ -46,7 +51,7 @@ this.togist=(async (content,gistid,filename,desc)=>{
  ;
  let fname= filename||'anonymous'
  ,data={"files": { } }
- data.description=desc||''
+ if(desc) data.description=desc; //bug fix desc
  data.public=false
  data.files[fname] = {"content": content}
  ;
