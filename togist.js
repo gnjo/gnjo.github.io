@@ -3,6 +3,7 @@ v1 togist
 v2 togistsearch
 v3 bugfix desc
 v4 optimize
+v4.1 optimize bugfix
 */
 ;(function(root){
  'use strict';
@@ -76,7 +77,7 @@ v4 optimize
   ,o={method:'GET',mode:'cors',headers:gists.headers}
   var ret =await gists.searchid(url,o)
   ;
-  if(this.togistdebug) console.log('url',url);
+  if(root.togistdebug) console.log('url',url);
   if(!file) return ret;
   return ret.files[file].raw_url 
  })
