@@ -11,6 +11,7 @@ v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 v6 fn.upi imgur
 v6.1 fn.scv2 offset version
 v7 able the prepack
+v8 fn.emtpy
 */
 ;(function(root){
   if(root._) return;
@@ -130,6 +131,10 @@ fn.i3=(d)=>{
  var me=el.childNodes[0]
  el=void 0;
  return me
+}
+fn.empty=(el)=>{
+  while( el.firstChild ){el.removeChild( el.firstChild )}
+  return el
 }
 fn.g=(s)=>{return document.getElementById(s)};
 fn.q=(s,doc=document)=>{return doc.querySelector(s)};
