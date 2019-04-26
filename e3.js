@@ -151,8 +151,8 @@ root.qgist=o;
 })(this); 
 
 ;(function(root){
-var localStorage=this.localStorage||window.localStorage;
-var Element=this.Element||window.Element;
+var localStorage=root.localStorage||window.localStorage;
+var Element=root.Element||window.Element;
  
 var is=root.is||{};
 is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false} } 
@@ -192,7 +192,10 @@ root.qg=qg;
 })(this);
 
 ;(function(root){
-this.is=this.is||{},this.fn=this.fn||{}
+var localStorage=root.localStorage||window.localStorage;
+var Element=root.Element||window.Element;
+var is=root.is||{},fn=root.fn||{};
+//this.is=this.is||{},this.fn=this.fn||{}
 is.element = function(obj){return !!(obj && obj.nodeType === 1)}
 is.prop =function(o,p){for(const a in o){if(p === a) return true};return false};
 is.attr=function(o,a){return is.element(o)?o.hasAttribute(a):false}
