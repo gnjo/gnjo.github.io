@@ -115,6 +115,8 @@ function use(el){
 }
 /**/
 
+var localStorage=this.localStorage||window.localStorage
+;
 var fn=this.fn||{},is=this.is||{}
 fn.i3=function(html){
  if(typeof html !=='string') return html
