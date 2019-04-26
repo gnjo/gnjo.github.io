@@ -220,7 +220,8 @@ fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
 fn.ce=(d=>document.createElement(d))
 ;
 /**/
- var e=Element.prototype
+ console.log(Element.prototype)
+ var e=Element.prototype||{}
  e.aTo =function(p){p.appendChild(this);return this}
  e.pTo =function(p){p.insertBefore(e.el,p.firstChild); return this}
  e.asTo =function(p){p.parentNode.insertBefore(this,p.nextElementSibling/*nextSibling*/);return this}
