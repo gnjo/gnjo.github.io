@@ -264,7 +264,29 @@ function _mosaic(data,w,h) {
 
     return data;
   }
+function _green(data,w,h) {
+    let f=d=>Math.min(Math.floor(d),255)
+    for (let i = 0; i < data.length; i += 4) {
+      // (r+g+b)/3
+      const color = (data[i] + data[i+1] + data[i+2]) / 3;
+      data[i] = color;
+      data[i+1] =f(color+color*0.5) 
+      data[i+2] =f(color+color*0.25) 
+    }
+    return data;
+  }
 
+function _blue(data,w,h) {
+    let f=d=>Math.min(Math.floor(d),255)
+    for (let i = 0; i < data.length; i += 4) {
+      // (r+g+b)/3
+      const color = (data[i] + data[i+1] + data[i+2]) / 3;
+      data[i] = color;
+      data[i+1] =f(color+color*0.25) 
+      data[i+2] =f(color+color*0.5) 
+    }
+    return data;
+  }
  
  //pack
  var o ={};
@@ -278,7 +300,10 @@ o._sharpen=_sharpen;
 o._median=_median;
 o._emboss=_emboss;
 o._mosaic=_mosaic;
- 
+//add
+o._blue=_blue
+o._green=_green
+
  root.filter =o;
  
  })(this);
