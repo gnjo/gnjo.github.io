@@ -166,7 +166,7 @@ ls.keys=()=>{return Object.keys(localStorage)}
 root.ls=ls;
 } 
 if(Element){
-var e=Element.prototype||{};
+var e=Element.prototype;
 e.setI=function(k,v){return this.setAttribute(k,JSON.stringify(v))}
 e.getI=function(k){return JSON.parse(this.getAttribute(k)||void 0)}
 e.delI=function(k){return this.removeAttribute(k)}
@@ -221,7 +221,7 @@ fn.ce=(d=>document.createElement(d))
 ;
 /**/
  //console.log(Element.prototype)
- var e=Element.prototype||{}
+ var e=Element.prototype
  e.aTo =function(p){p.appendChild(this);return this}
  e.pTo =function(p){p.insertBefore(e.el,p.firstChild); return this}
  e.asTo =function(p){p.parentNode.insertBefore(this,p.nextElementSibling/*nextSibling*/);return this}
