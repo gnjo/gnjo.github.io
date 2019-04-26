@@ -151,6 +151,7 @@ root.qgist=o;
 })(this); 
 
 ;(function(root){
+var localStorage=this.localStorage||window.localStorage 
 var is=root.is||{};
 is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false} } 
 ; 
