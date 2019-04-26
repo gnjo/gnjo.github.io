@@ -553,6 +553,34 @@ fn.diff=(arr1, arr2)=>{
     .filter(item => !arr1.includes(item) || !arr2.includes(item));
 }
 
+fn.upImgurNum=0
+fn.upImgur=function(base64,cid){
+ //base64 is data:image/jpeg...,....
+ let cidary=['c552bf3081f0790','59412b24cbb03ea','62b4efa067f48c6','e52d5cb6956574f']
+ ,num=fn.upImgurNum
+ let blob = fn.toBlob(base64)
+ ,c = cid||cidary[num]
+ ,formData = new FormData()
+  formData.append('type', 'file')
+  formData.append('image', blob)
+
+  return fetch('https://api.imgur.com/3/upload.json', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Client-ID ${c}` // imgur specific
+    },
+    body: formData
+  })
+   .then(d=>d.json())
+   .catch(d=>{
+    num++;
+    fn.upImgurNum= num%cidary.length
+    console.log('new cid>',cidary[fn.upImgurNum])
+    return d;
+  })
+}
+/*
 fn.upImgur=function(base64,cid){
  //base64 is data:image/jpeg...,....
  let blob = fn.toBlob(base64)
@@ -571,6 +599,7 @@ fn.upImgur=function(base64,cid){
   })
    .then(d=>d.json())
 }
+*/
 fn.upi=fn.upimage=fn.upImage=fn.upimgur=fn.upImgur;
 
 fn.deleteMe=function(el){
