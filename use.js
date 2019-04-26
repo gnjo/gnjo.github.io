@@ -10,6 +10,7 @@ v5 including the deth
 v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 v6 fn.upi imgur
 v6.1 fn.scv2 offset version
+v7 able the prepack
 */
 ;(function(root){
   if(root._) return;
