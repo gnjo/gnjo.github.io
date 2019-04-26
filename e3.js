@@ -40,7 +40,7 @@ return el;
 
 var o={
  sysname:'___qgist___',public:false
- ,user:null,data:null,micdesc:null,authstr:null,desc:null,targeturl:null
+ ,user:void 0,data:void 0,micdesc:void 0,authstr:void 0,desc:void 0,targeturl:void 0
  ,fn:fn,is:is
 }
 ;
@@ -122,8 +122,8 @@ o.set=async (desc,authstr)=>{
 } 
 o.read=(file)=>{
  //file or url
- let url= (o.data.files[file])?o.data.files[file].raw_url:null
- if(!url) return Promise.resolve(null) //bug fix;
+ let url= (o.data.files[file])?o.data.files[file].raw_url:void 0
+ if(!url) return Promise.resolve(void 0) //bug fix;
  return fetch(url).then(d=>d.text())
 }
 o.write=(file,data)=>{
@@ -137,9 +137,9 @@ o.write=(file,data)=>{
  return fetch(url,opt).then(d=>d.json()).then(calc)     
 }
 o.delete=(file)=>{
- if(!o.data.files[file]) return Promise.resolve(null)
+ if(!o.data.files[file]) return Promise.resolve(void 0)
  let filename=file
- ,body =JSON.stringify({ files:{[filename]:null} })
+ ,body =JSON.stringify({ files:{[filename]:void 0} })
  ,url=o.targeturl
  ,opt={method:'PATCH',mode:'cors',headers:{"Authorization":o.authstr},body:body}
  ,calc=(d)=>{o.data=d;return o.data}
@@ -160,7 +160,7 @@ is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false}
 if(localStorage){
 var ls={};
 ls.setI=(k,v)=>{return localStorage.setItem(k,JSON.stringify(v))}
-ls.getI=(k)=>{return JSON.parse(localStorage.getItem(k)||null)}
+ls.getI=(k)=>{return JSON.parse(localStorage.getItem(k)||void 0)}
 ls.delI=(k)=>{return localStorage.removeItem(k)}
 ls.keys=()=>{return Object.keys(localStorage)}
 root.ls=ls;
@@ -168,7 +168,7 @@ root.ls=ls;
 if(Element){
 var e=Element.prototype||{};
 e.setI=function(k,v){return this.setAttribute(k,JSON.stringify(v))}
-e.getI=function(k){return JSON.parse(this.getAttribute(k)||null)}
+e.getI=function(k){return JSON.parse(this.getAttribute(k)||void 0)}
 e.delI=function(k){return this.removeAttribute(k)}
 e.keys=function(flg){
 let ary=[];
@@ -183,7 +183,7 @@ qg.auth=qgist.set;
 qg.setI=(k,v)=>{return qgist.write(k,JSON.stringify(v))}
 //qg.getI=(k)=>{return qgist.read(k).then(d=>{return JSON.parse(d||null) })}
 qg.getI=(k)=>{return qgist.read(k).then(d=>{
-return is.jsonString(d)?JSON.parse(d||null):d
+return is.jsonString(d)?JSON.parse(d||void 0):d
 })}
 qg.delI=(k)=>{if(k)return qgist.delete(k)}
 qg.keys=()=>{return Object.keys(qgist.data.files)}
