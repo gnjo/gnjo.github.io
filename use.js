@@ -119,10 +119,17 @@ function use(el){
 var localStorage=this.localStorage||window.localStorage
 ;
 var fn=this.fn||{},is=this.is||{}
-fn.i3=function(html){
- if(typeof html !=='string') return html
- var el=document.createElement('table'); el.innerHTML=html.trim();
+/*fn.i3=(d)=>{
+ if(typeof d !=='string') return d
+ var el=document.createElement('table'); el.innerHTML=d.trim();
  return el.childNodes[0];
+}*/
+fn.i3=(d)=>{
+ if(typeof d !=='string') return d
+ var el=document.createElement('table'); el.innerHTML=d.trim();
+ var me=el.childNodes[0]
+ el=void 0;
+ return me
 }
 fn.g=(s)=>{return document.getElementById(s)};
 fn.q=(s,doc=document)=>{return doc.querySelector(s)};
