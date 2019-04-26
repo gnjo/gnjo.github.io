@@ -203,10 +203,17 @@ is.query =function(obj){return !( /^</.test(obj.trim()) )}
 is.documentFragment=function(obj){return obj.toString() ==='[object DocumentFragment]' } /*if target document fragment*/
 ;
 fn.range=(l=0)=>{return Array.from({length:l})}
-fn.i3=(d)=>{
+/*fn.i3=(d)=>{
  if(typeof d !=='string') return d
  var el=document.createElement('table'); el.innerHTML=d.trim();
  return el.childNodes[0];
+}*/
+fn.i3=(d)=>{
+ if(typeof d !=='string') return d
+ var el=document.createElement('table'); el.innerHTML=d.trim();
+ var me=el.childNodes[0]
+ el=void 0;
+ return me
 }
 fn.effect=(el,o,time)=>{
  let p =(d)=>{return isNaN( parseFloat(d))? 0 : parseFloat(d)*1000 }
