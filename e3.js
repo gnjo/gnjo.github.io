@@ -166,7 +166,7 @@ ls.keys=()=>{return Object.keys(localStorage)}
 root.ls=ls;
 } 
 if(Element){
-var e=Element.prototype;
+var e=Element.prototype||{};
 e.setI=function(k,v){return this.setAttribute(k,JSON.stringify(v))}
 e.getI=function(k){return JSON.parse(this.getAttribute(k)||null)}
 e.delI=function(k){return this.removeAttribute(k)}
