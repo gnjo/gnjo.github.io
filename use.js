@@ -571,4 +571,21 @@ fn.upImgur=function(base64,cid){
   })
    .then(d=>d.json())
 }
-fn.upi=fn.upimage=fn.upImage=fn.upimgur=fn.upImgur
+fn.upi=fn.upimage=fn.upImage=fn.upimgur=fn.upImgur;
+
+fn.deleteMe=function(el){
+ let is={}; 
+ is.element=function(o){return !!(o && o.nodeType === 1)}
+ ;
+ if(!is.element(el)){
+  console.log('delemteMe not element',el)
+  return el;
+ }
+ el.setAttribute('tabindex','-1') //interactive-able
+ el.style.outline='none'
+ el.onkeydown=(e)=>{
+  if(e.which===46) e.target.remove();//46 delete
+ }
+ return el;
+} 
+;
