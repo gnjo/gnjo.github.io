@@ -11,7 +11,7 @@ v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 v6 fn.upi imgur
 v6.1 fn.scv2 offset version
 v7 able the prepack
-v8 fn.emtpy
+v8 fn.emtpy fn.base64type
 */
 ;(function(root){
   if(root._) return;
@@ -367,6 +367,15 @@ fn.toBlob =function(base64) {
  //var debug = {hello: "world"};
  //var blob = new Blob([JSON.stringify(debug, null, 2)], {type : 'application/json'});
  //data:image/png;base64,... 
+}
+
+fn.base64type=(base64)=>{
+ let re=/^data:(.+);base64,/
+ ,dummy="data:application/shockwave-flash;base64,/9j/4A"
+ ,dump=base64.trim().slice(0,dummy.length)
+ ;
+ if(!re.test(dump)) return void 0;
+ return dump.match(re).slice(1,2).join('')
 }
 
 fn.copy=function(textVal){
