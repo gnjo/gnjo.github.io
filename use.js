@@ -11,7 +11,7 @@ v5.1 changeAttr changeDom diff; updateAttr updateDom short fn.ua fn.ud
 v6 fn.upi imgur
 v6.1 fn.scv2 offset version
 v7 able the prepack
-v8 fn.emtpy fn.base64type
+v8 fn.empty fn.base64type
 */
 ;(function(root){
   if(root._) return;
