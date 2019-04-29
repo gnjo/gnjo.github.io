@@ -33,7 +33,7 @@ v1 reverse back
  e.q=function(s){return fn.q(s,this)}
  e.qa=function(s){return fn.qa(s,this)}
  /*same*/
- e.a2=e.aTo; e.p2=e.pTo; e.as2=e.asTo; e.psTo=e.ps2;
+ e.a2=e.aTo; e.p2=e.pTo; e.as2=e.asTo; e.ps2=e.psTo;
  e.ef=e.effect; e.r=e.remove;
 
  root.fn=fn;
