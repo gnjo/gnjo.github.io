@@ -1,3 +1,6 @@
+/*history
+v1.0 trim()
+*/
 ;(function(root){
  'use strict';
  function rkana(l=8){
@@ -11,28 +14,28 @@
   ;
   let rejs=/js\((.*)\)/
   ,recss=/css\((.*)\)/
-  ,f=s=>s.replace(/'|"/g,'')
+  ,f=s=>s.replace(/'|"/g,'').trim()  
   ;
   return data.map(d=>{
    let s=d,t=void 0,calced=false
    //test wrap
    if(rejs.test(s)&&calced===false){
-    s=s.match(rejs)[1].replace(/'|"/g,'')
+    s=f( s.match(rejs)[1] )
     t='js'
     calced=true
    }
    if(recss.test(s)&&calced===false){
-    s=s.match(recss)[1].replace(/'|"/g,'')
+    s=f( s.match(recss)[1] )
     t='css'
     calced=true
    }
    if(~s.split('/').pop().indexOf('js')&&calced===false){
-    s=s
+    s=f( s )
     t='js'
     calced=true
    }
    if(~s.split('/').pop().indexOf('css')&&calced===false){
-    s=s
+    s=f( s )
     t='css'
     calced=true
    }
