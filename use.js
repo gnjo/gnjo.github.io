@@ -12,6 +12,7 @@ v6 fn.upi imgur
 v6.1 fn.scv2 offset version
 v7 able the prepack
 v8 fn.empty fn.base64type
+v9 fn.interval option the random delay
 */
 ;(function(root){
   if(root._) return;
@@ -646,6 +647,18 @@ fn.num=(s,_def)=>{
  /*usage
 let s='eeeeee'
 let a=fn.num(s,0) //0 
+ */
+}
+
+fn.interval=(t,caller,range)=>{ 
+ let clearid=setInterval(()=>{
+  let r=Math.ceil(Math.random()*(range||0))
+  setTimeout(()=>{caller(clearid)},r)
+ },t||0);
+ /*usage
+fn.interval(2000,(id)=>{
+ //clearInterval(id)
+},100) 
  */
 }
 
