@@ -639,3 +639,13 @@ fn.deleteMe=function(el){
  return el;
 } 
 ;
+fn.num=(s,_def)=>{
+ if(!_def) console.warn('not default value(fn.num)')
+ let def=_def||0
+ return isNaN(parseInt(s,10))?def:parseInt(s,10)
+ /*usage
+let s='eeeeee'
+let a=fn.num(s,0) //0 
+ */
+}
+
