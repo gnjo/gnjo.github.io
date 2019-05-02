@@ -95,7 +95,6 @@ v1.5 * wildcard
   ,wild=(_target==='*')?true:false
   ,caller=is.function(_flg)?_.debounce(_flg,time):void 0
   ,flg=(caller)?void 0:_flg
-  ,body=document.body
   ,hasClass=function(el){
     if(wild) return true;
     return !(target.filter(d=>el.classList.contains(d)).length===0)
@@ -111,6 +110,7 @@ v1.5 * wildcard
    if(flg)el.removeEventListener('keyup'/*'input'*/,lmap)
    if(caller)el.removeEventListener('keyup'/*'input'*/,caller)
    el.dataset.editable=false
+   el=void 0
   }  
   ,add=function(e){
    if(!hasClass(e.target))return
@@ -126,7 +126,7 @@ v1.5 * wildcard
    ;
   }
   ;
-  body.addEventListener('click',add)///
+  document.body.addEventListener('click',add)///
  }
  root.editable=entry;
  /*usage
