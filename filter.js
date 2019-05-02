@@ -288,7 +288,7 @@ function _blue(data,w,h) {
     return data;
   }
 
-function _sobel(_data,w,h) {
+function _sobel(data,w,h) {
  var width=w;
  var height=h;
 
@@ -314,7 +314,7 @@ function _sobel(_data,w,h) {
   };
  }
 
- var data = _data //
+ //var data = _data //
  var pixelAt = bindPixelAt(data);
  var x, y;
 
@@ -363,7 +363,7 @@ function _sobel(_data,w,h) {
   }
  }
 
- return _data=sobelData;
+ return data=sobelData;
 }
   
   
