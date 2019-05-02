@@ -366,6 +366,7 @@ function _sobel(data,w,h) {
   fn.hashCode =(s)=>{var h=0;for(var i=0;i < s.length; i++) h = h * 31 + s.charCodeAt(i)|0;return h}
  console.log(fn.hashCode(data.join('')),fn.hashCode(sobelData.join('') ))
   data = sobelData;
+ console.log(fn.hashCode(data.join(''))
  return data
  //return data=sobelData;
 }
