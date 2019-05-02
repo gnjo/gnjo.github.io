@@ -8,6 +8,7 @@ v1.45 debounce def 70
 v1.5 * wildcard
 */
 ;(function(root){
+ 'use strict'; 
  //debounce
  ;(function(root){
   if(root._) return;
@@ -83,8 +84,8 @@ v1.5 * wildcard
   };
 
   root._ =_;
-})(this);
- 'use strict';
+})(this)
+ ;
  let is={}
  is.function = function(obj){return toString.call(obj) === '[object Function]'}
  ;
