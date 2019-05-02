@@ -2,8 +2,9 @@
 v1.0 create
 v1.1 data-length map
 v1.2 bugfix add remove wrote element
-v1.3 callback //editable('.x',caller)
+v1.3 callback
 v1.4 input > keyup
+v1.5 * wildcard
 */
 ;(function(root){
  //debounce
@@ -89,10 +90,12 @@ v1.4 input > keyup
  function entry(_target,_flg=false,time=70){
   if(!_target)return console.log('target empty')
   let target =_target.replace(/\./g,'').split(',')
+  ,wild=(_target==='*')?true:false
   ,caller=is.function(_flg)?_.debounce(_flg,time):void 0
   ,flg=(caller)?void 0:_flg
   ,body=document.body
   ,hasClass=function(el){
+    if(wild) return true;
     return !(target.filter(d=>el.classList.contains(d)).length===0)
    //let l=target.filter(d=>el.classList.contains(d)).length
    //return (l>0)?true:false;
