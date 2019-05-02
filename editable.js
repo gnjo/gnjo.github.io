@@ -4,6 +4,7 @@ v1.1 data-length map
 v1.2 bugfix add remove wrote element
 v1.3 callback
 v1.4 input > keyup
+v1.45 debounce def 70
 v1.5 * wildcard
 */
 ;(function(root){
