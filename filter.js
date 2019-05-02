@@ -363,7 +363,8 @@ function _sobel(data,w,h) {
   }
  }
  console.log('end')
- return data=sobelData;
+ return sobelData
+ //return data=sobelData;
 }
   
   
