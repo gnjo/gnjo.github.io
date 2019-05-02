@@ -2,7 +2,7 @@
 v1.0 create
 v1.1 data-length map
 v1.2 bugfix add remove wrote element
-v1.3 callback
+v1.3 callback //editable('.x',caller)
 v1.4 input > keyup
 */
 ;(function(root){
