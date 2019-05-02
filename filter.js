@@ -362,7 +362,7 @@ function _sobel(data,w,h) {
    sobelData.push(magnitude, magnitude, magnitude, 255);
   }
  }
-
+ console.log('end')
  return data=sobelData;
 }
   
