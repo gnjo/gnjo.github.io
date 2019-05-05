@@ -684,14 +684,12 @@ fn.crcTable=(function(){
   return crcTable;
 })();//early gen
 fn.crc32 = function(str,hex=true) {
-  var crcTable = fn.crcTable
-  var pad=( (d,l)=>('000000000000000000'+d).slice(-1*l));
-  var crc = 0 ^ (-1);
-  for (var i = 0; i < str.length; i++ ) {
-    crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];
-  }
-  crc = (crc ^ (-1)) >>> 0;
-  if(hex) return pad(crc.toString(16),8)
-  else return crc
-};
-
+  var crcTable = fn.crcTable,pad=( (d,l)=>('000000000000000000'+d).slice(-1*l))
+  ,crc = 0 ^ (-1)
+  ;
+  for (var i = 0; i < str.length; i++ ) crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF]
+  ;
+  crc = (crc ^ (-1)) >>> 0
+  ;
+  return (hex)?pad(crc.toString(16),8):crc
+}
