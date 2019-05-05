@@ -13,6 +13,7 @@ v6.1 fn.scv2 offset version
 v7 able the prepack
 v8 fn.empty fn.base64type
 v9 fn.interval option the random delay
+v9.1 fn.getparam fn.gp fn.getParam
 */
 ;(function(root){
   if(root._) return;
@@ -661,4 +662,13 @@ fn.interval(2000,(id)=>{
 },100) 
  */
 }
+
+  fn.getparam=(key,url)=>{
+   let re=new RegExp('^'+key+'=')
+   return url.split('?').pop().split('&').filter(d=>re.test(d)).join('').split('=').pop()
+   /*usage
+  console.log(fn.getparam('id',url))   
+   */
+  }
+  fn.gp=fn.getParam=fn.getparam;
 
