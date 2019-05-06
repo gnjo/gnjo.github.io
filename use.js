@@ -14,6 +14,7 @@ v7 able the prepack
 v8 fn.empty fn.base64type
 v9 fn.interval option the random delay
 v9.1 fn.getparam fn.gp fn.getParam
+v10 fn.sleep
 */
 ;(function(root){
   if(root._) return;
@@ -693,3 +694,6 @@ fn.crc32 = function(str,hex=true) {
   ;
   return (hex)?pad(crc.toString(16),8):crc
 }
+
+fn.sleep=t=>new Promise(d=> setTimeout(d,t));
+
