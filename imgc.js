@@ -2,6 +2,7 @@
 /*
 v1.0 filter is or not OK 
 v1.1 filter not bug
+v1.2 ctx memmory reflesh
 */
  let filter=root.filter||{}
 // ,isFilter=(d)=>{
@@ -46,7 +47,8 @@ v1.1 filter not bug
 //      filter._grayscale(srcData.data,s.tw,s.th);
 //      filter._median(srcData.data,s.tw,s.th);    
       context.putImageData(srcData,0,0);
-      sol( canvas.toDataURL() ) //
+      sol(canvas.toDataURL()) //
+     setTimeout(()=>{img=void 0;canvas=void 0;context=void 0;srcData=void 0},0)//memory reflesh
     }
   ;
   
