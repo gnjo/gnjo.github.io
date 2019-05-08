@@ -15,6 +15,7 @@ v8 fn.empty fn.base64type
 v9 fn.interval option the random delay
 v9.1 fn.getparam fn.gp fn.getParam
 v10 fn.sleep fn.rtrim fn.rsleep
+v10.1 fn.fitw fn.fith
 */
 ;(function(root){
   if(root._) return;
@@ -700,5 +701,14 @@ fn.rtrim=s=>s.replace(/\s+$/,"")
 fn.rsleep=(min=70)=>{
  let time=min+~~(Math.random()*min)
  return fn.sleep(time)
+}
+
+fn.fitw=(p,c)=>{
+  let r=p.getBoundingClientRect()
+  c.style.width=r.width+'px'  
+}
+fn.fith=(p,c)=>{
+  let r=p.getBoundingClientRect()
+  c.style.height=r.height+'px'
 }
 
