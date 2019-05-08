@@ -1,0 +1,58 @@
+
+<head>
+  <title>pack</title>
+  <style>
+    body{
+    background-color:black;
+    color:white;
+    margin:4rem auto;
+    width:50rem;
+    }
+    .urls,.label{
+    border:1px solid;
+    white-space:pre-wrap;
+    word-break:break-all;
+    padding:0.5rem;
+    outline:none;
+    }
+    .urls{min-height:4rem}
+    .label:hover{
+    cursor:pointer;
+    }
+    .label:before{
+    content:'data=>'
+    } 
+  </style>
+</head>
+<body>
+  <script src="https://gnjo.github.io/togist.js" onload="window.togistdebug=true"></script>
+  <script src="https://gnjo.github.io/use.js"> </script>
+  <script src="https://gnjo.github.io/editable.js"></script>
+  <div class="title">pack urls</div>
+  <div class="urls"></div>
+  <div class="label"></div>
+  <script>
+let u=document.querySelector('.urls')
+,l=document.querySelector('.label')
+,data=''
+,name='pack'
+;
+u.textContent=localStorage.getItem(name)||''
+editable('.urls');
+l.onclick=()=>{
+ localStorage.setItem(name,u.textContent)
+ let d=u.textContent//.split('\n').filter(d=>d)
+ .match(/((https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+))/g)
+ //console.log(d);
+ console.log(d)
+ ;(async (theD)=>{
+  let f=(d)=>fetch(d).then(d=>d.text())
+  let x=await Promise.all(theD.map(f))
+  x=x.join('\n/*****/\n')
+  data=x///
+  l.textContent=x.length +'[size]'+fn.jpTime()
+  fn.copy(data);
+ })(d);
+}  
+  </script>
+</body>
