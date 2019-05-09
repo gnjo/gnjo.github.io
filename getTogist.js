@@ -51,7 +51,7 @@ function entry(u,a){
   ;
   var ret =(gistid)?await gists.update(gistid,data) :await gists.create(data)
   ;
-  if(root.togistdebug){
+  if(to.togistdebug){
    console.log('gistid',ret.id)
    console.log('filename',fname)
    console.log('gist url',ret.html_url)
@@ -64,7 +64,7 @@ function entry(u,a){
   ,o={method:'GET',mode:'cors',headers:gists.headers}
   var ret =await gists.searchid(url,o)
   ;
-  if(root.togistdebug) console.log('url',url);
+  if(to.togistdebug) console.log('url',url);
   if(!file) return ret;
   return ret.files[file].raw_url 
  })
@@ -76,7 +76,7 @@ function entry(u,a){
   ;
   var ret =await gists.search(url,o)
   ;
-  if(root.togistdebug) console.log('url',url)
+  if(to.togistdebug) console.log('url',url)
   return ret;
 
  });
