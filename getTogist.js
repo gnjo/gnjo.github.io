@@ -1,4 +1,9 @@
 ;(function(root){
+ /*history
+ v1.0 multiple user 
+ v1.1 to.togistdebug
+ 
+ */
 
 function entry(u,a){
  'use strict';
@@ -41,6 +46,34 @@ function entry(u,a){
  gists.search=gists.searchid;
  
  to.togistdebug=false;
+ 
+  //ary=[[c,f],[c,f]]... c is content, f is filename
+  to.togist2=(async (_ary,gistid,desc)=>{
+  //let fname= filename||'anonymous'
+  let ary=_ary
+  ,data={"files": { } }
+  if(desc) data.description=desc; //bug fix desc
+  data.public=false
+  ary.map(d=>{ 
+   let content=d[0],fname=d[1]
+   ;
+   if(to.togistdebug){
+    console.log('content length',content.length)
+    console.log('fname',fname)
+   }
+   data.files[fname] = {"content": content}
+  }
+  ;
+  var ret =(gistid)?await gists.update(gistid,data) :await gists.create(data)
+  ;
+  if(to.togistdebug){
+   console.log('gistid',ret.id)
+   console.log('gist url',ret.html_url)
+  }
+  return ret;
+ });
+
+ 
  to.togist=(async (content,gistid,filename,desc)=>{
 
   let fname= filename||'anonymous'
