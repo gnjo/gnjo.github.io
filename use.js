@@ -712,3 +712,25 @@ fn.fith=(p,c)=>{
   c.style.height=r.height+'px'
 }
 
+fn.defaultkey='system2019'
+fn.save=(_d,_d1)=>{
+ let key=fn.defaultkey,data=_d;
+ if(_d1){ key=_d;data=_d1}
+ data=JSON.stringify(data)
+ localStorage.setItem(key,data)
+ return key;
+}
+fn.load=(_d)=>{
+ let is={}
+ is.jsonString =function(d){ try{JSON.parse(d);return true}catch(e){return false} } 
+ let key=fn.defaultkey
+ if(_d)key=_d;
+ let data=localStorage.getItem(key)
+ data=is.jsonString(data)?JSON.parse(data):data
+ return data 
+}
+fn.basic =(u,p)=>{
+ let _btoa =function(str){return btoa( unescape(encodeURIComponent( str )) )}
+ return `Basic ${_btoa(u +':' +p)}`
+}
+fn.authstring=fn.basic
