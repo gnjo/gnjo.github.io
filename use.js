@@ -16,6 +16,8 @@ v9 fn.interval option the random delay
 v9.1 fn.getparam fn.gp fn.getParam
 v10 fn.sleep fn.rtrim fn.rsleep
 v10.1 fn.fitw fn.fith
+v10.2 fn.basic
+v10.3 fn.serializer fn.serialize
 */
 ;(function(root){
   if(root._) return;
@@ -734,3 +736,33 @@ fn.basic =(u,p)=>{
  return `Basic ${_btoa(u +':' +p)}`
 }
 fn.authstring=fn.basic
+fn.serialize=(_els,_bs)=>{//elements,blacklists ary,ary
+  let is={}
+  is.array = Array.isArray || function(obj){return toString.call(obj) === '[object Array]'}
+  ;
+  if(!_els)return console.log('elements null')
+  let els=is.array(_els)?_els:[_els]
+  ,bs=(!_bs)?[]:is.array(_bs)?_bs:[_bs]
+  ,f=(data)=>{
+   return Object.keys(data)
+    .filter(d=>!bs.find(a=>a===d)).map(d=>{return{[d]:data[d]}})
+    .reduce((a,b)=>Object.assign(a,b),{})
+  }
+  ;
+  bs=bs.map(d=>d.replace('data-',''))  
+  return els.map(d=>d.dataset).map(data=>f(data))
+   .reduce((a,b)=>Object.assign({},a,b),{})
+ }
+fn.serializer=fn.serialize
+ /*usage
+ //pug
+ body
+  .a(data-a="aaa" data-b="bbb" data-c="ccc")
+  .b(data-d="ddd" data-e="eee" data-black="black")
+//js
+let a=document.querySelector('.a')
+,b=document.querySelector('.a>.b')
+let obj=fn.serialize([a,b],['black'])
+console.log(obj)  
+ */
+
