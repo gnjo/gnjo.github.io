@@ -18,6 +18,7 @@ v10 fn.sleep fn.rtrim fn.rsleep
 v10.1 fn.fitw fn.fith
 v10.2 fn.basic
 v10.3 fn.serializer fn.serialize
+v10.4 fn.deep fn.clone //deepcopy method
 */
 ;(function(root){
   if(root._) return;
@@ -765,4 +766,6 @@ let a=document.querySelector('.a')
 let obj=fn.serialize([a,b],['black'])
 console.log(obj)  
  */
+fn.deep=d=>JSON.parse(JSON.stringify(d));
+fn.clone=fn.deep
 
