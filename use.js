@@ -769,3 +769,11 @@ console.log(obj)
 fn.deep=d=>JSON.parse(JSON.stringify(d));
 fn.clone=fn.deep
 
+fn.worker=(src)=>{
+  //inner.js or text or element
+  let is={},f=(d=>URL.createObjectURL(new Blob( [d], {type:"text\/javascript"} )));
+  is.element=function(o){return !!(o && o.nodeType === 1)};
+  is.url=(d=>!/\n|;/.test(d));
+  return new Worker( is.element(src)?f(src.textContent):is.url(src)?src:f(src) );
+ }
+
