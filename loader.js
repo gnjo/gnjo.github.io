@@ -1,5 +1,6 @@
 /*history
 v1.0 trim()
+v1.1 comment-able //
 */
 ;(function(root){
  'use strict';
@@ -11,6 +12,7 @@ v1.0 trim()
  }
  function profile(target){
   let data=target.textContent.split('\n').filter(d=>d)
+   .filter(d=>!/^\/\//.test(d)) //v1.1
   ;
   let rejs=/js\((.*)\)/
   ,recss=/css\((.*)\)/
