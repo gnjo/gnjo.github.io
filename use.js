@@ -801,10 +801,16 @@ fn.getCaret=function getCaretPosition(editableDiv) {
  }
  return caretPos;
 }
-fn.setCaret=function setCaretPosition(editableDiv,pos){
+
+fn.setCaret=function setCaretPosition(editableDiv,_pos){
  var range = document.createRange();
  var sel = window.getSelection();
- range.setStart(editableDiv.firstChild,pos);
+ var pos=_pos||-1
+ if(pos===-1){
+  range.setStart(editableDiv.lastChild,editableDiv.lastChild.length)
+ }else{
+  range.setStart(editableDiv.firstChild,pos);
+ }
  range.collapse(true);
  sel.removeAllRanges();
  sel.addRange(range);
