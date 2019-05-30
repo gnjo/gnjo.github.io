@@ -816,3 +816,8 @@ fn.setCaret=function setCaretPosition(editableDiv,_pos){
  sel.addRange(range);
 }
 
+fn.base64=(str,decodeflg)=>{
+ let d=(str)=>decodeURIComponent(escape(atob(str)))
+ ,e=(str)=>btoa(unescape(encodeURIComponent(str)))
+ return (decodeflg)?d(str):e(str)
+}
