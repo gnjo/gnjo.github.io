@@ -1,0 +1,15 @@
+<head>
+</head>
+<body>
+ <script class="noread">
+;(async ()=>{
+ let url="https://gist.githubusercontent.com/gnjo/c75b809835f42c77c78238800a685921/raw/8d5a0857a2815c3d70ad569d5c64c5ede50fa5ea/test.html"
+ let html=await fetch(url).then(d=>d.text())
+ let doc=document.implementation.createHTMLDocument()
+ doc.documentElement.innerHTML=html
+ let innerHTML=doc.head.outerHTML+'\n'+doc.body.outerHTML
+ document.documentElement.innerHTML=innerHTML;
+ ;[url,html,doc,innerHTML].map(d=>d=void 0);
+})();
+ </script>
+</body>
