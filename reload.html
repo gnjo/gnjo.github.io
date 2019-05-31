@@ -7,8 +7,10 @@
  let html=await fetch(url).then(d=>d.text())
  let doc=document.implementation.createHTMLDocument()
  doc.documentElement.innerHTML=html
+ let ss=Array.from(doc.querySelectorAll('script')).map(d=>{let el=d.cloneNode(true); el.remove();return el})
  let innerHTML=doc.head.outerHTML+'\n'+doc.body.outerHTML
  document.documentElement.innerHTML=innerHTML;
+ ss.map(el=>{document.head.appendChild(el);})
  ;[url,html,doc,innerHTML].map(d=>d=void 0);
 })();
  </script>
