@@ -36,7 +36,6 @@
  ; 
  let url=fn.getparam('url')
  let html=(url)?await fetch(url).then(d=>d.text()):fn.base64( fn.getparam('html'),true)
- console.log(html)
  if(!html) return console.warn('empty html')
  ;
  let doc=fn.doc(html)
