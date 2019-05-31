@@ -2,16 +2,49 @@
 </head>
 <body>
  <script class="noread">
+
 ;(async ()=>{
- let url="https://gist.githubusercontent.com/gnjo/c75b809835f42c77c78238800a685921/raw/8d5a0857a2815c3d70ad569d5c64c5ede50fa5ea/test.html"
- let html=await fetch(url).then(d=>d.text())
- let doc=document.implementation.createHTMLDocument()
- doc.documentElement.innerHTML=html
- let ss=Array.from(doc.querySelectorAll('script')).map(d=>{let el=d.cloneNode(true); el.remove();return el})
- let innerHTML=doc.head.outerHTML+'\n'+doc.body.outerHTML
- document.documentElement.innerHTML=innerHTML;
- ss.map(el=>{document.head.appendChild(el);})
- ;[url,html,doc,innerHTML].map(d=>d=void 0);
+ //need location.href=>https://...?url=...,html=...
+ let fn={};
+ fn.qa=(s,doc=document)=>{return [].slice.call(doc.querySelectorAll(s))}
+ fn.doc=(html)=>{
+  let doc=document.implementation.createHTMLDocument()
+  doc.documentElement.innerHTML=html
+  return doc
+ }
+ fn.getparam=(key,_url)=>{
+  let re=new RegExp('^'+key+'=')
+  let url=(_url)?_url:location.href
+  return url.split('?').pop().split('&').filter(d=>re.test(d)).join('').split('=').pop()
+  /*usage
+  console.log(fn.getparam('id',url))   
+   */
+ }
+ fn.base64=(str,decodeflg)=>{
+  let d=(str)=>decodeURIComponent(escape(atob(str)))
+  ,e=(str)=>btoa(unescape(encodeURIComponent(str)))
+  return (decodeflg)?d(str):e(str)
+ }
+ fn.pr=(src,innerHTML,type)=>{return new Promise(sol=>{
+  let js=document.createElement('script')
+  js.onload=sol;
+  document.head.appendChild(js)
+  js.type=type||'text/javascript'
+  js.innerHTML=innerHTML||''
+  js.src=src||''
+  if(!(js.type==='text/javascript')) sol();
+ })}
+ ; 
+ let url=fn.getparam('url')
+ let html=(url)?await fetch(url).then(d=>d.text()):fn.base64( fn.getparam('html'),true)
+ console.log(html)
+ if(!html) return console.warn('empty html')
+ ;
+ let doc=fn.doc(html)
+ let ss=fn.qa('script',doc).map(d=>{d.remove();return fn.pr.bind(this,d.src,d.innerHTML,d.type)})
+ document.documentElement.innerHTML=doc.head.outerHTML+'\n'+doc.body.outerHTML;
+ for(let i=0;i<ss.length;i++) await ss[i]();
+ ;[url,html,doc].map(d=>d=void 0);
 })();
  </script>
 </body>
