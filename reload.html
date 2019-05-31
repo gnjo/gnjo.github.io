@@ -31,7 +31,7 @@
   document.head.appendChild(js)
   js.type=type||'text/javascript'
   js.innerHTML=innerHTML||''
-  js.src=src||''
+  if(src) js.src=src
   if(!(js.type==='text/javascript')) sol();
  })}
  ; 
