@@ -830,4 +830,26 @@ fn.px2rem=(px)=>{
  return px/parseFloat(getComputedStyle(document.documentElement).fontSize); 
  //return rem
 }
+fn.fit=(_a,_b,resizeflg)=>{
+ if(!_a || !_b)return;
+ //a to b ref
+ let is={}
+ is.string = function(obj){return toString.call(obj) === '[object String]'}
+ let a=is.string(_a)?document.querySelector(_a):_a
+ ,b=is.string(_a)?document.querySelector(_b):_b
+ ,get=d=>JSON.parse(JSON.stringify(d.getBoundingClientRect()))
+ ,f=()=>{
+  let r=get(b)
+  Object.keys(r).map(d=>{ a.style[d]=r[d]+'px' }) 
+ }
+ ,fde=_.debounce(f,50)
+ ;
+ if(resizeflg) window.addEventListener('resize',fde)
+ f();
+ return a;
+ /*
+fn.fit('.p','.x',true) //tar ref
+ */
+}
+
 
