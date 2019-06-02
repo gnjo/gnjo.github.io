@@ -821,3 +821,13 @@ fn.base64=(str,decodeflg)=>{
  ,e=(str)=>btoa(unescape(encodeURIComponent(str)))
  return (decodeflg)?d(str):e(str)
 }
+
+fn.rem2px=(rem)=>{
+ return rem * parseFloat(getComputedStyle(document.documentElement).fontSize); 
+ //return px
+}
+fn.px2rem=(px)=>{
+ return px/parseFloat(getComputedStyle(document.documentElement).fontSize); 
+ //return rem
+}
+
