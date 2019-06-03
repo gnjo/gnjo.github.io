@@ -1,9 +1,11 @@
+/*history
+ v2.0 bugfix able the preventDefault
+*/
 //https://codepen.io/gnjo/pen/XQEpad
 ;(function(root){
   'use strict'
   /*lent*/
-  let sol =(d=>Promise.resolve(d))
-  ,isElement = function(obj){return !!(obj && obj.nodeType === 1)}
+  let isElement = function(obj){return !!(obj && obj.nodeType === 1)}
   ;
   function entry(target){
     let o={};
@@ -28,10 +30,10 @@
       }
       let calc =function(ev){
         let k=ev.keyCode.toString();
-        if( (ev.ctrlKey || ev.metaKey) && ctrl[k]){sol(k).then(d=>{ctrl[d].call(el,ev)});return}
-        else if( ev.shiftKey && shift[k]){sol(k).then(d=>{shift[d].call(el,ev)});return}
-        else if( ev.altKey && alt[k]){sol(k).then(d=>{alt[d].call(el,ev)});return}
-        if( input[k] ){sol(k).then(d=>{input[d].call(el,ev)});return}
+        if( (ev.ctrlKey || ev.metaKey) && ctrl[k]){ctrl[k].call(el,ev);return}
+        else if( ev.shiftKey && shift[k]){shift[k].call(el,ev);return}
+        else if( ev.altKey && alt[k]){alt[k].call(el,ev);return}
+        if( input[k] ){input[k].call(el,ev);return}
       }
         el.addEventListener('keydown',calc)
       //something...
@@ -63,4 +65,3 @@ keyCmd(document.querySelector('textarea'))
  .end();
   */
 })(this);
-
