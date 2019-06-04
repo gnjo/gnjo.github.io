@@ -25,7 +25,7 @@ v1 reverse back
  //console.log(Element.prototype)
  var e=Element.prototype
  e.aTo =function(p){p.appendChild(this);return this}
- e.pTo =function(p){p.insertBefore(e.el,p.firstChild); return this}
+ e.pTo =function(p){p.insertBefore(e.el,p.firstElementChild/*p.firstChild*/); return this}
  e.asTo =function(p){p.parentNode.insertBefore(this,p.nextElementSibling/*nextSibling*/);return this}
  e.psTo =function(p){p.parentNode.insertBefore(this,p);return this}
  e.effect=function(o,t){fn.effect(this,o,t);return this}
