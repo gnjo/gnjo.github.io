@@ -1,5 +1,6 @@
 /*history
 v1 reverse back
+v2 bugfix as2,p2
 */
 ;(function(root){
  'use strict';
