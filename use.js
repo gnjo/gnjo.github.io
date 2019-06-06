@@ -860,3 +860,13 @@ fn.ps2=function(me,p){p.parentNode.insertBefore(me,p);return me}
 fn.setary=(ary,key)=>{
  return (!key)?Array.from(new Set(ary)):ary.filter((a,b,c)=>(c.findIndex((d)=>(a[key]===d[key]))=== b))
 }
+
+fn.near=(_v,_ary,_key)=>{
+ let f=Math.abs,v=_v,ary=_ary,key=_key
+ ,index=0
+ ;
+ if(!key)ary.map((d,i,a)=>{index=(f(v-a[index])<f(v-d))?index:i})
+ if(key)ary.map((d,i,a)=>{index=(f(v-a[index][key])<f(v-d[key]))?index:i})
+ ;
+ return ary[index]/////
+}
