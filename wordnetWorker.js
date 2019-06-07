@@ -19,7 +19,7 @@ function calc(word='',max=5){
 }
 ;
 onmessage=function(e){ 
- console.log(e,ary.length)
+ //console.log(e,ary.length)
  if(!ary) return;
  postMessage(calc(e.data))
 }
