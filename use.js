@@ -19,6 +19,7 @@ v10.1 fn.fitw fn.fith
 v10.2 fn.basic
 v10.3 fn.serializer fn.serialize
 v10.4 fn.deep fn.clone //deepcopy method
+v11 fn.p1x1 //1x1 png color
 */
 ;(function(root){
   if(root._) return;
@@ -869,4 +870,16 @@ fn.near=(_v,_ary,_key)=>{
  if(key)ary.map((d,i,a)=>{index=(f(v-a[index][key])<f(v-d[key]))?index:i})
  ;
  return ary[index]/////
+}
+
+fn.p1x1=function p1x1(c,w,h){
+ //ex) red or #f00 or #f005 or #ff0000 or #00000000 or transparent
+ let canvas=document.createElement('canvas'),ctx=canvas.getContext('2d')
+ ;
+ canvas.width=w||1
+ canvas.height=h||1
+ ctx.fillStyle=c||"#000000"
+ ctx.fillRect(0,0,canvas.width,canvas.height)
+ ;
+ return canvas.toDataURL("image/png") //output
 }
