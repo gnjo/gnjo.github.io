@@ -20,6 +20,7 @@ v10.2 fn.basic
 v10.3 fn.serializer fn.serialize
 v10.4 fn.deep fn.clone //deepcopy method
 v11 fn.p1x1 //1x1 png color
+v12 fn.bigmath
 */
 ;(function(root){
   if(root._) return;
@@ -882,4 +883,15 @@ fn.p1x1=function p1x1(c,w,h){
  ctx.fillRect(0,0,canvas.width,canvas.height)
  ;
  return canvas.toDataURL("image/png") //output
+}
+
+fn.bigmath=(str)=>{
+ /*
+let m={}
+,a='1234567890.+-/*%'.split('')
+,b='１２３４５６７８９０．＋－／＊％'.split('')
+ a.map((d,i)=>m[d]=b[i] ) 
+ */
+ let m={"0":"０","1":"１","2":"２","3":"３","4":"４","5":"５","6":"６","7":"７","8":"８","9":"９",".":"．","+":"＋","-":"－","/":"／","*":"＊","%":"％"}
+ return (str)?str.replace(/[1234567890\.\+\-\/\*\%]/g,d=>m[d]):str
 }
