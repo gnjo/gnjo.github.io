@@ -12,4 +12,35 @@ body{
  width: 50rem;
 }
 
+/***********/
+body{
+ overflow-y:scroll;
+}
 
+::-webkit-scrollbar-thumb {
+  background: #0007;
+  border-radius: 0px;
+  /*border: 2px solid black;*/
+}
+
+.hidescrollbar::-webkit-scrollbar
+,.hidescroll::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar {
+  background-color: hsl(173, 53%, 5%);
+  width: 12px;
+}
+
+::-webkit-scrollbar-button {
+  background-color: white;
+  height: 0px;
+  width: 0px;
+  border-radius: 0px;
+}
+
+::selection {
+  background-color: #4cb;
+  color: white;
+}
