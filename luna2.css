@@ -6,7 +6,8 @@ html{font-size:14px;}
 }
 body{
 /*green luna*/
- background: radial-gradient(circle, hsl(173, 53%, 15%), hsl(173, 53%, 5%));
+ /*background: radial-gradient(circle, hsl(173, 53%, 15%), hsl(173, 53%, 5%));*/
+ background: radial-gradient(circle, hsl(183, 76%, 15%), hsl(183, 76%, 5%)); 
  color: white;
  margin: 4rem auto;
  width: 50rem;
