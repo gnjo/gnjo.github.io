@@ -895,3 +895,15 @@ let m={}
  let m={"0":"０","1":"１","2":"２","3":"３","4":"４","5":"５","6":"６","7":"７","8":"８","9":"９",".":"．","+":"＋","-":"－","/":"／","*":"＊","%":"％"}
  return (str)?str.replace(/[1234567890\.\+\-\/\*\%]/g,d=>m[d]):str
 }
+
+
+fn.base64url=(str,decodeflg)=>{
+ let eu=(str)=>str.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+ let du=(str)=>{
+    str = (str + '===').slice(0, str.length + (str.length % 4));
+    return str.replace(/-/g, '+').replace(/_/g, '/');  
+ }
+ let d=(str)=>decodeURIComponent(escape(atob(str)))
+ ,e=(str)=>btoa(unescape(encodeURIComponent(str)))
+ return (decodeflg)?d( du(str) ):eu( e(str) )
+}
