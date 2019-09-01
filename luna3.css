@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
+*{
+ font:15px/1.3 'Share Tech Mono', monospace;
+ box-sizing:border-box;
+}
+div,pre{
+ white-space:pre-wrap;
+ word-break:break-all; 
+}
+body{
+ background-color:#000; 
+ color:#aaa;
+ margin:30px auto;
+ padding:0;
+ width:calc(15*50px);
+ overflow-y:scroll;
+}
+.s,.silver{color:#aaa}
+label,.g,.gold{color:#a95}
+
+body{
+ overflow-y:scroll;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 0px;
+  /*border: 2px solid black;*/
+}
+
+.hidescrollbar::-webkit-scrollbar
+,.hidescroll::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar {
+  background-color: #000;
+  width: 12px;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #000;
+  height: 0px;
+  width: 0px;
+  border-radius: 0px;
+}
+
+::selection {
+  background-color: #4cb;
+  color: white;
+}
