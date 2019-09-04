@@ -9,6 +9,11 @@
  //console.log('a')
 
  let css=`
+body{
+background:%%bg%%;
+color:%%c%%;
+}
+
 ::-webkit-scrollbar-thumb {
   background: %%c%%;
   border-radius: 0px;
