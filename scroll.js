@@ -39,7 +39,7 @@ color:%%c%%;
  
  function entry(bg,c){
   let el=document.querySelector('style.scroll')
-  el.textContent=css.replace(/%%bg%%/g,bg).replace(/%%c%%/g,c)
+  el.innerHTML=css.replace(/%%bg%%/g,bg).replace(/%%c%%/g,c)
  }
  root.scroll=entry
 })(this);
