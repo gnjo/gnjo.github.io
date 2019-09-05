@@ -935,4 +935,13 @@ fn.test2=function(fs,l,c){return function(){
   loops.map(calc).map((d,i)=>{total[i%len]+=d})
   console.log(total,c)
  }}
+fn.imagelex=(text)=>{
+ let re1=/^＊(.+)：/
+ ,re2=/((?:https?|ftp)(?::\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+))/
+ ,ary=text.split('\n').filter(d=>re1.test(d))
+  .map(d=>{return {key:d.match(re1).pop(),img:d.match(re2).pop()};})
+  .map(d=>{d.html=`<div class="pop" data-key="${d.key}"><img src="${d.img}"></div>`;return d})
+ ;
+ return ary
+}
 
