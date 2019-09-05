@@ -917,3 +917,22 @@ fn.test=function(f,l,c){return function(){
  }
 }
 
+fn.test2=function(fs,l,c){return function(){
+  if(fs.length===0)return console.log('bad param1')
+  let arg=Array.from(arguments)
+  ,len=fs.length
+  ,loops=Array.from({length:len*l||1})
+  ,total=Array.from({length:len},()=>0)
+  ;
+  function calc(d,i){
+   
+   let t0,t1,f=fs[i%len],a=arg
+   t0=performance.now()
+   f.apply(null,a)
+   t1=performance.now()
+   return t1-t0
+  }
+  loops.map(calc).map((d,i)=>{total[i%len]+=d})
+  console.log(total,c)
+ }}
+
