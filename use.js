@@ -21,6 +21,7 @@ v10.3 fn.serializer fn.serialize
 v10.4 fn.deep fn.clone //deepcopy method
 v11 fn.p1x1 //1x1 png color
 v12 fn.bigmath
+v13 fn.test //functions test
 */
 ;(function(root){
   if(root._) return;
@@ -896,7 +897,6 @@ let m={}
  return (str)?str.replace(/[1234567890\.\+\-\/\*\%]/g,d=>m[d]):str
 }
 
-
 fn.base64url=(str,decodeflg)=>{
  let eu=(str)=>str.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
  let du=(str)=>{
@@ -907,3 +907,13 @@ fn.base64url=(str,decodeflg)=>{
  ,e=(str)=>btoa(unescape(encodeURIComponent(str)))
  return (decodeflg)?d( du(str) ):eu( e(str) )
 }
+
+fn.test=function(f,l,c){return function(){
+  let arg=Array.from(arguments)
+  ,loops=Array.from({length:l||1})
+  ,t0=performance.now()
+  loops.map(d=>f.apply(null,arg))
+  console.log(performance.now()-t0,c)
+ }
+}
+
