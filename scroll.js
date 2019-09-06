@@ -49,7 +49,8 @@ border-radius: 0px;
 `
 
  function entry(c1,c2,c3){
-  let el=document.querySelector('style.scroll')  el.innerHTML=css.replace(/%%c1%%/g,c1).replace(/%%c2%%/g,c2).replace(/%%c3%%/g,c3)
+  let el=document.querySelector('style.scroll');
+  el.innerHTML=css.replace(/%%c1%%/g,c1).replace(/%%c2%%/g,c2).replace(/%%c3%%/g,c3)
  }
  root.scroll=entry
 })(this);
