@@ -22,6 +22,7 @@ v10.4 fn.deep fn.clone //deepcopy method
 v11 fn.p1x1 //1x1 png color
 v12 fn.bigmath
 v13 fn.test //functions test
+v14 fn.stringnumber
 */
 ;(function(root){
   if(root._) return;
@@ -945,3 +946,7 @@ fn.imagelex=(text)=>{
  return ary
 }
 
+fn.stringnumber=(_str,_max)=>{
+ let str='dummy'+_str,max=_max||100
+ return str.split('').map(d=>d.charCodeAt()).reduce((a,b)=>a+b)%max
+}
