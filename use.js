@@ -23,6 +23,7 @@ v11 fn.p1x1 //1x1 png color
 v12 fn.bigmath
 v13 fn.test //functions test
 v14 fn.stringnumber
+v15 fn.randi //int include random
 */
 ;(function(root){
   if(root._) return;
@@ -950,3 +951,11 @@ fn.stringnumber=(_str,_max)=>{
  let str='dummy'+_str,max=_max||100
  return str.split('').map(d=>d.charCodeAt()).reduce((a,b)=>a+b)%max
 }
+
+fn.randi=(min, max)=>{//int and include the max
+  let a =Math.ceil(min) ,b= Math.floor(max||0);
+  min=Math.min(a,b),max=Math.max(a,b)
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
