@@ -24,6 +24,7 @@ v12 fn.bigmath
 v13 fn.test //functions test
 v14 fn.stringnumber
 v15 fn.randi //int include random
+v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
 */
 ;(function(root){
   if(root._) return;
@@ -956,6 +957,25 @@ fn.randi=(min, max)=>{//int and include the max
   let a =Math.ceil(min) ,b= Math.floor(max||0);
   min=Math.min(a,b),max=Math.max(a,b)
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+fn.fstr=(sp,len)=>Array.from({length:len||0}).map(d=>sp).join('')
+fn.rpad=(str,len,sp)=>(str+fn.fstr(sp,len)).slice(0,len||0)
+fn.lpad=(str,len,sp)=>(fn.fstr(sp,len)+str).slice(-1*len||0)
+fn.cpad=(str,len,sp)=>{
+ str=str.slice(0,len)
+ if(str.length===len)return str
+ let em=fn.fstr(sp,~~((len-str.length)/2)) 
+ return (em+str+em+fn.fstr(sp,len)).slice(0,len)
+}
+fn.gpad=(str,len,head,lcr)=>{
+ head=head||'　',str=head+str
+ if(lcr==='c') return fn.cpad(str,len,'　')
+ if(lcr==='r') return fn.lpad(str,len,'　')
+ return fn.rpad(str,len,'　') //lcr==='l'
+}
+fn.blinkflg=(c,range)=>{
+ return range?(c%range*2 <range):false
 }
 
 
