@@ -25,6 +25,7 @@ v13 fn.test //functions test
 v14 fn.stringnumber
 v15 fn.randi //int include random
 v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
+v17 fn.ostr
 */
 ;(function(root){
   if(root._) return;
@@ -977,5 +978,7 @@ fn.gpad=(str,len,head,lcr)=>{
 fn.blinkflg=(c,range)=>{
  return range?(c%range*2 <range):false
 }
-
+fn.ostr=(base,tail)=>{ //overwite str
+ return base.slice(0,-1*tail.length) + tail
+}
 
