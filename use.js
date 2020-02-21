@@ -25,7 +25,7 @@ v13 fn.test //functions test
 v14 fn.stringnumber
 v15 fn.randi //int include random
 v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
-v17 fn.ostr
+v17 fn.ostr refarence the boxdrawing most latest
 v18 fn.s2b
 */
 ;(function(root){
@@ -961,6 +961,7 @@ fn.randi=(min, max)=>{//int and include the max
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//latest boxdrawing/boxdrawing.js
 fn.fstr=(sp,len)=>Array.from({length:len||0}).map(d=>sp).join('')
 fn.rpad=(str,len,sp)=>(str+fn.fstr(sp,len)).slice(0,len||0)
 fn.lpad=(str,len,sp)=>(fn.fstr(sp,len)+str).slice(-1*len||0)
@@ -980,6 +981,8 @@ fn.blinkflg=(c,range)=>{
  return range?(c%range*2 <range):false
 }
 fn.ostr=(base,tail)=>{ //overwite str
+ tail=tail+'';//bugfix
+ if(tail.length===0)return base;//bugfix
  return base.slice(0,-1*tail.length) + tail
 }
 
