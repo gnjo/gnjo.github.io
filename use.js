@@ -26,6 +26,7 @@ v14 fn.stringnumber
 v15 fn.randi //int include random
 v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
 v17 fn.ostr
+v18 fn.s2b
 */
 ;(function(root){
   if(root._) return;
@@ -980,5 +981,39 @@ fn.blinkflg=(c,range)=>{
 }
 fn.ostr=(base,tail)=>{ //overwite str
  return base.slice(0,-1*tail.length) + tail
+}
+
+const s2bmap=(()=>{
+ var aftnum = new Array("０","１","２","３","４","５","６","７","８","９");
+ var aftalph = new Array("Ａ","Ｂ","Ｃ","Ｄ","Ｅ","Ｆ","Ｇ","Ｈ","Ｉ","Ｊ",
+                         "Ｋ","Ｌ","Ｍ","Ｎ","Ｏ","Ｐ","Ｑ","Ｒ","Ｓ","Ｔ",
+                         "Ｕ","Ｖ","Ｗ","Ｘ","Ｙ","Ｚ",
+                         "ａ","ｂ","ｃ","ｄ","ｅ","ｆ","ｇ","ｈ","ｉ","ｊ",
+                         "ｋ","ｌ","ｍ","ｎ","ｏ","ｐ","ｑ","ｒ","ｓ","ｔ",
+                         "ｕ","ｖ","ｗ","ｘ","ｙ","ｚ");
+ var aftkigo = new Array('　','！','”','＃','＄','％','＆','’','（','）','＝','～','＾','｜',
+                         '‘','＠','｛','［','「','＋','；','＊','：','｝','］','」','＜','，','、','＞','．','。','？','・','／','＿');
+ var befnum = new Array("0","1","2","3","4","5","6","7","8","9");
+ var befalph = new Array("A","B","C","D","E","F","G","H","I","J",
+                         "K","L","M","N","O","P","Q","R","S","T",
+                         "U","V","W","X","Y","Z",
+                         "a","b","c","d","e","f","g","h","i","j",
+                         "k","l","m","n","o","p","q","r","s","t",
+                         "u","v","w","x","y","z");
+ var befkigo = new Array(' ','!','\"','#','\\$','%','&','\'','\\(','\\)','=','~','\\^','\\|',
+                         '`','@','\\{','\\[','｢','\\+',';','\\*',':','\\}','\\]','｣','<',',','､','>','\\.','｡','\\?','･','\\/','_');
+ var aft = aftnum.concat(aftalph , aftkigo); 
+ var bef = befnum.concat(befalph , befkigo);
+ return {bef:bef,aft:aft}
+ // s=s.replace(/\\/g,"￥"); is special
+})();
+fn.s2b=(s)=>{
+ var str=s,reg,i=0
+ for(i=0; i<s2bmap.aft.length; i++){
+  reg = new RegExp(s2bmap.bef[i],"g");
+  s=s.replace(reg, s2bmap.aft[i]);
+ }
+ s=s.replace(/\\/g,"￥");//special
+ return s;
 }
 
