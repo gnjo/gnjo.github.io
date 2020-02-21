@@ -1012,7 +1012,7 @@ const s2bmap=(()=>{
 })();
 fn.s2b=(s)=>{
  if(s===void 0)return '';
- var str=s,reg,i=0
+ var str=s+'',reg,i=0
  for(i=0; i<s2bmap.aft.length; i++){
   reg = new RegExp(s2bmap.bef[i],"g");
   s=s.replace(reg, s2bmap.aft[i]);
