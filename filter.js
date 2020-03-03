@@ -367,7 +367,7 @@ function _sobel(data,w,h) {
  return data
 }
   
-function _dither(data,w,h){
+function _dither2(data,w,h){
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -404,6 +404,27 @@ const bayer = [
  }
  return data;
 }
+function _dither(data,w,h){
+  
+const bayer = [
+ [0*16+8, 8*16+8, 2*16+8, 10*16+8],
+ [12*16+8, 4*16+8, 14*16+8, 6*16+8],
+ [3*16+8, 11*16+8, 1*16+8, 9*16+8],
+ [15*16+8, 7*16+8, 13*16+8, 5*16+8]
+];
+ let x,y,chk,wk
+ for (let i = 0; i < data.length; i += 4) {
+  wk=~~(i/4)
+  y=~~(wk/w)
+  x=~~(wk%w)
+  //console.log(wk,x,y,w)
+  chk=bayer[y%4][x%4]
+  data[i]   = (data[i] >= chk)?0xff:0x00
+  data[i+1] = (data[i+1] >= chk)?0xff:0x00
+  data[i+2] = (data[i+2] >= chk)?0xff:0x00
+ }
+ return data;
+}
 
   
  //pack
@@ -425,6 +446,8 @@ o._green=_green
 o._sobel=_sobel  
 //add
 o._dither=_dither  
+o._dither2=_dither2
+  
  root.filter =o;
  
  })(this);
