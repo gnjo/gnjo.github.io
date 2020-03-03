@@ -367,6 +367,31 @@ function _sobel(data,w,h) {
  return data
 }
   
+/**
+   * dither
+   * @param {Array<Number>} data ImageData.dataの配列（dataを書き換える）
+   */
+const bayer = [
+ 0, 8, 2, 10,
+ 12, 4, 14, 6,
+ 3, 11, 1, 9,
+ 15, 7, 13, 5
+];
+
+function _dither(data,w,h) {
+ let df=function (color,x,y) {
+  return (color >= bayer[(y%4)*4 + x%4])?0xff:0x00
+ }
+ for (let i = 0; i < data.length; i += 4) {
+  // (r+g+b)/3
+  let wk=~~(i/4),y=~~(wk/w),x=wk%w
+  data[i]=df(data[i],x,y)
+  data[i+1]=df(data[i+1],x,y)
+  data[i+2]=df(data[i+2],x,y)  
+ }
+
+ return data;
+}
   
  //pack
  var o ={};
@@ -385,7 +410,8 @@ o._blue=_blue
 o._green=_green
 //add
 o._sobel=_sobel  
- 
+//add
+o._dither=_dither  
  root.filter =o;
  
  })(this);
