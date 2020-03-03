@@ -18,6 +18,7 @@ v1.3 float to int
     ,clipX = ~~( (ow - clipW) / 2 )
     ,clipY = ~~( (oh - clipH) / (2*faceupRate) )
     ;
+    tw=~~tw,th=~~th
     
     return {clipX:clipX, clipY:clipY, clipW:clipW, clipH:clipH, tw:tw, th:th }
    //context.drawImage(img, s.clipX, s.clipY, s.clipW, s.clipH, 0, 0, s.tw, s.th);
@@ -60,7 +61,8 @@ v1.3 float to int
 
  function entry(base64){
   let o={};
-  
+  filter=root.filter/////
+
   o._={filter:[],base64:base64};
   o.filter =(obj)=>{ /*if(isFilter(obj))*/ o._['filter'].push('_'+obj.replace('_','')); return o}
   o.fit=(obj)=>{ o._['fit']=obj; return o}
