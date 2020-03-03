@@ -368,12 +368,29 @@ function _sobel(data,w,h) {
 }
   
 function _dither(data,w,h){
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+} 
 const bayer = [
+ shuffle([0*16+8, 8*16+8, 2*16+8, 10*16+8]),
+ shuffle([12*16+8, 4*16+8, 14*16+8, 6*16+8]),
+ shuffle([3*16+8, 11*16+8, 1*16+8, 9*16+8]),
+ shuffle([15*16+8, 7*16+8, 13*16+8, 5*16+8])
+]; 
+  
+/*const bayer = [
  [0*16+8, 8*16+8, 2*16+8, 10*16+8],
  [12*16+8, 4*16+8, 14*16+8, 6*16+8],
  [3*16+8, 11*16+8, 1*16+8, 9*16+8],
  [15*16+8, 7*16+8, 13*16+8, 5*16+8]
-]; 
+]; */
  let x,y,chk,wk
  for (let i = 0; i < data.length; i += 4) {
   wk=~~(i/4)
