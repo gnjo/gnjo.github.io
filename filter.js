@@ -367,62 +367,24 @@ function _sobel(data,w,h) {
  return data
 }
   
-const dither1CH = function (u8array, width, height) {
-    const bayer = [
-      0, 8, 2, 10,
-      12, 4, 14, 6,
-      3, 11, 1, 9,
-      15, 7, 13, 5
-    ];
-    const bayer2 = new Uint8Array(bayer.map(x => x * 16 + 8));
-    let outputData = new Uint8Array(width * height);
-    for (let i=0; i < height; i += 4) {
-      for (let j=0; j < width; j += 4) {
-        for (let dy=0; dy < 4; ++dy) {
-          for (let dx=0; dx < 4; ++dx) {
-            const n=(i + dy) * width + (j + dx)
-            const v = u8array[n]
-            outputData[n]=(v >= bayer2[dy * 4 + dx])?0xff:0x00
-          }
-        }
-      }
-    }
-    return outputData;
-  }
-const processRGBChannel = function (u8arrayRGBA, width, height, func) {
-  let rArray = new Uint8Array(width * height);
-  let gArray = new Uint8Array(width * height);
-  let bArray = new Uint8Array(width * height);
-
-  for (let i = 0; i < height; i += 1) {
-   for (let j = 0; j < width; j += 1) {
-    rArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 0];
-    gArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 1];
-    bArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 2];
-   }
-  }
-  const outputR = func(rArray, width, height);
-  const outputG = func(gArray, width, height);
-  const outputB = func(bArray, width, height);
-
-  return {
-   r: outputR,
-   g: outputG,
-   b: outputB
-  }
- } 
-function _dither(data,w,h) {
-  const outputProcessed = processRGBChannel(data, w, h, dither1CH);
-
-  for (let i = 0; i < h; i += 1) {
-   for (let j = 0; j < w; j += 1) {
-    data[(i * w + j) * 4 + 0] = outputProcessed.r[i * w + j];
-    data[(i * w + j) * 4 + 1] = outputProcessed.g[i * w + j];
-    data[(i * w + j) * 4 + 2] = outputProcessed.b[i * w + j];
-    data[(i * w + j) * 4 + 3] = 0xff;
-   }
-  }
-
+function _dither(data,w,h){
+const bayer = [
+ [0, 8, 2, 10],
+ [12, 4, 14, 6],
+ [3, 11, 1, 9],
+ [15, 7, 13, 5]
+]; 
+ let x,y,chk,wk
+ for (let i = 0; i < data.length; i += 4) {
+  wk=~~(i/4)
+  y=~~(wk/w)
+  x=wk%w
+  console.log(wk,x,y)
+  chk=bayer[y%4][x%4]
+  data[i]   = (data[i] >= chk)?0xff:0x00
+  data[i+1] = (data[i+1] >= chk)?0xff:0x00
+  data[i+2] = (data[i+2] >= chk)?0xff:0x00
+ }
  return data;
 }
 
