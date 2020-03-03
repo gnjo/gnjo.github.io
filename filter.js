@@ -367,31 +367,65 @@ function _sobel(data,w,h) {
  return data
 }
   
-/**
-   * dither
-   * @param {Array<Number>} data ImageData.dataの配列（dataを書き換える）
-   */
-const bayer = [
- 0, 8, 2, 10,
- 12, 4, 14, 6,
- 3, 11, 1, 9,
- 15, 7, 13, 5
-];
+const dither1CH = function (u8array, width, height) {
+    const bayer = [
+      0, 8, 2, 10,
+      12, 4, 14, 6,
+      3, 11, 1, 9,
+      15, 7, 13, 5
+    ];
+    const bayer2 = new Uint8Array(bayer.map(x => x * 16 + 8));
+    let outputData = new Uint8Array(width * height);
+    for (let i=0; i < height; i += 4) {
+      for (let j=0; j < width; j += 4) {
+        for (let dy=0; dy < 4; ++dy) {
+          for (let dx=0; dx < 4; ++dx) {
+            const n=(i + dy) * width + (j + dx)
+            const v = u8array[n]
+            outputData[n]=(v >= bayer2[dy * 4 + dx])?0xff:0x00
+          }
+        }
+      }
+    }
+    return outputData;
+  }
+const processRGBChannel = function (u8arrayRGBA, width, height, func) {
+  let rArray = new Uint8Array(width * height);
+  let gArray = new Uint8Array(width * height);
+  let bArray = new Uint8Array(width * height);
 
+  for (let i = 0; i < height; i += 1) {
+   for (let j = 0; j < width; j += 1) {
+    rArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 0];
+    gArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 1];
+    bArray[i * width + j] = u8arrayRGBA[(i * width + j) * 4 + 2];
+   }
+  }
+  const outputR = func(rArray, width, height);
+  const outputG = func(gArray, width, height);
+  const outputB = func(bArray, width, height);
+
+  return {
+   r: outputR,
+   g: outputG,
+   b: outputB
+  }
+ } 
 function _dither(data,w,h) {
- let df=function (color,x,y) {
-  return (color >= bayer[(y%4)*4 + x%4])?0xff:0x00
- }
- for (let i = 0; i < data.length; i += 4) {
-  // (r+g+b)/3
-  let wk=~~(i/4),y=~~(wk/w),x=wk%w
-  data[i]=df(data[i],x,y)
-  data[i+1]=df(data[i+1],x,y)
-  data[i+2]=df(data[i+2],x,y)  
- }
+  const outputProcessed = processRGBChannel(data, w, h, dither1CH);
+
+  for (let i = 0; i < h; i += 1) {
+   for (let j = 0; j < w; j += 1) {
+    data[(i * w + j) * 4 + 0] = outputProcessed.r[i * w + j];
+    data[(i * w + j) * 4 + 1] = outputProcessed.g[i * w + j];
+    data[(i * w + j) * 4 + 2] = outputProcessed.b[i * w + j];
+    data[(i * w + j) * 4 + 3] = 0xff;
+   }
+  }
 
  return data;
 }
+
   
  //pack
  var o ={};
