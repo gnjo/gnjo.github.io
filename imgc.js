@@ -3,6 +3,7 @@
 v1.0 filter is or not OK 
 v1.1 filter not bug
 v1.2 ctx memmory reflesh
+v1.3 float to int
 */
  let filter=root.filter||{}
 // ,isFilter=(d)=>{
@@ -12,10 +13,10 @@ v1.2 ctx memmory reflesh
     // calc scale and calc clip
     let scale = (ow/oh > tw/th)? th/oh :tw/ow
     ,faceupRate =(fa<=0)?1 :fa
-    ,clipW = tw / scale
-    ,clipH = th / scale
-    ,clipX = (ow - clipW) / 2
-    ,clipY = (oh - clipH) / (2*faceupRate)
+    ,clipW = ~~( tw / scale )
+    ,clipH = ~~( th / scale )
+    ,clipX = ~~( (ow - clipW) / 2 )
+    ,clipY = ~~( (oh - clipH) / (2*faceupRate) )
     ;
     
     return {clipX:clipX, clipY:clipY, clipW:clipW, clipH:clipH, tw:tw, th:th }
