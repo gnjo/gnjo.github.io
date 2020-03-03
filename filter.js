@@ -369,17 +369,17 @@ function _sobel(data,w,h) {
   
 function _dither(data,w,h){
 const bayer = [
- [0, 8, 2, 10],
- [12, 4, 14, 6],
- [3, 11, 1, 9],
- [15, 7, 13, 5]
+ [0*16, 8*16, 2*16, 10*16],
+ [12*16, 4*16, 14*16, 6*16],
+ [3*16, 11*16, 1*16, 9*16],
+ [15*16, 7*16, 13*16, 5*16]
 ]; 
  let x,y,chk,wk
  for (let i = 0; i < data.length; i += 4) {
   wk=~~(i/4)
   y=~~(wk/w)
   x=~~(wk%w)
-  console.log(wk,x,y,w)
+  //console.log(wk,x,y,w)
   chk=bayer[y%4][x%4]
   data[i]   = (data[i] >= chk)?0xff:0x00
   data[i+1] = (data[i+1] >= chk)?0xff:0x00
