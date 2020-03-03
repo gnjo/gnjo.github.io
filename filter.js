@@ -379,7 +379,7 @@ const bayer = [
   wk=~~(i/4)
   y=~~(wk/w)
   x=wk%w
-  console.log(wk,x,y)
+  console.log(wk,x,y,w)
   chk=bayer[y%4][x%4]
   data[i]   = (data[i] >= chk)?0xff:0x00
   data[i+1] = (data[i+1] >= chk)?0xff:0x00
