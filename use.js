@@ -27,6 +27,7 @@ v15 fn.randi //int include random
 v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
 v17 fn.ostr refarence the boxdrawing most latest
 v18 fn.s2b
+v19 fn.download
 */
 ;(function(root){
   if(root._) return;
@@ -1020,4 +1021,15 @@ fn.s2b=(s)=>{
  s=s.replace(/\\/g,"￥");//special
  return s;
 }
+
+fn.download=(data)=>{
+ let name=new Date().toISOString().replace(/[\-\:\.]/g,'')
+ .replace(/T[0-9][0-9]/,'T'+('00'+new Date().getHours()).slice(-2)).slice(0,-4)
+ var content = data||'';
+	var link = document.createElement( 'a' );
+	link.href = window.URL.createObjectURL( new Blob( [content] ) );
+	link.download = name+'.txt'
+	link.click();
+}
+
 
