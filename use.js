@@ -28,6 +28,7 @@ v16 fn.blinkflg fn.rpad fn.lpad fn.cpad fn.gpad fn.fstr
 v17 fn.ostr refarence the boxdrawing most latest
 v18 fn.s2b
 v19 fn.download
+v20 fn.arraychunk
 */
 ;(function(root){
   if(root._) return;
@@ -1032,4 +1033,7 @@ fn.download=(data)=>{
 	link.click();
 }
 
+fn.arraychunk=fn.arrayChunk = ([...array], size = 1) => {
+  return array.reduce((acc, value, index) => index % size ? acc : [...acc, array.slice(index, index + size)], []);
+}
 
