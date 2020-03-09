@@ -29,6 +29,7 @@ v17 fn.ostr refarence the boxdrawing most latest
 v18 fn.s2b
 v19 fn.download
 v20 fn.arraychunk
+v21 fn.maskstring
 */
 ;(function(root){
   if(root._) return;
@@ -1035,5 +1036,15 @@ fn.download=(data)=>{
 
 fn.arraychunk=fn.arrayChunk = ([...array], size = 1) => {
   return array.reduce((acc, value, index) => index % size ? acc : [...acc, array.slice(index, index + size)], []);
+}
+
+fn.maskstring=(d,rate,ch)=>{ //rate 0.0-1.0
+ ch=ch||'*'
+ let len=d.length,limit=Math.floor(len*rate)
+ let a=Array.from({length:len}).map((d,i)=>i)
+ a=fn.shuffle(a).slice(0,limit) //fn.shuffle
+ let dd=d.split('')
+ a.map(d=> dd[d]=(dd[d]!='\n')?ch:dd[d] )
+ return dd.join('')
 }
 
