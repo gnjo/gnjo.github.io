@@ -1048,3 +1048,21 @@ fn.maskstring=(d,rate,ch)=>{ //rate 0.0-1.0
  return dd.join('')
 }
 
+fn.imge=function imge(src,calc/*(d,w,h)*/){return new Promise(sol=>{
+ let img = new Image
+ ;
+ img.crossOrigin = "Anonymous";
+ img.onload=()=>{
+  let canvas= document.createElement("canvas")
+  ,ctx=canvas.getContext("2d")
+  ctx.canvas.width=ctx.width = img.naturalWidth;
+  ctx.canvas.height=ctx.height = img.naturalHeight;
+  ctx.drawImage(img, 0, 0);
+  let d = ctx.getImageData(0,0,ctx.width,ctx.height)
+  d.data=calc(d.data,ctx.width,ctx.height)
+  ctx.putImageData(d,0,0);
+  return sol(canvas.toDataURL("image/png")) //
+ }
+ img.src = src 
+})}
+
