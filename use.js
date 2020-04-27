@@ -30,6 +30,7 @@ v18 fn.s2b
 v19 fn.download
 v20 fn.arraychunk
 v21 fn.maskstring
+v22 fn.preload
 */
 ;(function(root){
   if(root._) return;
@@ -1065,4 +1066,11 @@ fn.imge=function imge(src,calc/*(d,w,h)*/){return new Promise(sol=>{
  }
  img.src = src 
 })}
+
+fn.preload(v){return new Promise(sol=>{
+ let cl=setInterval(()=>{
+  if(window[v])return clearInterval(cl),sol()
+ },10)
+})}
+
 
