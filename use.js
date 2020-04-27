@@ -1067,7 +1067,7 @@ fn.imge=function imge(src,calc/*(d,w,h)*/){return new Promise(sol=>{
  img.src = src 
 })}
 
-fn.preload(v){return new Promise(sol=>{
+fn.preload=(v)=>{return new Promise(sol=>{
  let cl=setInterval(()=>{
   if(window[v])return clearInterval(cl),sol()
  },10)
